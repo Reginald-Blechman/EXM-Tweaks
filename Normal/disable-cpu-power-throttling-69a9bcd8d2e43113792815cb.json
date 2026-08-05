@@ -1,0 +1,21 @@
+{
+  "_id": "69a9bcd8d2e43113792815cb",
+  "name": "Disable CPU Power Throttling",
+  "description": "Prevents Windows from reducing CPU frequency, keeping CPU at maximum performance.",
+  "page": "CPU",
+  "category": "Hardware",
+  "icon": "power.png",
+  "warnings": "Power Warning",
+  "hardwareReqs": [],
+  "isMultiOption": false,
+  "isPremium": false,
+  "options": [],
+  "commands": "reg add \"HKLM\\SYSTEM\\CurrentControlSet\\Control\\Power\\PowerThrottling\" /v \"PowerThrottlingOff\" /t REG_DWORD /d \"1\" /f",
+  "revert22H2": "reg delete \"HKLM\\SYSTEM\\CurrentControlSet\\Control\\Power\\PowerThrottling\" /v PowerThrottlingOff /f",
+  "revert23H2": "reg delete \"HKLM\\SYSTEM\\CurrentControlSet\\Control\\Power\\PowerThrottling\" /v PowerThrottlingOff /f",
+  "revert24H2": "reg delete \"HKLM\\SYSTEM\\CurrentControlSet\\Control\\Power\\PowerThrottling\" /v PowerThrottlingOff /f",
+  "createdAt": "2026-03-05T17:26:48.388Z",
+  "updatedAt": "2026-03-05T17:26:48.388Z",
+  "revertCommands": "reg delete \"HKLM\\SYSTEM\\CurrentControlSet\\Control\\Power\\PowerThrottling\" /v PowerThrottlingOff /f",
+  "localDecrypted": true
+}

@@ -1,0 +1,21 @@
+{
+  "_id": "69a9bcd4d2e4311379281544",
+  "name": "Classic Right-click Menu",
+  "description": "Brings back the old Windows 10 right-click context menu",
+  "page": "QOL",
+  "category": "General",
+  "icon": "visual.png",
+  "warnings": "May cause Explorer crashes or revert automatically after major Windows updates.",
+  "hardwareReqs": [],
+  "isMultiOption": false,
+  "isPremium": false,
+  "options": [],
+  "commands": "reg add \"HKCU\\Software\\Classes\\CLSID\\{86ca1aa0-34aa-4e8b-a509-50c905bae2a2}\\InprocServer32\" /f /ve",
+  "revert22H2": "reg delete \"HKCU\\Software\\Classes\\CLSID\\{86ca1aa0-34aa-4e8b-a509-50c905bae2a2}\" /f",
+  "revert23H2": "reg delete \"HKCU\\Software\\Classes\\CLSID\\{86ca1aa0-34aa-4e8b-a509-50c905bae2a2}\" /f",
+  "revert24H2": "reg delete \"HKCU\\Software\\Classes\\CLSID\\{86ca1aa0-34aa-4e8b-a509-50c905bae2a2}\" /f",
+  "createdAt": "2026-03-05T17:26:44.222Z",
+  "updatedAt": "2026-03-05T17:26:44.222Z",
+  "revertCommands": "reg delete \"HKCU\\Software\\Classes\\CLSID\\{86ca1aa0-34aa-4e8b-a509-50c905bae2a2}\" /f",
+  "localDecrypted": true
+}

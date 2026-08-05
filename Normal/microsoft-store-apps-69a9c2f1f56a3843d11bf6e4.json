@@ -1,0 +1,17 @@
+{
+  "_id": "69a9c2f1f56a3843d11bf6e4",
+  "name": "Microsoft Store & Apps",
+  "__v": 0,
+  "category": "Apps",
+  "commands": "reg add \"HKLM\\SYSTEM\\CurrentControlSet\\Services\\ClipSVC\" /v Start /t REG_DWORD /d 3 /f\nreg add \"HKLM\\SYSTEM\\CurrentControlSet\\Services\\AppXSvc\" /v Start /t REG_DWORD /d 3 /f\nreg add \"HKLM\\SYSTEM\\CurrentControlSet\\Services\\LicenseManager\" /v Start /t REG_DWORD /d 3 /f\nreg add \"HKLM\\SYSTEM\\CurrentControlSet\\Services\\InstallService\" /v Start /t REG_DWORD /d 3 /f\nreg add \"HKLM\\SYSTEM\\CurrentControlSet\\Services\\wuauserv\" /v Start /t REG_DWORD /d 3 /f\nreg delete \"HKLM\\SOFTWARE\\Policies\\Microsoft\\WindowsStore\" /v RemoveWindowsStore /f\nreg delete \"HKLM\\SOFTWARE\\Policies\\Microsoft\\WindowsStore\" /v DisableStoreApps /f",
+  "createdAt": "2026-03-05T17:52:48.030Z",
+  "description": "Fix microsoft store apps not working/not downloading",
+  "icon": "system.png",
+  "order": 3,
+  "servicesRestored": [],
+  "tags": [],
+  "updatedAt": "2026-03-05T17:52:48.030Z",
+  "revertCommands": null,
+  "options": [],
+  "localDecrypted": true
+}

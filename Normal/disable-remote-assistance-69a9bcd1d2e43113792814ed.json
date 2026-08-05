@@ -1,0 +1,20 @@
+{
+  "_id": "69a9bcd1d2e43113792814ed",
+  "name": "Disable Remote Assistance",
+  "description": "Disables Remote Assistance to enhance privacy and security.",
+  "page": "Privacy",
+  "category": "General",
+  "icon": "system.png",
+  "hardwareReqs": [],
+  "isMultiOption": false,
+  "isPremium": false,
+  "options": [],
+  "commands": "reg add \"HKLM\\SYSTEM\\CurrentControlSet\\Control\\Remote Assistance\" /v fAllowToGetHelp /t REG_DWORD /d 0 /f",
+  "revert22H2": "reg add \"HKLM\\SYSTEM\\CurrentControlSet\\Control\\Remote Assistance\" /v fAllowToGetHelp /t REG_DWORD /d 1 /f",
+  "revert23H2": "reg add \"HKLM\\SYSTEM\\CurrentControlSet\\Control\\Remote Assistance\" /v fAllowToGetHelp /t REG_DWORD /d 1 /f",
+  "revert24H2": "reg add \"HKLM\\SYSTEM\\CurrentControlSet\\Control\\Remote Assistance\" /v fAllowToGetHelp /t REG_DWORD /d 1 /f",
+  "createdAt": "2026-03-05T17:26:41.891Z",
+  "updatedAt": "2026-03-05T17:26:41.891Z",
+  "revertCommands": "reg add \"HKLM\\SYSTEM\\CurrentControlSet\\Control\\Remote Assistance\" /v fAllowToGetHelp /t REG_DWORD /d 1 /f",
+  "localDecrypted": true
+}

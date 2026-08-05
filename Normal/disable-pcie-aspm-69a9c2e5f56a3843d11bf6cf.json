@@ -1,0 +1,21 @@
+{
+  "_id": "69a9c2e5f56a3843d11bf6cf",
+  "name": "Disable PCIe ASPM",
+  "description": "Disables PCIe Active State Power Management so GPU/PCIe devices don't downclock mid-game.",
+  "page": "Game Mode",
+  "category": "Game Mode",
+  "icon": "power.png",
+  "warnings": "May increase Temperatures & Power Consumption",
+  "hardwareReqs": [],
+  "isMultiOption": false,
+  "isPremium": false,
+  "options": [],
+  "commands": "reg add \"HKLM\\SYSTEM\\CurrentControlSet\\Control\\Power\" /v \"AspmDisabled\" /t REG_DWORD /d 1 /f\n\npowercfg /setacvalueindex SCHEME_CURRENT SUB_PROCESSOR PROCTHROTTLEMAX 100\npowercfg /setacvalueindex SCHEME_CURRENT SUB_PROCESSOR PROCTHROTTLEMIN 100\npowercfg /setactive SCHEME_CURRENT\n\n$keys = & reg.exe query $root /s 2>$null |\n Where-Object { $_ -like 'HKEY_LOCAL_MACHINE*\\PCI*' -and $_ -match '\\Device Parameters(\\)?$' } |\n ForEach-Object { $_.Trim() } | Sort-Object -Unique\nforeach ($k in $keys) { reg.exe add \"$k\" /v EnableASPM /t REG_DWORD /d 0 /f }",
+  "revert22H2": "reg.exe add \"HKLM\\SYSTEM\\CurrentControlSet\\Control\\Power\" /v AspmDisabled /t REG_DWORD /d 0 /f\npowercfg /setacvalueindex SCHEME_CURRENT SUB_PROCESSOR PROCTHROTTLEMAX 100\npowercfg /setacvalueindex SCHEME_CURRENT SUB_PROCESSOR PROCTHROTTLEMIN 5\npowercfg /setactive SCHEME_CURRENT\n$root = 'HKLM\\SYSTEM\\CurrentControlSet\\Enum'\n$keys = & reg.exe query $root /s 2>$null |\n Where-Object { $_ -like 'HKEY_LOCAL_MACHINE*\\PCI*' -and $_ -match '\\Device Parameters(\\)?$' } |\n ForEach-Object { $_.Trim() } | Sort-Object -Unique\nforeach ($k in $keys) {\n reg.exe delete \"$k\" /v EnableASPM /f\n}",
+  "revert23H2": "reg.exe add \"HKLM\\SYSTEM\\CurrentControlSet\\Control\\Power\" /v AspmDisabled /t REG_DWORD /d 0 /f\npowercfg /setacvalueindex SCHEME_CURRENT SUB_PROCESSOR PROCTHROTTLEMAX 100\npowercfg /setacvalueindex SCHEME_CURRENT SUB_PROCESSOR PROCTHROTTLEMIN 5\npowercfg /setactive SCHEME_CURRENT\n$root = 'HKLM\\SYSTEM\\CurrentControlSet\\Enum'\n$keys = & reg.exe query $root /s 2>$null |\n Where-Object { $_ -like 'HKEY_LOCAL_MACHINE*\\PCI*' -and $_ -match '\\Device Parameters(\\)?$' } |\n ForEach-Object { $_.Trim() } | Sort-Object -Unique\nforeach ($k in $keys) {\n reg.exe delete \"$k\" /v EnableASPM /f\n}",
+  "revert24H2": "reg.exe add \"HKLM\\SYSTEM\\CurrentControlSet\\Control\\Power\" /v AspmDisabled /t REG_DWORD /d 0 /f\npowercfg /setacvalueindex SCHEME_CURRENT SUB_PROCESSOR PROCTHROTTLEMAX 100\npowercfg /setacvalueindex SCHEME_CURRENT SUB_PROCESSOR PROCTHROTTLEMIN 5\npowercfg /setactive SCHEME_CURRENT\n$root = 'HKLM\\SYSTEM\\CurrentControlSet\\Enum'\n$keys = & reg.exe query $root /s 2>$null |\n Where-Object { $_ -like 'HKEY_LOCAL_MACHINE*\\PCI*' -and $_ -match '\\Device Parameters(\\)?$' } |\n ForEach-Object { $_.Trim() } | Sort-Object -Unique\nforeach ($k in $keys) {\n reg.exe delete \"$k\" /v EnableASPM /f\n}",
+  "createdAt": "2026-03-05T17:52:34.306Z",
+  "updatedAt": "2026-03-05T17:52:39.163Z",
+  "revertCommands": "reg.exe add \"HKLM\\SYSTEM\\CurrentControlSet\\Control\\Power\" /v AspmDisabled /t REG_DWORD /d 0 /f\npowercfg /setacvalueindex SCHEME_CURRENT SUB_PROCESSOR PROCTHROTTLEMAX 100\npowercfg /setacvalueindex SCHEME_CURRENT SUB_PROCESSOR PROCTHROTTLEMIN 5\npowercfg /setactive SCHEME_CURRENT\n$root = 'HKLM\\SYSTEM\\CurrentControlSet\\Enum'\n$keys = & reg.exe query $root /s 2>$null |\n Where-Object { $_ -like 'HKEY_LOCAL_MACHINE*\\PCI*' -and $_ -match '\\Device Parameters(\\)?$' } |\n ForEach-Object { $_.Trim() } | Sort-Object -Unique\nforeach ($k in $keys) {\n reg.exe delete \"$k\" /v EnableASPM /f\n}",
+  "localDecrypted": true
+}

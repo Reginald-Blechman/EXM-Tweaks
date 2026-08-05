@@ -1,0 +1,24 @@
+{
+  "_id": "69a9c2e5f56a3843d11bf6d6",
+  "name": "Disable Dynamic Tick",
+  "description": "Keeps the system timer running constantly, improving timing consistency and reducing latency",
+  "page": "CPU",
+  "category": "Hardware",
+  "icon": "advanced.png",
+  "attributes": "Advanced",
+  "warnings": "Power Warning",
+  "hardwareReqs": [
+    "cpu:amd:not_x3d"
+  ],
+  "isMultiOption": false,
+  "isPremium": false,
+  "options": [],
+  "commands": "bcdedit /set Disabledynamictick yes",
+  "revert22H2": "bcdedit /deletevalue Disabledynamictick",
+  "revert23H2": "bcdedit /deletevalue Disabledynamictick",
+  "revert24H2": "bcdedit /deletevalue Disabledynamictick",
+  "createdAt": "2026-03-05T17:52:34.306Z",
+  "updatedAt": "2026-03-05T17:52:39.163Z",
+  "revertCommands": "bcdedit /deletevalue Disabledynamictick",
+  "localDecrypted": true
+}

@@ -1,0 +1,19 @@
+{
+  "_id": "69aec1b1e4c88805d7173da5",
+  "name": "Microsoft Solitaire Collection",
+  "description": "Card games.",
+  "page": "Uninstall",
+  "category": "Debloat",
+  "hardwareReqs": [],
+  "isMultiOption": false,
+  "isPremium": false,
+  "options": [],
+  "commands": "Get-AppxPackage *Microsoft.MicrosoftSolitaireCollection* | Remove-AppxPackage",
+  "revert22H2": "Get-AppxPackage -AllUsers Microsoft.MicrosoftSolitaireCollection | Foreach {Add-AppxPackage -register \"$($_.InstallLocation)\\appxmanifest.xml\" -DisableDevelopmentMode}",
+  "revert23H2": "Get-AppxPackage -AllUsers Microsoft.MicrosoftSolitaireCollection | Foreach {Add-AppxPackage -register \"$($_.InstallLocation)\\appxmanifest.xml\" -DisableDevelopmentMode}",
+  "revert24H2": "Get-AppxPackage -AllUsers Microsoft.MicrosoftSolitaireCollection | Foreach {Add-AppxPackage -register \"$($_.InstallLocation)\\appxmanifest.xml\" -DisableDevelopmentMode}",
+  "createdAt": "2026-03-09T12:48:49.118Z",
+  "updatedAt": "2026-03-09T12:48:49.118Z",
+  "revertCommands": "Get-AppxPackage -AllUsers Microsoft.MicrosoftSolitaireCollection | Foreach {Add-AppxPackage -register \"$($_.InstallLocation)\\appxmanifest.xml\" -DisableDevelopmentMode}",
+  "localDecrypted": true
+}

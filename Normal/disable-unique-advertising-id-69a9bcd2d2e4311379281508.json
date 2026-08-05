@@ -1,0 +1,20 @@
+{
+  "_id": "69a9bcd2d2e4311379281508",
+  "name": "Disable Unique Advertising Id",
+  "description": "Prevents apps from using a unique advertising ID for tracking.",
+  "page": "Privacy",
+  "category": "General",
+  "icon": "telemetry.png",
+  "hardwareReqs": [],
+  "isMultiOption": false,
+  "isPremium": false,
+  "options": [],
+  "commands": "reg add \"HKCU\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\AdvertisingInfo\" /v Enabled /t REG_DWORD /d 0 /f",
+  "revert22H2": "reg add \"HKCU\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\AdvertisingInfo\" /v Enabled /t REG_DWORD /d 1 /f",
+  "revert23H2": "reg add \"HKCU\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\AdvertisingInfo\" /v Enabled /t REG_DWORD /d 1 /f",
+  "revert24H2": "reg add \"HKCU\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\AdvertisingInfo\" /v Enabled /t REG_DWORD /d 1 /f",
+  "createdAt": "2026-03-05T17:26:42.546Z",
+  "updatedAt": "2026-03-05T17:26:42.546Z",
+  "revertCommands": "reg add \"HKCU\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\AdvertisingInfo\" /v Enabled /t REG_DWORD /d 1 /f",
+  "localDecrypted": true
+}

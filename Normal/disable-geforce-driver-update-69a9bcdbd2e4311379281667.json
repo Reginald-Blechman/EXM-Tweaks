@@ -1,0 +1,20 @@
+{
+  "_id": "69a9bcdbd2e4311379281667",
+  "name": "Disable Geforce Driver Update",
+  "description": "Prevents GeForce Experience from showing update notifications and checking for new drivers, reducing background activity.",
+  "page": "GPU (nvidia)",
+  "category": "Hardware",
+  "icon": "telemetry.png",
+  "hardwareReqs": [],
+  "isMultiOption": false,
+  "isPremium": false,
+  "options": [],
+  "commands": "reg add \"HKCU\\SOFTWARE\\NVIDIA Corporation\\Global\\GFExperience\" /v \"NotifyNewDisplayUpdates\" /t REG_DWORD /d 0 /f",
+  "revert22H2": "reg add \"HKCU\\SOFTWARE\\NVIDIA Corporation\\Global\\GFExperience\" /v \"NotifyNewDisplayUpdates\" /t REG_DWORD /d 1 /f",
+  "revert23H2": "reg add \"HKCU\\SOFTWARE\\NVIDIA Corporation\\Global\\GFExperience\" /v \"NotifyNewDisplayUpdates\" /t REG_DWORD /d 1 /f",
+  "revert24H2": "reg add \"HKCU\\SOFTWARE\\NVIDIA Corporation\\Global\\GFExperience\" /v \"NotifyNewDisplayUpdates\" /t REG_DWORD /d 1 /f",
+  "createdAt": "2026-03-05T17:26:51.857Z",
+  "updatedAt": "2026-03-05T17:26:51.857Z",
+  "revertCommands": "reg add \"HKCU\\SOFTWARE\\NVIDIA Corporation\\Global\\GFExperience\" /v \"NotifyNewDisplayUpdates\" /t REG_DWORD /d 1 /f",
+  "localDecrypted": true
+}

@@ -1,0 +1,20 @@
+{
+  "_id": "69a9c2e5f56a3843d11bf6cd",
+  "name": "Disable Segment Heap",
+  "description": "Disables UWP/Win32 segment heap to reduce memory overhead and improve performance.",
+  "page": "Game Mode",
+  "category": "Game Mode",
+  "icon": "system.png",
+  "hardwareReqs": [],
+  "isMultiOption": false,
+  "isPremium": false,
+  "options": [],
+  "commands": "reg add \"HKLM\\SYSTEM\\CurrentControlSet\\Control\\Session Manager\" /v ScopeType /t REG_SZ /d \"Client\" /f\n\nreg add \"HKLM\\SYSTEM\\CurrentControlSet\\Control\\Session Manager\\Segment Heap\" /v Enabled /t REG_DWORD /d 1 /f\n\nreg add \"HKLM\\SYSTEM\\CurrentControlSet\\Control\\Session Manager\\Segment Heap\" /v OverrideServerSKU /t REG_DWORD /d 1 /f",
+  "revert22H2": "reg delete \"HKLM\\SYSTEM\\CurrentControlSet\\Control\\Session Manager\" /v ScopeType /f\nreg delete \"HKLM\\SYSTEM\\CurrentControlSet\\Control\\Session Manager\\Segment Heap\" /v Enabled /f\nreg delete \"HKLM\\SYSTEM\\CurrentControlSet\\Control\\Session Manager\\Segment Heap\" /v OverrideServerSKU /f",
+  "revert23H2": "reg delete \"HKLM\\SYSTEM\\CurrentControlSet\\Control\\Session Manager\" /v ScopeType /f\nreg delete \"HKLM\\SYSTEM\\CurrentControlSet\\Control\\Session Manager\\Segment Heap\" /v Enabled /f\nreg delete \"HKLM\\SYSTEM\\CurrentControlSet\\Control\\Session Manager\\Segment Heap\" /v OverrideServerSKU /f",
+  "revert24H2": "reg delete \"HKLM\\SYSTEM\\CurrentControlSet\\Control\\Session Manager\" /v ScopeType /f\nreg delete \"HKLM\\SYSTEM\\CurrentControlSet\\Control\\Session Manager\\Segment Heap\" /v Enabled /f\nreg delete \"HKLM\\SYSTEM\\CurrentControlSet\\Control\\Session Manager\\Segment Heap\" /v OverrideServerSKU /f",
+  "createdAt": "2026-03-05T17:52:34.306Z",
+  "updatedAt": "2026-03-05T17:52:39.163Z",
+  "revertCommands": "reg delete \"HKLM\\SYSTEM\\CurrentControlSet\\Control\\Session Manager\" /v ScopeType /f\nreg delete \"HKLM\\SYSTEM\\CurrentControlSet\\Control\\Session Manager\\Segment Heap\" /v Enabled /f\nreg delete \"HKLM\\SYSTEM\\CurrentControlSet\\Control\\Session Manager\\Segment Heap\" /v OverrideServerSKU /f",
+  "localDecrypted": true
+}

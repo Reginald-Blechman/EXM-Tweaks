@@ -1,0 +1,20 @@
+{
+  "_id": "69a9bcd4d2e431137928154d",
+  "name": "Classic Battery & Network Icons",
+  "description": "Restores old tray icons for battery and network",
+  "page": "QOL",
+  "category": "General",
+  "icon": "visual.png",
+  "hardwareReqs": [],
+  "isMultiOption": false,
+  "isPremium": false,
+  "options": [],
+  "commands": "reg add \"HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced\" /v \"ShowSmallIconsInTray\" /t REG_DWORD /d 1 /f",
+  "revert22H2": "reg add \"HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced\" /v \"ShowSmallIconsInTray\" /t REG_DWORD /d 0 /f",
+  "revert23H2": "reg add \"HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced\" /v \"ShowSmallIconsInTray\" /t REG_DWORD /d 0 /f",
+  "revert24H2": "reg add \"HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced\" /v \"ShowSmallIconsInTray\" /t REG_DWORD /d 0 /f",
+  "createdAt": "2026-03-05T17:26:44.415Z",
+  "updatedAt": "2026-03-05T17:26:44.415Z",
+  "revertCommands": "reg add \"HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced\" /v \"ShowSmallIconsInTray\" /t REG_DWORD /d 0 /f",
+  "localDecrypted": true
+}

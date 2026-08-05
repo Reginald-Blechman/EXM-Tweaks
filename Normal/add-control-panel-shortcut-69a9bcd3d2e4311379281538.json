@@ -1,0 +1,20 @@
+{
+  "_id": "69a9bcd3d2e4311379281538",
+  "name": "Add Control Panel Shortcut",
+  "description": "Adds a shortcut for quick access to Control Panel",
+  "page": "QOL",
+  "category": "General",
+  "icon": "windows.png",
+  "hardwareReqs": [],
+  "isMultiOption": false,
+  "isPremium": false,
+  "options": [],
+  "commands": "reg add \"HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Policies\\Explorer\" /v \"NoControlPanel\" /t REG_DWORD /d 0 /f",
+  "revert22H2": "reg add \"HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Policies\\Explorer\" /v \"NoControlPanel\" /t REG_DWORD /d 0 /f",
+  "revert23H2": "reg add \"HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Policies\\Explorer\" /v \"NoControlPanel\" /t REG_DWORD /d 0 /f",
+  "revert24H2": "reg add \"HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Policies\\Explorer\" /v \"NoControlPanel\" /t REG_DWORD /d 0 /f",
+  "createdAt": "2026-03-05T17:26:43.949Z",
+  "updatedAt": "2026-03-05T17:26:43.949Z",
+  "revertCommands": "reg add \"HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Policies\\Explorer\" /v \"NoControlPanel\" /t REG_DWORD /d 0 /f",
+  "localDecrypted": true
+}

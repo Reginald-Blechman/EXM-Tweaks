@@ -1,0 +1,17 @@
+{
+  "_id": "69a9c2f1f56a3843d11bf6e6",
+  "name": "Low Internet Speed",
+  "__v": 0,
+  "category": "Network",
+  "commands": "netsh int tcp set global autotuninglevel=normal",
+  "createdAt": "2026-03-05T17:52:48.030Z",
+  "description": "Fix low internet speed after optimizations",
+  "icon": "network.png",
+  "order": 22,
+  "servicesRestored": [],
+  "tags": [],
+  "updatedAt": "2026-03-05T17:52:48.030Z",
+  "revertCommands": null,
+  "options": [],
+  "localDecrypted": true
+}

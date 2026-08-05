@@ -1,0 +1,17 @@
+{
+  "_id": "69a9c2f1f56a3843d11bf6e8",
+  "name": "FiveM Admin Check Required Services",
+  "__v": 0,
+  "category": "Gaming",
+  "commands": "sc config PcaSvc start= auto\nsc config DPS start= auto\nsc config DiagTrack start= auto\nsc config SysMain start= auto\nsc config EventLog start= auto",
+  "createdAt": "2026-03-05T17:52:48.030Z",
+  "description": "Fix error while opening FiveM",
+  "icon": "advanced.png",
+  "order": 24,
+  "servicesRestored": [],
+  "tags": [],
+  "updatedAt": "2026-03-05T17:52:48.030Z",
+  "revertCommands": null,
+  "options": [],
+  "localDecrypted": true
+}

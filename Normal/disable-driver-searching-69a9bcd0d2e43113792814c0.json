@@ -1,0 +1,21 @@
+{
+  "_id": "69a9bcd0d2e43113792814c0",
+  "name": "Disable Driver Searching",
+  "description": "Prevents From automatically searching for or installing drivers, keeping drivers unchanged for better stability and consistency.",
+  "page": "Core",
+  "category": "General",
+  "icon": "system.png",
+  "warnings": "Require manual installation of drivers",
+  "hardwareReqs": [],
+  "isMultiOption": false,
+  "isPremium": false,
+  "options": [],
+  "commands": "reg add \"HKLM\\SOFTWARE\\Policies\\Microsoft\\Windows\\DriverSearching\" /v DontSearchWindowsUpdate /t REG_DWORD /d 1 /f\n\nreg add \"HKLM\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\DriverSearching\" /v SearchOrderConfig /t REG_DWORD /d 0 /f\n\nreg add \"HKLM\\SOFTWARE\\Policies\\Microsoft\\Windows\\WindowsUpdate\" /v ExcludeWUDriversInQualityUpdate /t REG_DWORD /d 1 /f\n\nreg add \"HKLM\\SOFTWARE\\Policies\\Microsoft\\Windows\\DriverSearching\" /v DriverUpdateWizardWuSearchEnabled /t REG_DWORD /d 0 /f",
+  "revert22H2": "reg delete \"HKLM\\SOFTWARE\\Policies\\Microsoft\\Windows\\DriverSearching\" /v DontSearchWindowsUpdate /f\r\nreg add \"HKLM\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\DriverSearching\" /v SearchOrderConfig /t REG_DWORD /d 1 /f\r\nreg delete \"HKLM\\SOFTWARE\\Policies\\Microsoft\\Windows\\WindowsUpdate\" /v ExcludeWUDriversInQualityUpdate /f\r\nreg delete \"HKLM\\SOFTWARE\\Policies\\Microsoft\\Windows\\DriverSearching\" /v DriverUpdateWizardWuSearchEnabled /f",
+  "revert23H2": "reg delete \"HKLM\\SOFTWARE\\Policies\\Microsoft\\Windows\\DriverSearching\" /v DontSearchWindowsUpdate /f\r\nreg add \"HKLM\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\DriverSearching\" /v SearchOrderConfig /t REG_DWORD /d 1 /f\r\nreg delete \"HKLM\\SOFTWARE\\Policies\\Microsoft\\Windows\\WindowsUpdate\" /v ExcludeWUDriversInQualityUpdate /f\r\nreg delete \"HKLM\\SOFTWARE\\Policies\\Microsoft\\Windows\\DriverSearching\" /v DriverUpdateWizardWuSearchEnabled /f",
+  "revert24H2": "reg delete \"HKLM\\SOFTWARE\\Policies\\Microsoft\\Windows\\DriverSearching\" /v DontSearchWindowsUpdate /f\r\nreg add \"HKLM\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\DriverSearching\" /v SearchOrderConfig /t REG_DWORD /d 1 /f\r\nreg delete \"HKLM\\SOFTWARE\\Policies\\Microsoft\\Windows\\WindowsUpdate\" /v ExcludeWUDriversInQualityUpdate /f\r\nreg delete \"HKLM\\SOFTWARE\\Policies\\Microsoft\\Windows\\DriverSearching\" /v DriverUpdateWizardWuSearchEnabled /f",
+  "createdAt": "2026-03-05T17:26:40.671Z",
+  "updatedAt": "2026-03-05T17:26:40.671Z",
+  "revertCommands": "reg delete \"HKLM\\SOFTWARE\\Policies\\Microsoft\\Windows\\DriverSearching\" /v DontSearchWindowsUpdate /f\r\nreg add \"HKLM\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\DriverSearching\" /v SearchOrderConfig /t REG_DWORD /d 1 /f\r\nreg delete \"HKLM\\SOFTWARE\\Policies\\Microsoft\\Windows\\WindowsUpdate\" /v ExcludeWUDriversInQualityUpdate /f\r\nreg delete \"HKLM\\SOFTWARE\\Policies\\Microsoft\\Windows\\DriverSearching\" /v DriverUpdateWizardWuSearchEnabled /f",
+  "localDecrypted": true
+}

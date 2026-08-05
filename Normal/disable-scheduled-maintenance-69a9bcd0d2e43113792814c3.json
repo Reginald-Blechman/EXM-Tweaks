@@ -1,0 +1,21 @@
+{
+  "_id": "69a9bcd0d2e43113792814c3",
+  "name": "Disable Scheduled Maintenance",
+  "description": "Prevents The system from running automatic maintenance tasks.",
+  "page": "Core",
+  "category": "General",
+  "icon": "system.png",
+  "warnings": "Need Manual check for disk defrags and virus scans",
+  "hardwareReqs": [],
+  "isMultiOption": false,
+  "isPremium": false,
+  "options": [],
+  "commands": "reg add \"HKLM\\SOFTWARE\\Microsoft\\Windows\\TaskScheduler\\Maintenance\" /v MaintenanceDisabled /t REG_DWORD /d 1 /f",
+  "revert22H2": "reg delete \"HKLM\\SOFTWARE\\Microsoft\\Windows\\TaskScheduler\\Maintenance\" /v MaintenanceDisabled /f",
+  "revert23H2": "reg delete \"HKLM\\SOFTWARE\\Microsoft\\Windows\\TaskScheduler\\Maintenance\" /v MaintenanceDisabled /f",
+  "revert24H2": "reg delete \"HKLM\\SOFTWARE\\Microsoft\\Windows\\TaskScheduler\\Maintenance\" /v MaintenanceDisabled /f",
+  "createdAt": "2026-03-05T17:26:40.755Z",
+  "updatedAt": "2026-03-05T17:26:40.755Z",
+  "revertCommands": "reg delete \"HKLM\\SOFTWARE\\Microsoft\\Windows\\TaskScheduler\\Maintenance\" /v MaintenanceDisabled /f",
+  "localDecrypted": true
+}

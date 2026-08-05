@@ -1,0 +1,20 @@
+{
+  "_id": "69a9bccfd2e431137928149c",
+  "name": "Disable Transparency Effects",
+  "description": "Disables window and taskbar transparency which frees up some memory.",
+  "page": "Core",
+  "category": "General",
+  "icon": "windows.png",
+  "hardwareReqs": [],
+  "isMultiOption": false,
+  "isPremium": false,
+  "options": [],
+  "commands": "reg add \"HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Themes\\Personalize\" /v \"EnableTransparency\" /t REG_DWORD /d \"0\" /f",
+  "revert22H2": "reg add \"HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Themes\\Personalize\" /v \"EnableTransparency\" /t REG_DWORD /d \"1\" /f",
+  "revert23H2": "reg add \"HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Themes\\Personalize\" /v \"EnableTransparency\" /t REG_DWORD /d \"1\" /f",
+  "revert24H2": "reg add \"HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Themes\\Personalize\" /v \"EnableTransparency\" /t REG_DWORD /d \"1\" /f",
+  "createdAt": "2026-03-05T17:26:39.462Z",
+  "updatedAt": "2026-03-05T17:26:39.462Z",
+  "revertCommands": "reg add \"HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Themes\\Personalize\" /v \"EnableTransparency\" /t REG_DWORD /d \"1\" /f",
+  "localDecrypted": true
+}

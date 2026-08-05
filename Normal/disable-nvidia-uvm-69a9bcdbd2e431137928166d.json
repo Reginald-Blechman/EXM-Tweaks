@@ -1,0 +1,21 @@
+{
+  "_id": "69a9bcdbd2e431137928166d",
+  "name": "Disable NVIDIA Uvm",
+  "description": "Disables Unified Virtual Memory driver. Reduces overhead for gaming but breaks CUDA applications and machine learning frameworks.",
+  "page": "GPU (nvidia)",
+  "category": "Hardware",
+  "icon": "system.png",
+  "warnings": "May break CUDA, Tensor",
+  "hardwareReqs": [],
+  "isMultiOption": false,
+  "isPremium": false,
+  "options": [],
+  "commands": "reg add \"HKLM\\SYSTEM\\CurrentControlSet\\Services\\nvlddmkm\" /v \"UvmDisable\" /t REG_DWORD /d 1 /f",
+  "revert22H2": "reg add \"HKLM\\SYSTEM\\CurrentControlSet\\Services\\nvlddmkm\" /v \"UvmDisable\" /t REG_DWORD /d 0 /f",
+  "revert23H2": "reg add \"HKLM\\SYSTEM\\CurrentControlSet\\Services\\nvlddmkm\" /v \"UvmDisable\" /t REG_DWORD /d 0 /f",
+  "revert24H2": "reg add \"HKLM\\SYSTEM\\CurrentControlSet\\Services\\nvlddmkm\" /v \"UvmDisable\" /t REG_DWORD /d 0 /f",
+  "createdAt": "2026-03-05T17:26:51.995Z",
+  "updatedAt": "2026-03-05T17:26:51.995Z",
+  "revertCommands": "reg add \"HKLM\\SYSTEM\\CurrentControlSet\\Services\\nvlddmkm\" /v \"UvmDisable\" /t REG_DWORD /d 0 /f",
+  "localDecrypted": true
+}

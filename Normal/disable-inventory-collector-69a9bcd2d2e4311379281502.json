@@ -1,0 +1,20 @@
+{
+  "_id": "69a9bcd2d2e4311379281502",
+  "name": "Disable Inventory Collector",
+  "description": "Stops Windows from gathering system inventory data for telemetry purposes.",
+  "page": "Privacy",
+  "category": "General",
+  "icon": "telemetry.png",
+  "hardwareReqs": [],
+  "isMultiOption": false,
+  "isPremium": false,
+  "options": [],
+  "commands": "reg add \"HKLM\\SOFTWARE\\Policies\\Microsoft\\Windows\\InventoryCollector\" /v DisableInventoryCollector /t REG_DWORD /d 1 /f\nreg add \"HKLM\\SYSTEM\\CurrentControlSet\\Services\\InventoryCollector\" /v Start /t REG_DWORD /d 4 /f",
+  "revert22H2": "reg add \"HKLM\\SOFTWARE\\Policies\\Microsoft\\Windows\\InventoryCollector\" /v DisableInventoryCollector /t REG_DWORD /d 0 /f\n sc config InventoryCollector start= auto\n sc start InventoryCollector",
+  "revert23H2": "reg add \"HKLM\\SOFTWARE\\Policies\\Microsoft\\Windows\\InventoryCollector\" /v DisableInventoryCollector /t REG_DWORD /d 0 /f\n sc config InventoryCollector start= auto\n sc start InventoryCollector",
+  "revert24H2": "reg add \"HKLM\\SOFTWARE\\Policies\\Microsoft\\Windows\\InventoryCollector\" /v DisableInventoryCollector /t REG_DWORD /d 0 /f\n sc config InventoryCollector start= auto\n sc start InventoryCollector",
+  "createdAt": "2026-03-05T17:26:42.399Z",
+  "updatedAt": "2026-03-05T17:26:42.399Z",
+  "revertCommands": "reg add \"HKLM\\SOFTWARE\\Policies\\Microsoft\\Windows\\InventoryCollector\" /v DisableInventoryCollector /t REG_DWORD /d 0 /f\n sc config InventoryCollector start= auto\n sc start InventoryCollector",
+  "localDecrypted": true
+}

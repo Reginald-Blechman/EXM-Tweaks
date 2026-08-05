@@ -1,0 +1,20 @@
+{
+  "_id": "69a9bcd3d2e431137928152f",
+  "name": "Disable Windows Tips",
+  "description": "Prevents Windows from showing tips and suggestions.",
+  "page": "QOL",
+  "category": "General",
+  "icon": "windows.png",
+  "hardwareReqs": [],
+  "isMultiOption": false,
+  "isPremium": false,
+  "options": [],
+  "commands": "reg add \"HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\ContentDeliveryManager\" /v SubscribedContent-338387Enabled /t REG_DWORD /d 0 /f",
+  "revert22H2": "reg add \"HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\ContentDeliveryManager\" /v SubscribedContent-338387Enabled /t REG_DWORD /d 1 /f",
+  "revert23H2": "reg add \"HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\ContentDeliveryManager\" /v SubscribedContent-338387Enabled /t REG_DWORD /d 1 /f",
+  "revert24H2": "reg add \"HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\ContentDeliveryManager\" /v SubscribedContent-338387Enabled /t REG_DWORD /d 1 /f",
+  "createdAt": "2026-03-05T17:26:43.752Z",
+  "updatedAt": "2026-03-05T17:26:43.752Z",
+  "revertCommands": "reg add \"HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\ContentDeliveryManager\" /v SubscribedContent-338387Enabled /t REG_DWORD /d 1 /f",
+  "localDecrypted": true
+}

@@ -1,0 +1,22 @@
+{
+  "_id": "69a9c2e5f56a3843d11bf6d0",
+  "name": "Disable Platform Idle",
+  "description": "Prevents CPU package from entering idle states for maximum responsiveness.",
+  "page": "Game Mode",
+  "category": "Game Mode",
+  "icon": "power.png",
+  "attributes": "Advanced",
+  "warnings": "May increase Temperatures & Power Consumption",
+  "hardwareReqs": [],
+  "isMultiOption": false,
+  "isPremium": false,
+  "options": [],
+  "commands": "reg add \"HKLM\\SYSTEM\\CurrentControlSet\\Control\\Power\" /v \"PlatformIdleAllow\" /t REG_DWORD /d 0 /f",
+  "revert22H2": "reg delete \"HKLM\\SYSTEM\\CurrentControlSet\\Control\\Power\" /v PlatformIdleAllow /f",
+  "revert23H2": "reg delete \"HKLM\\SYSTEM\\CurrentControlSet\\Control\\Power\" /v PlatformIdleAllow /f",
+  "revert24H2": "reg delete \"HKLM\\SYSTEM\\CurrentControlSet\\Control\\Power\" /v PlatformIdleAllow /f",
+  "createdAt": "2026-03-05T17:52:34.306Z",
+  "updatedAt": "2026-03-05T17:52:39.163Z",
+  "revertCommands": "reg delete \"HKLM\\SYSTEM\\CurrentControlSet\\Control\\Power\" /v PlatformIdleAllow /f",
+  "localDecrypted": true
+}

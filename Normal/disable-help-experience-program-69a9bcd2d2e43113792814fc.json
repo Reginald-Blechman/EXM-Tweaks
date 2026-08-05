@@ -1,0 +1,20 @@
+{
+  "_id": "69a9bcd2d2e43113792814fc",
+  "name": "Disable Help Experience Program",
+  "description": "Stops Windows from sending usage data related to help and support features.",
+  "page": "Privacy",
+  "category": "General",
+  "icon": "telemetry.png",
+  "hardwareReqs": [],
+  "isMultiOption": false,
+  "isPremium": false,
+  "options": [],
+  "commands": "reg add \"HKLM\\SOFTWARE\\Policies\\Microsoft\\Assistance\\Client\\1.0\" /v NoExplicitFeedback /t REG_DWORD /d 1 /f\n \n reg add \"HKLM\\SOFTWARE\\Policies\\Microsoft\\Assistance\\Client\\1.0\" /v NoImplicitFeedback /t REG_DWORD /d 1 /f",
+  "revert22H2": "reg delete \"HKLM\\SOFTWARE\\Policies\\Microsoft\\Assistance\\Client\\1.0\" /v \"NoExplicitFeedback\" /f\r\nreg delete \"HKLM\\SOFTWARE\\Policies\\Microsoft\\Assistance\\Client\\1.0\" /v \"NoImplicitFeedback\" /f",
+  "revert23H2": "reg delete \"HKLM\\SOFTWARE\\Policies\\Microsoft\\Assistance\\Client\\1.0\" /v \"NoExplicitFeedback\" /f\r\nreg delete \"HKLM\\SOFTWARE\\Policies\\Microsoft\\Assistance\\Client\\1.0\" /v \"NoImplicitFeedback\" /f",
+  "revert24H2": "reg delete \"HKLM\\SOFTWARE\\Policies\\Microsoft\\Assistance\\Client\\1.0\" /v \"NoExplicitFeedback\" /f\r\nreg delete \"HKLM\\SOFTWARE\\Policies\\Microsoft\\Assistance\\Client\\1.0\" /v \"NoImplicitFeedback\" /f",
+  "createdAt": "2026-03-05T17:26:42.263Z",
+  "updatedAt": "2026-03-05T17:26:42.263Z",
+  "revertCommands": "reg delete \"HKLM\\SOFTWARE\\Policies\\Microsoft\\Assistance\\Client\\1.0\" /v \"NoExplicitFeedback\" /f\r\nreg delete \"HKLM\\SOFTWARE\\Policies\\Microsoft\\Assistance\\Client\\1.0\" /v \"NoImplicitFeedback\" /f",
+  "localDecrypted": true
+}

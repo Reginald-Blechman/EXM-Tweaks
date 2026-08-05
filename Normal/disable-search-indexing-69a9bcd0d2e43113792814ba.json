@@ -1,0 +1,21 @@
+{
+  "_id": "69a9bcd0d2e43113792814ba",
+  "name": "Disable Search Indexing",
+  "description": "Disables Windows Search indexing service to reduce disk usage and background CPU activity.",
+  "page": "Core",
+  "category": "General",
+  "icon": "windows.png",
+  "warnings": "Search results may be slower and file content search functionality is reduced or disabled.",
+  "hardwareReqs": [],
+  "isMultiOption": false,
+  "isPremium": false,
+  "options": [],
+  "commands": "reg add \"HKLM\\SYSTEM\\CurrentControlSet\\Services\\WSearch\" /v Start /t REG_DWORD /d 4 /f",
+  "revert22H2": "reg add \"HKLM\\SYSTEM\\CurrentControlSet\\Services\\WSearch\" /v Start /t REG_DWORD /d 2 /f",
+  "revert23H2": "reg add \"HKLM\\SYSTEM\\CurrentControlSet\\Services\\WSearch\" /v Start /t REG_DWORD /d 2 /f",
+  "revert24H2": "reg add \"HKLM\\SYSTEM\\CurrentControlSet\\Services\\WSearch\" /v Start /t REG_DWORD /d 2 /f",
+  "createdAt": "2026-03-05T17:26:40.523Z",
+  "updatedAt": "2026-03-05T17:26:40.523Z",
+  "revertCommands": "reg add \"HKLM\\SYSTEM\\CurrentControlSet\\Services\\WSearch\" /v Start /t REG_DWORD /d 2 /f",
+  "localDecrypted": true
+}

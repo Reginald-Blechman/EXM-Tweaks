@@ -1,0 +1,20 @@
+{
+  "_id": "69a9bcd4d2e4311379281547",
+  "name": "Block Automatic Peripheral Software Installs",
+  "description": "Blocks automatic Razer driver and software installs to prevent unwanted background services and system clutter.",
+  "page": "QOL",
+  "category": "General",
+  "icon": "windows.png",
+  "hardwareReqs": [],
+  "isMultiOption": false,
+  "isPremium": false,
+  "options": [],
+  "commands": "reg add \"HKLM\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Device Installer\" /v DisableCoInstallers /t REG_DWORD /d 1 /f\nrmdir /s \"C:\\Windows\\Installer\\Razer\"\nmkdir \"C:\\Windows\\Installer\\Razer\"\nicacls \"C:\\Windows\\Installer\\Razer\" /deny \"SYSTEM:(OI)(CI)W\"",
+  "revert22H2": "reg add \"HKLM\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Device Installer\" /v DisableCoInstallers /t REG_DWORD /d 0 /f\n\nicacls \"C:\\Windows\\Installer\\Razer\" /remove:d SYSTEM\nrmdir /s /q \"C:\\Windows\\Installer\\Razer\"",
+  "revert23H2": "reg add \"HKLM\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Device Installer\" /v DisableCoInstallers /t REG_DWORD /d 0 /f\n\nicacls \"C:\\Windows\\Installer\\Razer\" /remove:d SYSTEM\nrmdir /s /q \"C:\\Windows\\Installer\\Razer\"",
+  "revert24H2": "reg add \"HKLM\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Device Installer\" /v DisableCoInstallers /t REG_DWORD /d 0 /f\n\nicacls \"C:\\Windows\\Installer\\Razer\" /remove:d SYSTEM\nrmdir /s /q \"C:\\Windows\\Installer\\Razer\"",
+  "createdAt": "2026-03-05T17:26:44.288Z",
+  "updatedAt": "2026-03-05T17:26:44.288Z",
+  "revertCommands": "reg add \"HKLM\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Device Installer\" /v DisableCoInstallers /t REG_DWORD /d 0 /f\n\nicacls \"C:\\Windows\\Installer\\Razer\" /remove:d SYSTEM\nrmdir /s /q \"C:\\Windows\\Installer\\Razer\"",
+  "localDecrypted": true
+}

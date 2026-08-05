@@ -1,0 +1,20 @@
+{
+  "_id": "69a9bcd0d2e43113792814ae",
+  "name": "Disable Startup Delay For Apps",
+  "description": "Prevents Windows from delaying startup of apps after login.",
+  "page": "Core",
+  "category": "General",
+  "icon": "system.png",
+  "hardwareReqs": [],
+  "isMultiOption": false,
+  "isPremium": false,
+  "options": [],
+  "commands": "reg add \"HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Serialize\" /v StartupDelayInMSec /t REG_DWORD /d 0 /f",
+  "revert22H2": "reg delete \"HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Serialize\" /v StartupDelayInMSec /f",
+  "revert23H2": "reg delete \"HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Serialize\" /v StartupDelayInMSec /f",
+  "revert24H2": "reg delete \"HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Serialize\" /v StartupDelayInMSec /f",
+  "createdAt": "2026-03-05T17:26:40.191Z",
+  "updatedAt": "2026-03-05T17:26:40.191Z",
+  "revertCommands": "reg delete \"HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Serialize\" /v StartupDelayInMSec /f",
+  "localDecrypted": true
+}

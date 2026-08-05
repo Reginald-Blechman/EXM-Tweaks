@@ -1,0 +1,20 @@
+{
+  "_id": "69a9bcdbd2e431137928166a",
+  "name": "Disable NVIDIA Disable Logging",
+  "description": "Stops driver warning, error, and event logging to reduce disk writes and improve background GPU performance.",
+  "page": "GPU (nvidia)",
+  "category": "Hardware",
+  "icon": "telemetry.png",
+  "hardwareReqs": [],
+  "isMultiOption": false,
+  "isPremium": false,
+  "options": [],
+  "commands": "reg add \"HKLM\\SYSTEM\\ControlSet001\\Services\\nvlddmkm\" /v \"LogWarningEntries\" /t REG_DWORD /d 0 /f\n \n reg add \"HKLM\\SYSTEM\\ControlSet001\\Services\\nvlddmkm\" /v \"LogPagingEntries\" /t REG_DWORD /d 0 /f\n \n reg add \"HKLM\\SYSTEM\\ControlSet001\\Services\\nvlddmkm\" /v \"LogEventEntries\" /t REG_DWORD /d 0 /f\n \n reg add \"HKLM\\SYSTEM\\ControlSet001\\Services\\nvlddmkm\" /v \"LogErrorEntries\" /t REG_DWORD /d 0 /f",
+  "revert22H2": "reg delete \"HKLM\\SYSTEM\\ControlSet001\\Services\\nvlddmkm\" /v \"LogWarningEntries\" /f\n reg delete \"HKLM\\SYSTEM\\ControlSet001\\Services\\nvlddmkm\" /v \"LogPagingEntries\" /f\n reg delete \"HKLM\\SYSTEM\\ControlSet001\\Services\\nvlddmkm\" /v \"LogEventEntries\" /f\n reg delete \"HKLM\\SYSTEM\\ControlSet001\\Services\\nvlddmkm\" /v \"LogErrorEntries\" /f",
+  "revert23H2": "reg delete \"HKLM\\SYSTEM\\ControlSet001\\Services\\nvlddmkm\" /v \"LogWarningEntries\" /f\n reg delete \"HKLM\\SYSTEM\\ControlSet001\\Services\\nvlddmkm\" /v \"LogPagingEntries\" /f\n reg delete \"HKLM\\SYSTEM\\ControlSet001\\Services\\nvlddmkm\" /v \"LogEventEntries\" /f\n reg delete \"HKLM\\SYSTEM\\ControlSet001\\Services\\nvlddmkm\" /v \"LogErrorEntries\" /f",
+  "revert24H2": "reg delete \"HKLM\\SYSTEM\\ControlSet001\\Services\\nvlddmkm\" /v \"LogWarningEntries\" /f\n reg delete \"HKLM\\SYSTEM\\ControlSet001\\Services\\nvlddmkm\" /v \"LogPagingEntries\" /f\n reg delete \"HKLM\\SYSTEM\\ControlSet001\\Services\\nvlddmkm\" /v \"LogEventEntries\" /f\n reg delete \"HKLM\\SYSTEM\\ControlSet001\\Services\\nvlddmkm\" /v \"LogErrorEntries\" /f",
+  "createdAt": "2026-03-05T17:26:51.918Z",
+  "updatedAt": "2026-03-05T17:26:51.918Z",
+  "revertCommands": "reg delete \"HKLM\\SYSTEM\\ControlSet001\\Services\\nvlddmkm\" /v \"LogWarningEntries\" /f\n reg delete \"HKLM\\SYSTEM\\ControlSet001\\Services\\nvlddmkm\" /v \"LogPagingEntries\" /f\n reg delete \"HKLM\\SYSTEM\\ControlSet001\\Services\\nvlddmkm\" /v \"LogEventEntries\" /f\n reg delete \"HKLM\\SYSTEM\\ControlSet001\\Services\\nvlddmkm\" /v \"LogErrorEntries\" /f",
+  "localDecrypted": true
+}

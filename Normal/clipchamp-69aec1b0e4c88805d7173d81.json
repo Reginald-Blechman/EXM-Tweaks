@@ -1,0 +1,19 @@
+{
+  "_id": "69aec1b0e4c88805d7173d81",
+  "name": "Clipchamp",
+  "description": "Video editor.",
+  "page": "Uninstall",
+  "category": "Debloat",
+  "hardwareReqs": [],
+  "isMultiOption": false,
+  "isPremium": false,
+  "options": [],
+  "commands": "Get-AppxPackage *Clipchamp.Clipchamp* | Remove-AppxPackage",
+  "revert22H2": "Get-AppxPackage -AllUsers Clipchamp.Clipchamp | Foreach {Add-AppxPackage -register \"$($_.InstallLocation)\\appxmanifest.xml\" -DisableDevelopmentMode}",
+  "revert23H2": "Get-AppxPackage -AllUsers Clipchamp.Clipchamp | Foreach {Add-AppxPackage -register \"$($_.InstallLocation)\\appxmanifest.xml\" -DisableDevelopmentMode}",
+  "revert24H2": "Get-AppxPackage -AllUsers Clipchamp.Clipchamp | Foreach {Add-AppxPackage -register \"$($_.InstallLocation)\\appxmanifest.xml\" -DisableDevelopmentMode}",
+  "createdAt": "2026-03-09T12:48:48.378Z",
+  "updatedAt": "2026-03-09T12:48:48.378Z",
+  "revertCommands": "Get-AppxPackage -AllUsers Clipchamp.Clipchamp | Foreach {Add-AppxPackage -register \"$($_.InstallLocation)\\appxmanifest.xml\" -DisableDevelopmentMode}",
+  "localDecrypted": true
+}

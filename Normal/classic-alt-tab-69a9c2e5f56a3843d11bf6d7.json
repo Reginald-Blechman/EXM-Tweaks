@@ -1,0 +1,23 @@
+{
+  "_id": "69a9c2e5f56a3843d11bf6d7",
+  "name": "Classic alt Tab",
+  "description": "Restores classic Alt+Tab behavior without Edge tab previews",
+  "page": "QOL",
+  "category": "General",
+  "icon": "visual.png",
+  "attributes": "Visual",
+  "hardwareReqs": [
+    "os:windows:23h2_and_older"
+  ],
+  "isMultiOption": false,
+  "isPremium": false,
+  "options": [],
+  "commands": "reg add \"HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\AltTab\" /v \"EnableAltTabV2\" /t REG_DWORD /d 0 /f",
+  "revert22H2": "reg add \"HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\AltTab\" /v \"EnableAltTabV2\" /t REG_DWORD /d 1 /f",
+  "revert23H2": "reg add \"HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\AltTab\" /v \"EnableAltTabV2\" /t REG_DWORD /d 1 /f",
+  "revert24H2": "reg add \"HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\AltTab\" /v \"EnableAltTabV2\" /t REG_DWORD /d 1 /f",
+  "createdAt": "2026-03-05T17:52:34.306Z",
+  "updatedAt": "2026-03-05T17:52:39.163Z",
+  "revertCommands": "reg add \"HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\AltTab\" /v \"EnableAltTabV2\" /t REG_DWORD /d 1 /f",
+  "localDecrypted": true
+}

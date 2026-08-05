@@ -1,0 +1,21 @@
+{
+  "_id": "69a9bcd2d2e4311379281511",
+  "name": "Disable Diagnostic Tracking",
+  "description": "Prevents Windows from collecting telemetry and diagnostic data.",
+  "page": "Privacy",
+  "category": "General",
+  "icon": "telemetry.png",
+  "warnings": "Breaks Windows Diagnostic Features",
+  "hardwareReqs": [],
+  "isMultiOption": false,
+  "isPremium": false,
+  "options": [],
+  "commands": "reg add \"HKLM\\SOFTWARE\\Policies\\Microsoft\\Windows\\DataCollection\" /v AllowTelemetry /t REG_DWORD /d 0 /f",
+  "revert22H2": "reg add \"HKLM\\SOFTWARE\\Policies\\Microsoft\\Windows\\DataCollection\" /v AllowTelemetry /t REG_DWORD /d 1 /f",
+  "revert23H2": "reg add \"HKLM\\SOFTWARE\\Policies\\Microsoft\\Windows\\DataCollection\" /v AllowTelemetry /t REG_DWORD /d 1 /f",
+  "revert24H2": "reg add \"HKLM\\SOFTWARE\\Policies\\Microsoft\\Windows\\DataCollection\" /v AllowTelemetry /t REG_DWORD /d 1 /f",
+  "createdAt": "2026-03-05T17:26:42.772Z",
+  "updatedAt": "2026-03-05T17:26:42.772Z",
+  "revertCommands": "reg add \"HKLM\\SOFTWARE\\Policies\\Microsoft\\Windows\\DataCollection\" /v AllowTelemetry /t REG_DWORD /d 1 /f",
+  "localDecrypted": true
+}

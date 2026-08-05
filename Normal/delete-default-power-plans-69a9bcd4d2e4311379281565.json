@@ -1,0 +1,17 @@
+{
+  "_id": "69a9bcd4d2e4311379281565",
+  "name": "Delete Default Power Plans",
+  "description": "Removes stock Windows Balanced, High Performance, and Power Saver plans",
+  "page": "QOL",
+  "category": "General",
+  "icon": "power.png",
+  "hardwareReqs": [],
+  "isMultiOption": false,
+  "isPremium": false,
+  "options": [],
+  "commands": "powercfg -delete 8c5e7fda-e8bf-4a96-9a85-a6e23a8c635c l\npowercfg -delete 381b4222-f694-41f0-9685-ff5bb260df2e l\npowercfg -delete a1841308-3541-4fab-bc81-f71556f20b4a l",
+  "createdAt": "2026-03-05T17:26:44.913Z",
+  "updatedAt": "2026-03-05T17:26:44.913Z",
+  "revertCommands": null,
+  "localDecrypted": true
+}

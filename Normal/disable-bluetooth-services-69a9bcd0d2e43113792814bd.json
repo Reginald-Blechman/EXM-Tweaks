@@ -1,0 +1,21 @@
+{
+  "_id": "69a9bcd0d2e43113792814bd",
+  "name": "Disable Bluetooth Services",
+  "description": "Disables Bluetooth services to reduce background services and potential latency sources.",
+  "page": "Core",
+  "category": "General",
+  "icon": "windows.png",
+  "warnings": "Devices connected via bluetooth will stop working",
+  "hardwareReqs": [],
+  "isMultiOption": false,
+  "isPremium": false,
+  "options": [],
+  "commands": "reg add \"HKLM\\SYSTEM\\CurrentControlSet\\Services\\bthserv\" /v Start /t REG_DWORD /d 4 /f\r\nreg add \"HKLM\\SYSTEM\\CurrentControlSet\\Services\\BluetoothUserService\" /v Start /t REG_DWORD /d 4 /f\r\nreg add \"HKLM\\SYSTEM\\CurrentControlSet\\Services\\BTAGService\" /v Start /t REG_DWORD /d 4 /f\r\nreg add \"HKLM\\SYSTEM\\CurrentControlSet\\Services\\BthAvctpSvc\" /v Start /t REG_DWORD /d 4 /f\r\nreg add \"HKLM\\SYSTEM\\CurrentControlSet\\Services\\BthHFEnum\" /v Start /t REG_DWORD /d 4 /f",
+  "revert22H2": "reg add \"HKLM\\SYSTEM\\CurrentControlSet\\Services\\bthserv\" /v Start /t REG_DWORD /d 3 /f\nreg add \"HKLM\\SYSTEM\\CurrentControlSet\\Services\\BluetoothUserService\" /v Start /t REG_DWORD /d 3 /f\nreg add \"HKLM\\SYSTEM\\CurrentControlSet\\Services\\BTAGService\" /v Start /t REG_DWORD /d 3 /f\nreg add \"HKLM\\SYSTEM\\CurrentControlSet\\Services\\BthAvctpSvc\" /v Start /t REG_DWORD /d 3 /f\nreg add \"HKLM\\SYSTEM\\CurrentControlSet\\Services\\BthHFEnum\" /v Start /t REG_DWORD /d 3 /f",
+  "revert23H2": "reg add \"HKLM\\SYSTEM\\CurrentControlSet\\Services\\bthserv\" /v Start /t REG_DWORD /d 3 /f\nreg add \"HKLM\\SYSTEM\\CurrentControlSet\\Services\\BluetoothUserService\" /v Start /t REG_DWORD /d 3 /f\nreg add \"HKLM\\SYSTEM\\CurrentControlSet\\Services\\BTAGService\" /v Start /t REG_DWORD /d 3 /f\nreg add \"HKLM\\SYSTEM\\CurrentControlSet\\Services\\BthAvctpSvc\" /v Start /t REG_DWORD /d 3 /f\nreg add \"HKLM\\SYSTEM\\CurrentControlSet\\Services\\BthHFEnum\" /v Start /t REG_DWORD /d 3 /f",
+  "revert24H2": "reg add \"HKLM\\SYSTEM\\CurrentControlSet\\Services\\bthserv\" /v Start /t REG_DWORD /d 3 /f\nreg add \"HKLM\\SYSTEM\\CurrentControlSet\\Services\\BluetoothUserService\" /v Start /t REG_DWORD /d 3 /f\nreg add \"HKLM\\SYSTEM\\CurrentControlSet\\Services\\BTAGService\" /v Start /t REG_DWORD /d 3 /f\nreg add \"HKLM\\SYSTEM\\CurrentControlSet\\Services\\BthAvctpSvc\" /v Start /t REG_DWORD /d 3 /f\nreg add \"HKLM\\SYSTEM\\CurrentControlSet\\Services\\BthHFEnum\" /v Start /t REG_DWORD /d 3 /f",
+  "createdAt": "2026-03-05T17:26:40.583Z",
+  "updatedAt": "2026-03-05T17:26:40.583Z",
+  "revertCommands": "reg add \"HKLM\\SYSTEM\\CurrentControlSet\\Services\\bthserv\" /v Start /t REG_DWORD /d 3 /f\nreg add \"HKLM\\SYSTEM\\CurrentControlSet\\Services\\BluetoothUserService\" /v Start /t REG_DWORD /d 3 /f\nreg add \"HKLM\\SYSTEM\\CurrentControlSet\\Services\\BTAGService\" /v Start /t REG_DWORD /d 3 /f\nreg add \"HKLM\\SYSTEM\\CurrentControlSet\\Services\\BthAvctpSvc\" /v Start /t REG_DWORD /d 3 /f\nreg add \"HKLM\\SYSTEM\\CurrentControlSet\\Services\\BthHFEnum\" /v Start /t REG_DWORD /d 3 /f",
+  "localDecrypted": true
+}

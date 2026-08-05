@@ -1,0 +1,21 @@
+{
+  "_id": "69a9bcd0d2e43113792814b1",
+  "name": "Disable Xbox Services",
+  "description": "Disables Xbox-related background services and components to reduce system overhead and background activity.",
+  "page": "Core",
+  "category": "General",
+  "icon": "windows.png",
+  "warnings": "Breaks Xbox App and some Microsoft Store games that rely on Xbox services.",
+  "hardwareReqs": [],
+  "isMultiOption": false,
+  "isPremium": false,
+  "options": [],
+  "commands": "reg add \"HKLM\\SYSTEM\\CurrentControlSet\\Services\\XboxGipSvc\" /v Start /t REG_DWORD /d 4 /f\nreg add \"HKLM\\SYSTEM\\CurrentControlSet\\Services\\XblAuthManager\" /v Start /t REG_DWORD /d 4 /f\nreg add \"HKLM\\SYSTEM\\CurrentControlSet\\Services\\XblGameSave\" /v Start /t REG_DWORD /d 4 /f\nreg add \"HKLM\\SYSTEM\\CurrentControlSet\\Services\\XboxNetApiSvc\" /v Start /t REG_DWORD /d 4 /f",
+  "revert22H2": "reg add \"HKLM\\SYSTEM\\CurrentControlSet\\Services\\XboxGipSvc\" /v Start /t REG_DWORD /d 3 /f\nreg add \"HKLM\\SYSTEM\\CurrentControlSet\\Services\\XblAuthManager\" /v Start /t REG_DWORD /d 3 /f\nreg add \"HKLM\\SYSTEM\\CurrentControlSet\\Services\\XblGameSave\" /v Start /t REG_DWORD /d 3 /f\nreg add \"HKLM\\SYSTEM\\CurrentControlSet\\Services\\XboxNetApiSvc\" /v Start /t REG_DWORD /d 3 /f",
+  "revert23H2": "reg add \"HKLM\\SYSTEM\\CurrentControlSet\\Services\\XboxGipSvc\" /v Start /t REG_DWORD /d 3 /f\nreg add \"HKLM\\SYSTEM\\CurrentControlSet\\Services\\XblAuthManager\" /v Start /t REG_DWORD /d 3 /f\nreg add \"HKLM\\SYSTEM\\CurrentControlSet\\Services\\XblGameSave\" /v Start /t REG_DWORD /d 3 /f\nreg add \"HKLM\\SYSTEM\\CurrentControlSet\\Services\\XboxNetApiSvc\" /v Start /t REG_DWORD /d 3 /f",
+  "revert24H2": "reg add \"HKLM\\SYSTEM\\CurrentControlSet\\Services\\XboxGipSvc\" /v Start /t REG_DWORD /d 3 /f\nreg add \"HKLM\\SYSTEM\\CurrentControlSet\\Services\\XblAuthManager\" /v Start /t REG_DWORD /d 3 /f\nreg add \"HKLM\\SYSTEM\\CurrentControlSet\\Services\\XblGameSave\" /v Start /t REG_DWORD /d 3 /f\nreg add \"HKLM\\SYSTEM\\CurrentControlSet\\Services\\XboxNetApiSvc\" /v Start /t REG_DWORD /d 3 /f",
+  "createdAt": "2026-03-05T17:26:40.250Z",
+  "updatedAt": "2026-03-05T17:26:40.250Z",
+  "revertCommands": "reg add \"HKLM\\SYSTEM\\CurrentControlSet\\Services\\XboxGipSvc\" /v Start /t REG_DWORD /d 3 /f\nreg add \"HKLM\\SYSTEM\\CurrentControlSet\\Services\\XblAuthManager\" /v Start /t REG_DWORD /d 3 /f\nreg add \"HKLM\\SYSTEM\\CurrentControlSet\\Services\\XblGameSave\" /v Start /t REG_DWORD /d 3 /f\nreg add \"HKLM\\SYSTEM\\CurrentControlSet\\Services\\XboxNetApiSvc\" /v Start /t REG_DWORD /d 3 /f",
+  "localDecrypted": true
+}

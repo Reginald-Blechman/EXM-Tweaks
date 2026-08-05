@@ -1,0 +1,20 @@
+{
+  "_id": "69a9bcd3d2e431137928152c",
+  "name": "Disable Safe Search",
+  "description": "Disable Safe Search removes the built-in filter that blocks or hides adult or explicit web content in searches",
+  "page": "QOL",
+  "category": "General",
+  "icon": "windows.png",
+  "hardwareReqs": [],
+  "isMultiOption": false,
+  "isPremium": false,
+  "options": [],
+  "commands": "reg add \"HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\SearchSettings\" /v SafeSearchMode /t REG_DWORD /d 0 /f",
+  "revert22H2": "reg add \"HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\SearchSettings\" /v SafeSearchMode /t REG_DWORD /d 1 /f",
+  "revert23H2": "reg add \"HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\SearchSettings\" /v SafeSearchMode /t REG_DWORD /d 1 /f",
+  "revert24H2": "reg add \"HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\SearchSettings\" /v SafeSearchMode /t REG_DWORD /d 1 /f",
+  "createdAt": "2026-03-05T17:26:43.673Z",
+  "updatedAt": "2026-03-05T17:26:43.673Z",
+  "revertCommands": "reg add \"HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\SearchSettings\" /v SafeSearchMode /t REG_DWORD /d 1 /f",
+  "localDecrypted": true
+}

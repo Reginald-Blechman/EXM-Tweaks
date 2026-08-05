@@ -1,0 +1,21 @@
+{
+  "_id": "69a9bcd8d2e43113792815d1",
+  "name": "Disable Modern Standby",
+  "description": "Disables Modern Standby to stop the system from entering low-power connected states",
+  "page": "CPU",
+  "category": "Hardware",
+  "icon": "power.png",
+  "warnings": "Power Warning",
+  "hardwareReqs": [],
+  "isMultiOption": false,
+  "isPremium": false,
+  "options": [],
+  "commands": "reg add \"HKLM\\SYSTEM\\CurrentControlSet\\Control\\Power\" /v \"PlatformAoAcOverride\" /t REG_DWORD /d 0 /f\n reg add \"HKLM\\SYSTEM\\CurrentControlSet\\Control\\Power\" /v \"PlatformRoleOverride\" /t REG_DWORD /d 0 /f\n reg add \"HKLM\\SYSTEM\\CurrentControlSet\\Control\\Power\" /v \"MSDisabled\" /t REG_DWORD /d 1 /f",
+  "revert22H2": "reg delete \"HKLM\\SYSTEM\\CurrentControlSet\\Control\\Power\" /v PlatformAoAcOverride /f\r\nreg delete \"HKLM\\SYSTEM\\CurrentControlSet\\Control\\Power\" /v PlatformRoleOverride /f\r\nreg delete \"HKLM\\SYSTEM\\CurrentControlSet\\Control\\Power\" /v MSDisabled /f",
+  "revert23H2": "reg delete \"HKLM\\SYSTEM\\CurrentControlSet\\Control\\Power\" /v PlatformAoAcOverride /f\r\nreg delete \"HKLM\\SYSTEM\\CurrentControlSet\\Control\\Power\" /v PlatformRoleOverride /f\r\nreg delete \"HKLM\\SYSTEM\\CurrentControlSet\\Control\\Power\" /v MSDisabled /f",
+  "revert24H2": "reg delete \"HKLM\\SYSTEM\\CurrentControlSet\\Control\\Power\" /v PlatformAoAcOverride /f\r\nreg delete \"HKLM\\SYSTEM\\CurrentControlSet\\Control\\Power\" /v PlatformRoleOverride /f\r\nreg delete \"HKLM\\SYSTEM\\CurrentControlSet\\Control\\Power\" /v MSDisabled /f",
+  "createdAt": "2026-03-05T17:26:48.522Z",
+  "updatedAt": "2026-03-05T17:26:48.522Z",
+  "revertCommands": "reg delete \"HKLM\\SYSTEM\\CurrentControlSet\\Control\\Power\" /v PlatformAoAcOverride /f\r\nreg delete \"HKLM\\SYSTEM\\CurrentControlSet\\Control\\Power\" /v PlatformRoleOverride /f\r\nreg delete \"HKLM\\SYSTEM\\CurrentControlSet\\Control\\Power\" /v MSDisabled /f",
+  "localDecrypted": true
+}

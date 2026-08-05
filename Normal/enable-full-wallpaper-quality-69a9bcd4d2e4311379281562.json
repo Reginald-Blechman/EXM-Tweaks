@@ -1,0 +1,20 @@
+{
+  "_id": "69a9bcd4d2e4311379281562",
+  "name": "Enable Full Wallpaper Quality",
+  "description": "Ensures desktop wallpapers display at maximum resolution for better visual quality",
+  "page": "QOL",
+  "category": "General",
+  "icon": "qol.png",
+  "hardwareReqs": [],
+  "isMultiOption": false,
+  "isPremium": false,
+  "options": [],
+  "commands": "reg add \"HKCU\\Control Panel\\Desktop\" /v \"WallpaperQuality\" /t REG_DWORD /d 2 /f",
+  "revert22H2": "reg add \"HKCU\\Control Panel\\Desktop\" /v \"WallpaperQuality\" /t REG_DWORD /d 1 /f",
+  "revert23H2": "reg add \"HKCU\\Control Panel\\Desktop\" /v \"WallpaperQuality\" /t REG_DWORD /d 1 /f",
+  "revert24H2": "reg add \"HKCU\\Control Panel\\Desktop\" /v \"WallpaperQuality\" /t REG_DWORD /d 1 /f",
+  "createdAt": "2026-03-05T17:26:44.854Z",
+  "updatedAt": "2026-03-05T17:26:44.854Z",
+  "revertCommands": "reg add \"HKCU\\Control Panel\\Desktop\" /v \"WallpaperQuality\" /t REG_DWORD /d 1 /f",
+  "localDecrypted": true
+}

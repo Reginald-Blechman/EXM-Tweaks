@@ -1,0 +1,21 @@
+{
+  "_id": "69a9bcd2d2e431137928150e",
+  "name": "Disable Diagnostic Data Collection",
+  "description": "Stops all diagnostic data collection.",
+  "page": "Privacy",
+  "category": "General",
+  "icon": "telemetry.png",
+  "warnings": "Limits Windows diagnostics and crash reporting features",
+  "hardwareReqs": [],
+  "isMultiOption": false,
+  "isPremium": false,
+  "options": [],
+  "commands": "reg add \"HKLM\\SOFTWARE\\Policies\\Microsoft\\Windows\\DataCollection\" /v AllowTelemetry /t REG_DWORD /d 0 /f\n \n reg add \"HKLM\\SOFTWARE\\Policies\\Microsoft\\Windows\\DataCollection\" /v MaxTelemetryAllowed /t REG_DWORD /d 0 /f\n \nreg add \"HKLM\\SYSTEM\\CurrentControlSet\\Services\\DiagTrack\" /v Start /t REG_DWORD /d 4 /f",
+  "revert22H2": "reg add \"HKLM\\SOFTWARE\\Policies\\Microsoft\\Windows\\DataCollection\" /v AllowTelemetry /t REG_DWORD /d 3 /f\n reg add \"HKLM\\SOFTWARE\\Policies\\Microsoft\\Windows\\DataCollection\" /v MaxTelemetryAllowed /t REG_DWORD /d 3 /f\n \nreg add \"HKLM\\SYSTEM\\CurrentControlSet\\Services\\DiagTrack\" /v Start /t REG_DWORD /d 3 /f",
+  "revert23H2": "reg add \"HKLM\\SOFTWARE\\Policies\\Microsoft\\Windows\\DataCollection\" /v AllowTelemetry /t REG_DWORD /d 3 /f\n reg add \"HKLM\\SOFTWARE\\Policies\\Microsoft\\Windows\\DataCollection\" /v MaxTelemetryAllowed /t REG_DWORD /d 3 /f\n \nreg add \"HKLM\\SYSTEM\\CurrentControlSet\\Services\\DiagTrack\" /v Start /t REG_DWORD /d 3 /f",
+  "revert24H2": "reg add \"HKLM\\SOFTWARE\\Policies\\Microsoft\\Windows\\DataCollection\" /v AllowTelemetry /t REG_DWORD /d 3 /f\n reg add \"HKLM\\SOFTWARE\\Policies\\Microsoft\\Windows\\DataCollection\" /v MaxTelemetryAllowed /t REG_DWORD /d 3 /f\n \nreg add \"HKLM\\SYSTEM\\CurrentControlSet\\Services\\DiagTrack\" /v Start /t REG_DWORD /d 3 /f",
+  "createdAt": "2026-03-05T17:26:42.700Z",
+  "updatedAt": "2026-03-05T17:26:42.700Z",
+  "revertCommands": "reg add \"HKLM\\SOFTWARE\\Policies\\Microsoft\\Windows\\DataCollection\" /v AllowTelemetry /t REG_DWORD /d 3 /f\n reg add \"HKLM\\SOFTWARE\\Policies\\Microsoft\\Windows\\DataCollection\" /v MaxTelemetryAllowed /t REG_DWORD /d 3 /f\n \nreg add \"HKLM\\SYSTEM\\CurrentControlSet\\Services\\DiagTrack\" /v Start /t REG_DWORD /d 3 /f",
+  "localDecrypted": true
+}

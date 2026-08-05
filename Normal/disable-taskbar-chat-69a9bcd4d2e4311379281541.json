@@ -1,0 +1,20 @@
+{
+  "_id": "69a9bcd4d2e4311379281541",
+  "name": "Disable Taskbar Chat",
+  "description": "Removes Microsoft Teams chat integration from the taskbar",
+  "page": "QOL",
+  "category": "General",
+  "icon": "windows.png",
+  "hardwareReqs": [],
+  "isMultiOption": false,
+  "isPremium": false,
+  "options": [],
+  "commands": "reg add \"HKLM\\Software\\Policies\\Microsoft\\Windows\\Explorer\" /v \"DisableNotificationCenter\" /t REG_DWORD /d 1 /f",
+  "revert22H2": "reg add \"HKLM\\Software\\Policies\\Microsoft\\Windows\\Explorer\" /v \"DisableNotificationCenter\" /t REG_DWORD /d 0 /f",
+  "revert23H2": "reg add \"HKLM\\Software\\Policies\\Microsoft\\Windows\\Explorer\" /v \"DisableNotificationCenter\" /t REG_DWORD /d 0 /f",
+  "revert24H2": "reg add \"HKLM\\Software\\Policies\\Microsoft\\Windows\\Explorer\" /v \"DisableNotificationCenter\" /t REG_DWORD /d 0 /f",
+  "createdAt": "2026-03-05T17:26:44.156Z",
+  "updatedAt": "2026-03-05T17:26:44.156Z",
+  "revertCommands": "reg add \"HKLM\\Software\\Policies\\Microsoft\\Windows\\Explorer\" /v \"DisableNotificationCenter\" /t REG_DWORD /d 0 /f",
+  "localDecrypted": true
+}

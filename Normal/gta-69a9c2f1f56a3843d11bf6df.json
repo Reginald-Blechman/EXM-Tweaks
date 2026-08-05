@@ -1,0 +1,17 @@
+{
+  "_id": "69a9c2f1f56a3843d11bf6df",
+  "name": "GTA",
+  "__v": 0,
+  "category": "Gaming",
+  "commands": "reg add \"HKLM\\SYSTEM\\CurrentControlSet\\Services\\BFE\" /v Start /t REG_DWORD /d 2 /f\nreg add \"HKLM\\SYSTEM\\CurrentControlSet\\Services\\MpsSvc\" /v Start /t REG_DWORD /d 2 /f\nreg add \"HKLM\\SYSTEM\\CurrentControlSet\\Services\\Dnscache\" /v Start /t REG_DWORD /d 2 /f\nreg add \"HKLM\\SYSTEM\\CurrentControlSet\\Services\\Dhcp\" /v Start /t REG_DWORD /d 2 /f\nreg add \"HKLM\\SYSTEM\\CurrentControlSet\\Services\\diagsvc\" /v \"Start\" /t REG_DWORD /d 2 /f\nreg add \"HKLM\\SYSTEM\\CurrentControlSet\\Services\\DPS\" /v Start /t REG_DWORD /d 2 /f\nreg add \"HKLM\\SYSTEM\\CurrentControlSet\\Services\\WdiServiceHost\" /v Start /t REG_DWORD /d 2 /f\nreg add \"HKLM\\SYSTEM\\CurrentControlSet\\Services\\WdiSystemHost\" /v Start /t REG_DWORD /d 2 /f\nnetsh int ip set global mldlevel=all",
+  "createdAt": "2026-03-05T17:52:48.030Z",
+  "description": "Fix GTA/Fivem not working",
+  "icon": "advanced.png",
+  "order": 16,
+  "servicesRestored": [],
+  "tags": [],
+  "updatedAt": "2026-03-05T17:52:48.030Z",
+  "revertCommands": null,
+  "options": [],
+  "localDecrypted": true
+}
