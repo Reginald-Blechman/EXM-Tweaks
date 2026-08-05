@@ -1,0 +1,19 @@
+{
+  "_id": "69aec1b0e4c88805d7173d8d",
+  "name": "Microsoft To Do",
+  "description": "Task manager.",
+  "page": "Uninstall",
+  "category": "Debloat",
+  "hardwareReqs": [],
+  "isMultiOption": false,
+  "isPremium": false,
+  "options": [],
+  "commands": "Get-AppxPackage *Microsoft.Todos* | Remove-AppxPackage",
+  "revert22H2": "Get-AppxPackage -AllUsers Microsoft.Todos | Foreach {Add-AppxPackage -register \"$($_.InstallLocation)\\appxmanifest.xml\" -DisableDevelopmentMode}",
+  "revert23H2": "Get-AppxPackage -AllUsers Microsoft.Todos | Foreach {Add-AppxPackage -register \"$($_.InstallLocation)\\appxmanifest.xml\" -DisableDevelopmentMode}",
+  "revert24H2": "Get-AppxPackage -AllUsers Microsoft.Todos | Foreach {Add-AppxPackage -register \"$($_.InstallLocation)\\appxmanifest.xml\" -DisableDevelopmentMode}",
+  "createdAt": "2026-03-09T12:48:48.620Z",
+  "updatedAt": "2026-03-09T12:48:48.620Z",
+  "revertCommands": "Get-AppxPackage -AllUsers Microsoft.Todos | Foreach {Add-AppxPackage -register \"$($_.InstallLocation)\\appxmanifest.xml\" -DisableDevelopmentMode}",
+  "localDecrypted": true
+}

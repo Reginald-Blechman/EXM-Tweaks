@@ -1,0 +1,20 @@
+{
+  "_id": "69a9bcdcd2e4311379281679",
+  "name": "Optimize NVIDIA Frame Scheduling",
+  "description": "Tunes GPU frame scheduling parameters to minimize frame time variance and reduce micro-stuttering.",
+  "page": "GPU (nvidia)",
+  "category": "Hardware",
+  "icon": "system.png",
+  "hardwareReqs": [],
+  "isMultiOption": false,
+  "isPremium": false,
+  "options": [],
+  "commands": "$gpus=Get-CimInstance Win32_VideoController|Where-Object{$_.PNPDeviceID -like 'PCI\\VEN_10DE*'}; foreach($g in $gpus){ $enum=\"HKLM:\\SYSTEM\\ControlSet001\\Enum\\$($g.PNPDeviceID)\"; $drv=(Get-ItemProperty -Path $enum -Name Driver).Driver; $cls=\"HKLM:\\SYSTEM\\CurrentControlSet\\Control\\Class\\$drv\"; New-ItemProperty -Path $cls -Name 'RmGspcMaxFtuS' -PropertyType DWord -Value 1 -Force; New-ItemProperty -Path $cls -Name 'RmGspcMinFtuS' -PropertyType DWord -Value 1 -Force; New-ItemProperty -Path $cls -Name 'RmGspcPerioduS' -PropertyType DWord -Value 1 -Force; }",
+  "revert22H2": "$gpus=Get-CimInstance Win32_VideoController|Where-Object{$_.PNPDeviceID -like 'PCI\\VEN_10DE*'}; foreach($g in $gpus){ $enum=\"HKLM:\\SYSTEM\\ControlSet001\\Enum\\$($g.PNPDeviceID)\"; $drv=(Get-ItemProperty -Path $enum -Name Driver).Driver; $cls=\"HKLM:\\SYSTEM\\CurrentControlSet\\Control\\Class\\$drv\"; Remove-ItemProperty -Path $cls -Name 'RmGspcMaxFtuS' -Force -ErrorAction SilentlyContinue; Remove-ItemProperty -Path $cls -Name 'RmGspcMinFtuS' -Force -ErrorAction SilentlyContinue; Remove-ItemProperty -Path $cls -Name 'RmGspcPerioduS' -Force -ErrorAction SilentlyContinue; }",
+  "revert23H2": "$gpus=Get-CimInstance Win32_VideoController|Where-Object{$_.PNPDeviceID -like 'PCI\\VEN_10DE*'}; foreach($g in $gpus){ $enum=\"HKLM:\\SYSTEM\\ControlSet001\\Enum\\$($g.PNPDeviceID)\"; $drv=(Get-ItemProperty -Path $enum -Name Driver).Driver; $cls=\"HKLM:\\SYSTEM\\CurrentControlSet\\Control\\Class\\$drv\"; Remove-ItemProperty -Path $cls -Name 'RmGspcMaxFtuS' -Force -ErrorAction SilentlyContinue; Remove-ItemProperty -Path $cls -Name 'RmGspcMinFtuS' -Force -ErrorAction SilentlyContinue; Remove-ItemProperty -Path $cls -Name 'RmGspcPerioduS' -Force -ErrorAction SilentlyContinue; }",
+  "revert24H2": "$gpus=Get-CimInstance Win32_VideoController|Where-Object{$_.PNPDeviceID -like 'PCI\\VEN_10DE*'}; foreach($g in $gpus){ $enum=\"HKLM:\\SYSTEM\\ControlSet001\\Enum\\$($g.PNPDeviceID)\"; $drv=(Get-ItemProperty -Path $enum -Name Driver).Driver; $cls=\"HKLM:\\SYSTEM\\CurrentControlSet\\Control\\Class\\$drv\"; Remove-ItemProperty -Path $cls -Name 'RmGspcMaxFtuS' -Force -ErrorAction SilentlyContinue; Remove-ItemProperty -Path $cls -Name 'RmGspcMinFtuS' -Force -ErrorAction SilentlyContinue; Remove-ItemProperty -Path $cls -Name 'RmGspcPerioduS' -Force -ErrorAction SilentlyContinue; }",
+  "createdAt": "2026-03-05T17:26:52.296Z",
+  "updatedAt": "2026-03-05T17:26:52.296Z",
+  "revertCommands": "$gpus=Get-CimInstance Win32_VideoController|Where-Object{$_.PNPDeviceID -like 'PCI\\VEN_10DE*'}; foreach($g in $gpus){ $enum=\"HKLM:\\SYSTEM\\ControlSet001\\Enum\\$($g.PNPDeviceID)\"; $drv=(Get-ItemProperty -Path $enum -Name Driver).Driver; $cls=\"HKLM:\\SYSTEM\\CurrentControlSet\\Control\\Class\\$drv\"; Remove-ItemProperty -Path $cls -Name 'RmGspcMaxFtuS' -Force -ErrorAction SilentlyContinue; Remove-ItemProperty -Path $cls -Name 'RmGspcMinFtuS' -Force -ErrorAction SilentlyContinue; Remove-ItemProperty -Path $cls -Name 'RmGspcPerioduS' -Force -ErrorAction SilentlyContinue; }",
+  "localDecrypted": true
+}

@@ -1,0 +1,19 @@
+{
+  "_id": "69aec1b1e4c88805d7173db7",
+  "name": "Msn Travel",
+  "description": "Travel info.",
+  "page": "Uninstall",
+  "category": "Debloat",
+  "hardwareReqs": [],
+  "isMultiOption": false,
+  "isPremium": false,
+  "options": [],
+  "commands": "Get-AppxPackage *Microsoft.BingTravel* | Remove-AppxPackage",
+  "revert22H2": "Get-AppxPackage -AllUsers Microsoft.BingTravel | Foreach {Add-AppxPackage -register \"$($_.InstallLocation)\\appxmanifest.xml\" -DisableDevelopmentMode}",
+  "revert23H2": "Get-AppxPackage -AllUsers Microsoft.BingTravel | Foreach {Add-AppxPackage -register \"$($_.InstallLocation)\\appxmanifest.xml\" -DisableDevelopmentMode}",
+  "revert24H2": "Get-AppxPackage -AllUsers Microsoft.BingTravel | Foreach {Add-AppxPackage -register \"$($_.InstallLocation)\\appxmanifest.xml\" -DisableDevelopmentMode}",
+  "createdAt": "2026-03-09T12:48:49.493Z",
+  "updatedAt": "2026-03-09T12:48:49.493Z",
+  "revertCommands": "Get-AppxPackage -AllUsers Microsoft.BingTravel | Foreach {Add-AppxPackage -register \"$($_.InstallLocation)\\appxmanifest.xml\" -DisableDevelopmentMode}",
+  "localDecrypted": true
+}

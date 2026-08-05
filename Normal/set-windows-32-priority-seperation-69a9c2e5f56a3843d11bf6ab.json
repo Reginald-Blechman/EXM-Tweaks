@@ -1,0 +1,71 @@
+{
+  "_id": "69a9c2e5f56a3843d11bf6ab",
+  "name": "Set Windows 32 Priority Seperation",
+  "description": "Optimizes CPU scheduling by giving higher priority to the active foreground application for better performance and responsiveness",
+  "page": "Core",
+  "category": "General",
+  "icon": "system.png",
+  "attributes": "System",
+  "hardwareReqs": [],
+  "isMultiOption": true,
+  "isPremium": false,
+  "options": [
+    {
+      "hardwareReqs": [],
+      "isRecommended": false,
+      "_id": "6a72b6ddd5fa883516b9e531",
+      "key": "26hex",
+      "name": "26 hex",
+      "description": "38 decimal -> Stable mix between High FPS and Low latency",
+      "commands": "reg add \"HKLM\\SYSTEM\\CurrentControlSet\\Control\\PriorityControl\" /v \"Win32PrioritySeparation\" /t REG_DWORD /d \"38\" /f",
+      "revertCommands": null,
+      "revert22H2": null,
+      "revert23H2": null,
+      "revert24H2": null
+    },
+    {
+      "hardwareReqs": [],
+      "isRecommended": false,
+      "_id": "6a72b6ddd5fa883516b9e532",
+      "key": "18hex",
+      "name": "18 hex",
+      "description": "24 decimal -> Possibly Higher fps compared to other values",
+      "commands": "reg add \"HKLM\\SYSTEM\\CurrentControlSet\\Control\\PriorityControl\" /v \"Win32PrioritySeparation\" /t REG_DWORD /d \"24\" /f",
+      "revertCommands": null,
+      "revert22H2": null,
+      "revert23H2": null,
+      "revert24H2": null
+    },
+    {
+      "hardwareReqs": [],
+      "isRecommended": false,
+      "_id": "6a72b6ddd5fa883516b9e533",
+      "key": "16hex",
+      "name": "16 hex",
+      "description": "22 decimal > Another Stable mix between High FPS and Low latency",
+      "commands": "reg add \"HKLM\\SYSTEM\\CurrentControlSet\\Control\\PriorityControl\" /v \"Win32PrioritySeparation\" /t REG_DWORD /d \"22\" /f",
+      "revertCommands": null,
+      "revert22H2": null,
+      "revert23H2": null,
+      "revert24H2": null
+    },
+    {
+      "hardwareReqs": [],
+      "isRecommended": false,
+      "_id": "6a72b6ddd5fa883516b9e534",
+      "key": "2Ahex",
+      "name": "2A hex",
+      "description": "42 decimal-> Possibly Lower latency compared to other values",
+      "commands": "reg add \"HKLM\\SYSTEM\\CurrentControlSet\\Control\\PriorityControl\" /v \"Win32PrioritySeparation\" /t REG_DWORD /d \"42\" /f",
+      "revertCommands": null,
+      "revert22H2": null,
+      "revert23H2": null,
+      "revert24H2": null
+    }
+  ],
+  "createdAt": "2026-03-05T17:52:34.306Z",
+  "updatedAt": "2026-03-05T17:52:39.163Z",
+  "commands": null,
+  "revertCommands": null,
+  "localDecrypted": true
+}

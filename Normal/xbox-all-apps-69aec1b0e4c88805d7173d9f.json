@@ -1,0 +1,19 @@
+{
+  "_id": "69aec1b0e4c88805d7173d9f",
+  "name": "Xbox (all Apps)",
+  "description": "All Xbox gaming integrations.",
+  "page": "Uninstall",
+  "category": "Debloat",
+  "hardwareReqs": [],
+  "isMultiOption": false,
+  "isPremium": false,
+  "options": [],
+  "commands": "$appList = @(\n    'Microsoft.XboxApp',\n    'Microsoft.XboxGamingOverlay',\n    'Microsoft.XboxGameOverlay',\n    'Microsoft.XboxLiveGames',\n    'Microsoft.XboxIdentityProvider',\n    'Microsoft.XboxSpeechToTextOverlay',\n    'Microsoft.Xbox.TCUI',\n    'Microsoft.GamingApp',\n    'Microsoft.GamingServices'\n)\n\nforeach ($app in $appList) {\n    Get-AppxPackage $app -AllUsers | Remove-AppxPackage\n    Get-AppxProvisionedPackage -Online | Where-Object {$_.DisplayName -eq $app} | Remove-AppxProvisionedPackage -Online\n}",
+  "revert22H2": "Microsoft.XboxApp','Microsoft.XboxGamingOverlay','Microsoft.XboxGameOverlay','Microsoft.XboxLiveGames','Microsoft.XboxIdentityProvider','Microsoft.XboxSpeechToTextOverlay','Microsoft.Xbox.TCUI','Microsoft.GamingApp','Microsoft.GamingServices' |\n  ForEach-Object {\n    Get-AppxPackage -AllUsers $_ | ForEach-Object {\n      Add-AppxPackage -Register \"$($_.InstallLocation)\\appxmanifest.xml\" -DisableDevelopmentMode\n    }\n  }",
+  "revert23H2": "Microsoft.XboxApp','Microsoft.XboxGamingOverlay','Microsoft.XboxGameOverlay','Microsoft.XboxLiveGames','Microsoft.XboxIdentityProvider','Microsoft.XboxSpeechToTextOverlay','Microsoft.Xbox.TCUI','Microsoft.GamingApp','Microsoft.GamingServices' |\n  ForEach-Object {\n    Get-AppxPackage -AllUsers $_ | ForEach-Object {\n      Add-AppxPackage -Register \"$($_.InstallLocation)\\appxmanifest.xml\" -DisableDevelopmentMode\n    }\n  }",
+  "revert24H2": "Microsoft.XboxApp','Microsoft.XboxGamingOverlay','Microsoft.XboxGameOverlay','Microsoft.XboxLiveGames','Microsoft.XboxIdentityProvider','Microsoft.XboxSpeechToTextOverlay','Microsoft.Xbox.TCUI','Microsoft.GamingApp','Microsoft.GamingServices' |\n  ForEach-Object {\n    Get-AppxPackage -AllUsers $_ | ForEach-Object {\n      Add-AppxPackage -Register \"$($_.InstallLocation)\\appxmanifest.xml\" -DisableDevelopmentMode\n    }\n  }",
+  "createdAt": "2026-03-09T12:48:48.980Z",
+  "updatedAt": "2026-03-09T12:48:48.980Z",
+  "revertCommands": "Microsoft.XboxApp','Microsoft.XboxGamingOverlay','Microsoft.XboxGameOverlay','Microsoft.XboxLiveGames','Microsoft.XboxIdentityProvider','Microsoft.XboxSpeechToTextOverlay','Microsoft.Xbox.TCUI','Microsoft.GamingApp','Microsoft.GamingServices' |\n  ForEach-Object {\n    Get-AppxPackage -AllUsers $_ | ForEach-Object {\n      Add-AppxPackage -Register \"$($_.InstallLocation)\\appxmanifest.xml\" -DisableDevelopmentMode\n    }\n  }",
+  "localDecrypted": true
+}

@@ -1,0 +1,17 @@
+{
+  "_id": "69a9c2f1f56a3843d11bf6de",
+  "name": "Valorant",
+  "__v": 0,
+  "category": "Gaming",
+  "commands": "Reg.exe add \"HKLM\\Software\\Policies\\Microsoft\\Windows\\DeviceGuard\" /v \"EnableVirtualizationBasedSecurity\" /t REG_DWORD /d \"1\" /f\nReg.exe add \"HKLM\\Software\\Policies\\Microsoft\\Windows\\DeviceGuard\" /v \"RequirePlatformSecurityFeatures\" /t REG_DWORD /d \"3\" /f\nReg.exe add \"HKLM\\Software\\Policies\\Microsoft\\Windows\\DeviceGuard\" /v \"LsaCfgFlags\" /t REG_DWORD /d \"1\" /f\nReg.exe add \"HKLM\\Software\\Policies\\Microsoft\\Windows\\DeviceGuard\" /v \"HypervisorEnforcedCodeIntegrity\" /t REG_DWORD /d \"1\" /f\nReg.exe add \"HKLM\\Software\\Policies\\Microsoft\\Windows\\DeviceGuard\" /v \"ConfigureSystemGuardLaunch\" /t REG_DWORD /d \"1\" /f\nReg.exe add \"HKLM\\Software\\Policies\\Microsoft\\Windows\\DeviceGuard\" /v \"ConfigureKernelShadowStacksLaunch\" /t REG_DWORD /d \"1\" /f\nbcdedit /set hypervisorlaunchtype auto\nReg.exe add \"HKLM\\SYSTEM\\CurrentControlSet\\Control\\DeviceGuard\\Scenarios\\SystemGuard\" /v \"Enabled\" /t REG_DWORD /d \"1\" /f",
+  "createdAt": "2026-03-05T17:52:48.030Z",
+  "description": "Fix valorant launch errors",
+  "icon": "advanced.png",
+  "order": 15,
+  "servicesRestored": [],
+  "tags": [],
+  "updatedAt": "2026-03-05T17:52:48.030Z",
+  "revertCommands": null,
+  "options": [],
+  "localDecrypted": true
+}

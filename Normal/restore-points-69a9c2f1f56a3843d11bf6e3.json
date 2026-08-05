@@ -1,0 +1,17 @@
+{
+  "_id": "69a9c2f1f56a3843d11bf6e3",
+  "name": "Restore points",
+  "__v": 0,
+  "category": "Storage",
+  "commands": "reg add \"HKLM\\SYSTEM\\ControlSet001\\Control\\Class\\{71a27cdd-812a-11d0-bec7-08002be2092f}\" /v \"LowerFilters\" /t REG_MULTI_SZ /d \"fvevol\" /f\nreg add \"HKLM\\SYSTEM\\ControlSet001\\Services\\fvevol\" /v \"Start\" /t REG_DWORD /d \"0\" /f",
+  "createdAt": "2026-03-05T17:52:48.030Z",
+  "description": "Ensure restore points work",
+  "icon": "system.png",
+  "order": 20,
+  "servicesRestored": [],
+  "tags": [],
+  "updatedAt": "2026-03-05T17:52:48.030Z",
+  "revertCommands": null,
+  "options": [],
+  "localDecrypted": true
+}

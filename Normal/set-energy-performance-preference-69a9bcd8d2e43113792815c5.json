@@ -1,0 +1,21 @@
+{
+  "_id": "69a9bcd8d2e43113792815c5",
+  "name": "Set Energy Performance Preference",
+  "description": "Configures Windows to prioritize performance over energy savings, ensuring consistent CPU responsiveness.",
+  "page": "CPU",
+  "category": "Hardware",
+  "icon": "power.png",
+  "warnings": "Power Warning",
+  "hardwareReqs": [],
+  "isMultiOption": false,
+  "isPremium": false,
+  "options": [],
+  "commands": "powercfg -setacvalueindex scheme_current sub_processor PERFEPP 0 \n \npowercfg -setactive scheme_current",
+  "revert22H2": "powercfg -setacvalueindex scheme_current sub_processor PERFEPP 128\n powercfg -setactive scheme_current",
+  "revert23H2": "powercfg -setacvalueindex scheme_current sub_processor PERFEPP 128\n powercfg -setactive scheme_current",
+  "revert24H2": "powercfg -setacvalueindex scheme_current sub_processor PERFEPP 128\n powercfg -setactive scheme_current",
+  "createdAt": "2026-03-05T17:26:48.267Z",
+  "updatedAt": "2026-03-05T17:26:48.267Z",
+  "revertCommands": "powercfg -setacvalueindex scheme_current sub_processor PERFEPP 128\n powercfg -setactive scheme_current",
+  "localDecrypted": true
+}

@@ -1,0 +1,21 @@
+{
+  "_id": "69a9c2e5f56a3843d11bf6d2",
+  "name": "Set BBR Connections",
+  "description": "Sets network connection to BBR for lower network latency and higher responsiveness",
+  "page": "Game Mode",
+  "category": "Game Mode",
+  "icon": "network.png",
+  "attributes": "Advanced",
+  "warnings": "Can cause game launchers and other apps not to work",
+  "hardwareReqs": [
+    "os:windows:11"
+  ],
+  "isMultiOption": false,
+  "isPremium": false,
+  "options": [],
+  "commands": "netsh int ipv4 set global loopbacklargemtu=disabled\nnetsh int ipv6 set global loopbacklargemtu=disabled\nnetsh int tcp set supplemental template=Internet congestionprovider=BBR\nnetsh int tcp set supplemental template=Datacenter congestionprovider=BBR\nnetsh int tcp set supplemental template=Compat congestionprovider=BBR\nnetsh int tcp set supplemental template=DatacenterCustom congestionprovider=BBR\nnetsh int tcp set supplemental template=InternetCustom congestionprovider=BBR",
+  "createdAt": "2026-03-05T17:52:34.306Z",
+  "updatedAt": "2026-03-05T17:52:39.163Z",
+  "revertCommands": null,
+  "localDecrypted": true
+}

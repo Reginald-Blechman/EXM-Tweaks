@@ -1,0 +1,20 @@
+{
+  "_id": "69a9bcd4d2e431137928155c",
+  "name": "Show Extensions In File Explorer",
+  "description": "Makes file extensions visible to help identify file types and improve security.",
+  "page": "QOL",
+  "category": "General",
+  "icon": "qol.png",
+  "hardwareReqs": [],
+  "isMultiOption": false,
+  "isPremium": false,
+  "options": [],
+  "commands": "reg add \"HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced\" /v \"HideFileExt\" /t REG_DWORD /d 0 /f",
+  "revert22H2": "reg add \"HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced\" /v \"HideFileExt\" /t REG_DWORD /d 1 /f",
+  "revert23H2": "reg add \"HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced\" /v \"HideFileExt\" /t REG_DWORD /d 1 /f",
+  "revert24H2": "reg add \"HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced\" /v \"HideFileExt\" /t REG_DWORD /d 1 /f",
+  "createdAt": "2026-03-05T17:26:44.728Z",
+  "updatedAt": "2026-03-05T17:26:44.728Z",
+  "revertCommands": "reg add \"HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\Advanced\" /v \"HideFileExt\" /t REG_DWORD /d 1 /f",
+  "localDecrypted": true
+}

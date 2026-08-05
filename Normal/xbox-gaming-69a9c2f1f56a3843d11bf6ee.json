@@ -1,0 +1,17 @@
+{
+  "_id": "69a9c2f1f56a3843d11bf6ee",
+  "name": "Xbox & Gaming",
+  "__v": 0,
+  "category": "Gaming",
+  "commands": "reg add \"HKLM\\SYSTEM\\CurrentControlSet\\Services\\XboxGipSvc\" /v Start /t REG_DWORD /d 3 /f\nreg add \"HKLM\\SYSTEM\\CurrentControlSet\\Services\\XblAuthManager\" /v Start /t REG_DWORD /d 3 /f\nreg add \"HKLM\\SYSTEM\\CurrentControlSet\\Services\\XblGameSave\" /v Start /t REG_DWORD /d 3 /f\nreg add \"HKLM\\SYSTEM\\CurrentControlSet\\Services\\XboxNetApiSvc\" /v Start /t REG_DWORD /d 3 /f\n\n'Microsoft.XboxApp','Microsoft.XboxGamingOverlay','Microsoft.XboxGameOverlay','Microsoft.XboxLiveGames','Microsoft.XboxIdentityProvider','Microsoft.XboxSpeechToTextOverlay','Microsoft.Xbox.TCUI','Microsoft.GamingApp','Microsoft.GamingServices' |\n  ForEach-Object {\n    Get-AppxPackage -AllUsers $_ | ForEach-Object {\n      Add-AppxPackage -Register \"$($_.InstallLocation)\\appxmanifest.xml\" -DisableDevelopmentMode\n    }\n  }",
+  "createdAt": "2026-03-05T17:52:48.030Z",
+  "description": "Fix Xbox & Gaming not working",
+  "icon": "system.png",
+  "order": 9,
+  "servicesRestored": [],
+  "tags": [],
+  "updatedAt": "2026-03-05T17:52:48.030Z",
+  "revertCommands": null,
+  "options": [],
+  "localDecrypted": true
+}

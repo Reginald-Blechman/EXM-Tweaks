@@ -1,0 +1,22 @@
+{
+  "_id": "69a9c2e5f56a3843d11bf6d1",
+  "name": "Processor Idle Disable",
+  "description": "Disables advanced processor idle states to keep cores fully active",
+  "page": "Game Mode",
+  "category": "Game Mode",
+  "icon": "power.png",
+  "attributes": "Advanced",
+  "warnings": "May increase Temperatures & Power Consumption, CPU will be at 100% in task manager",
+  "hardwareReqs": [],
+  "isMultiOption": false,
+  "isPremium": false,
+  "options": [],
+  "commands": "powercfg /setacvalueindex scheme_current sub_processor 0 0\npowercfg /setdcvalueindex scheme_current sub_processor 0 0\npowercfg /setactive scheme_current",
+  "revert22H2": "powercfg /setacvalueindex scheme_current sub_processor 0 1\npowercfg /setdcvalueindex scheme_current sub_processor 0 1\npowercfg /setactive scheme_current",
+  "revert23H2": "powercfg /setacvalueindex scheme_current sub_processor 0 1\npowercfg /setdcvalueindex scheme_current sub_processor 0 1\npowercfg /setactive scheme_current",
+  "revert24H2": "powercfg /setacvalueindex scheme_current sub_processor 0 1\npowercfg /setdcvalueindex scheme_current sub_processor 0 1\npowercfg /setactive scheme_current",
+  "createdAt": "2026-03-05T17:52:34.306Z",
+  "updatedAt": "2026-03-05T17:52:39.163Z",
+  "revertCommands": "powercfg /setacvalueindex scheme_current sub_processor 0 1\npowercfg /setdcvalueindex scheme_current sub_processor 0 1\npowercfg /setactive scheme_current",
+  "localDecrypted": true
+}

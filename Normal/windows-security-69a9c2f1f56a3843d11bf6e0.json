@@ -1,0 +1,17 @@
+{
+  "_id": "69a9c2f1f56a3843d11bf6e0",
+  "name": "Windows Security",
+  "__v": 0,
+  "category": "Security",
+  "commands": "reg add \"HKLM\\SYSTEM\\CurrentControlSet\\Services\\WinDefend\" /v Start /t REG_DWORD /d 2 /f\nreg add \"HKLM\\SYSTEM\\CurrentControlSet\\Services\\wscsvc\" /v Start /t REG_DWORD /d 2 /f\nreg add \"HKLM\\SYSTEM\\CurrentControlSet\\Services\\MpsSvc\" /v Start /t REG_DWORD /d 2 /f\nreg add \"HKLM\\SYSTEM\\CurrentControlSet\\Services\\SecurityHealthService\" /v Start /t REG_DWORD /d 2 /f\nreg add \"HKLM\\SYSTEM\\CurrentControlSet\\Services\\Sense\" /v Start /t REG_DWORD /d 3 /f\nreg add \"HKLM\\SYSTEM\\CurrentControlSet\\Services\\WdNisSvc\" /v Start /t REG_DWORD /d 3 /f\nStart-Service WinDefend,wscsvc,MpsSvc,SecurityHealthService,Sense,WdNisSvc -EA SilentlyContinue\nschtasks /Change /TN \"\\Microsoft\\Windows\\Windows Defender\\Windows Defender Scheduled Scan\" /Enable\nschtasks /Change /TN \"\\Microsoft\\Windows\\Windows Defender\\Windows Defender Cache Maintenance\" /Enable\nschtasks /Change /TN \"\\Microsoft\\Windows\\Windows Defender\\Windows Defender Cleanup\" /Enable\nreg delete \"HKLM\\SOFTWARE\\Policies\\Microsoft\\Windows Defender\" /v DisableAntiSpyware /f\nreg delete \"HKLM\\SOFTWARE\\Policies\\Microsoft\\Windows Defender\\Real-Time Protection\" /v DisableRealtimeMonitoring /f\nreg delete \"HKLM\\SOFTWARE\\Policies\\Microsoft\\Windows Defender\\Spynet\" /v SpyNetReporting /f\nreg delete \"HKLM\\SOFTWARE\\Policies\\Microsoft\\Windows Defender\\Spynet\" /v SubmitSamplesConsent /f\nreg add \"HKLM\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Explorer\" /v SmartScreenEnabled /t REG_SZ /d RequireAdmin /f\nreg add \"HKLM\\SOFTWARE\\Policies\\Microsoft\\Windows\\System\" /v EnableSmartScreen /t REG_DWORD /d 1 /f\nSet-MpPreference -DisableRealtimeMonitoring $false -MAPSReporting 2 -SubmitSamplesConsent 1 -EA SilentlyContinue",
+  "createdAt": "2026-03-05T17:52:48.030Z",
+  "description": "Restore windows security not working",
+  "icon": "security.png",
+  "order": 17,
+  "servicesRestored": [],
+  "tags": [],
+  "updatedAt": "2026-03-05T17:52:48.030Z",
+  "revertCommands": null,
+  "options": [],
+  "localDecrypted": true
+}

@@ -1,0 +1,17 @@
+{
+  "_id": "69a9c2f1f56a3843d11bf6e9",
+  "name": "Wi-Fi",
+  "__v": 0,
+  "category": "Network",
+  "commands": "reg add \"HKLM\\SYSTEM\\CurrentControlSet\\Services\\Wcmsvc\" /v Start /t REG_DWORD /d 2 /f\nreg add \"HKLM\\SYSTEM\\CurrentControlSet\\Services\\WlanSvc\" /v Start /t REG_DWORD /d 2 /f\nreg add \"HKLM\\SYSTEM\\CurrentControlSet\\Services\\NativeWifiP\" /v Start /t REG_DWORD /d 3 /f\nreg add \"HKLM\\SYSTEM\\CurrentControlSet\\Services\\NetSetupSvc\" /v Start /t REG_DWORD /d 3 /f\nreg add \"HKLM\\SYSTEM\\CurrentControlSet\\Services\\Netman\" /v Start /t REG_DWORD /d 3 /f\nreg add \"HKLM\\SYSTEM\\CurrentControlSet\\Services\\netprofm\" /v Start /t REG_DWORD /d 3 /f\nreg add \"HKLM\\SYSTEM\\CurrentControlSet\\Services\\NlaSvc\" /v Start /t REG_DWORD /d 2 /f\nreg add \"HKLM\\SYSTEM\\CurrentControlSet\\Services\\NcbService\" /v Start /t REG_DWORD /d 3 /f",
+  "createdAt": "2026-03-05T17:52:48.030Z",
+  "description": "Enable wifi support again",
+  "icon": "network.png",
+  "order": 4,
+  "servicesRestored": [],
+  "tags": [],
+  "updatedAt": "2026-03-05T17:52:48.030Z",
+  "revertCommands": null,
+  "options": [],
+  "localDecrypted": true
+}

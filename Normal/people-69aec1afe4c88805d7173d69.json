@@ -1,0 +1,19 @@
+{
+  "_id": "69aec1afe4c88805d7173d69",
+  "name": "People",
+  "description": "Contact management hub.",
+  "page": "Uninstall",
+  "category": "Debloat",
+  "hardwareReqs": [],
+  "isMultiOption": false,
+  "isPremium": false,
+  "options": [],
+  "commands": "Get-AppxPackage *Microsoft.People* | Remove-AppxPackage",
+  "revert22H2": "Get-AppxPackage -AllUsers Microsoft.People | Foreach {Add-AppxPackage -register \"$($_.InstallLocation)\\appxmanifest.xml\" -DisableDevelopmentMode}",
+  "revert23H2": "Get-AppxPackage -AllUsers Microsoft.People | Foreach {Add-AppxPackage -register \"$($_.InstallLocation)\\appxmanifest.xml\" -DisableDevelopmentMode}",
+  "revert24H2": "Get-AppxPackage -AllUsers Microsoft.People | Foreach {Add-AppxPackage -register \"$($_.InstallLocation)\\appxmanifest.xml\" -DisableDevelopmentMode}",
+  "createdAt": "2026-03-09T12:48:47.899Z",
+  "updatedAt": "2026-03-09T12:48:47.899Z",
+  "revertCommands": "Get-AppxPackage -AllUsers Microsoft.People | Foreach {Add-AppxPackage -register \"$($_.InstallLocation)\\appxmanifest.xml\" -DisableDevelopmentMode}",
+  "localDecrypted": true
+}

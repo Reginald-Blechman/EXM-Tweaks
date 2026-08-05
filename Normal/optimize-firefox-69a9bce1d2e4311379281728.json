@@ -1,0 +1,20 @@
+{
+  "_id": "69a9bce1d2e4311379281728",
+  "name": "Optimize Firefox",
+  "description": "Removes maintenance service, auto update, crash tools, and logs to reduce background resource usage",
+  "page": "Apps",
+  "category": "General",
+  "icon": "N/A",
+  "hardwareReqs": [],
+  "isMultiOption": false,
+  "isPremium": false,
+  "options": [],
+  "commands": "# Run as admin\n \n # 1) Uninstall Mozilla Maintenance Service if available\n $uninstaller = 'C:\\Program Files (x86)\\Mozilla Maintenance Service\\Uninstall.exe'\n if (Test-Path $uninstaller) {\n  Start-Process -FilePath $uninstaller -ArgumentList '/S' -WindowStyle Hidden -ErrorAction SilentlyContinue\n }\n \n # 2) Remove unwanted Firefox executables\n $firefoxPath = 'C:\\Program Files\\Mozilla Firefox'\n $filesToDelete = @(\n  'crashreporter.exe',\n  'crashreporter.ini',\n  'maintenanceservice.exe',\n  'maintenanceservice_installer.exe',\n  'minidump-analyzer.exe',\n  'pingsender.exe'\n  # 'updater.exe' # intentionally left disabled\n )\n foreach ($file in $filesToDelete) {\n  $f = Join-Path $firefoxPath $file\n  if (Test-Path $f) { Remove-Item $f -Force -ErrorAction SilentlyContinue }\n }\n \n # 3) Delete crash/maintenance logs and temporary files\n if (Test-Path $firefoxPath) {\n  Get-ChildItem -Path $firefoxPath -Filter 'crash*.*' -ErrorAction SilentlyContinue | Remove-Item -Force -ErrorAction SilentlyContinue\n  Get-ChildItem -Path $firefoxPath -Filter 'maintenance*.*' -ErrorAction SilentlyContinue | Remove-Item -Force -ErrorAction SilentlyContinue\n  if (Test-Path (Join-Path $firefoxPath 'install.log')) {\n  Remove-Item (Join-Path $firefoxPath 'install.log') -Force -ErrorAction SilentlyContinue\n  }\n  Get-ChildItem -Path $firefoxPath -Filter 'minidump*.*' -ErrorAction SilentlyContinue | Remove-Item -Force -ErrorAction SilentlyContinue\n }",
+  "revert22H2": "n/a",
+  "revert23H2": "n/a",
+  "revert24H2": "n/a",
+  "createdAt": "2026-03-05T17:26:57.299Z",
+  "updatedAt": "2026-03-05T17:26:57.299Z",
+  "revertCommands": "n/a",
+  "localDecrypted": true
+}

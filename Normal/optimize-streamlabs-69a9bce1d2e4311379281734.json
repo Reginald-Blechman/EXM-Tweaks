@@ -1,0 +1,20 @@
+{
+  "_id": "69a9bce1d2e4311379281734",
+  "name": "Optimize Streamlabs",
+  "description": "Stops app and updater, disables tasks, services and telemetry, clears app data and to reduce background resource usage",
+  "page": "Apps",
+  "category": "General",
+  "icon": "N/A",
+  "hardwareReqs": [],
+  "isMultiOption": false,
+  "isPremium": false,
+  "options": [],
+  "commands": "if (-not ([Security.Principal.WindowsPrincipal] [Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltinRole] \"Administrator\")) {\n  Start-Process powershell \"-NoProfile -ExecutionPolicy Bypass -File `\"$PSCommandPath`\"\" -Verb RunAs\n  exit\n }\n \n Get-Process -Name \"Streamlabs\" -ErrorAction SilentlyContinue | Stop-Process -Force\n \n $StartupPath = \"$env:APPDATA\\Microsoft\\Windows\\Start Menu\\Programs\\Startup\"\n $StreamlabsStartup = Join-Path $StartupPath \"Streamlabs.lnk\"\n if (Test-Path $StreamlabsStartup) { Remove-Item $StreamlabsStartup -Force }\n \n $Tasks = @(\n  \"\\StreamlabsUpdate\",\n  \"\\StreamlabsTelemetry\"\n )\n foreach ($Task in $Tasks) {\n  if (Get-ScheduledTask -TaskPath \"\\\" -TaskName $Task -ErrorAction SilentlyContinue) {\n  Disable-ScheduledTask -TaskName $Task -TaskPath \"\\\" -ErrorAction SilentlyContinue\n  Unregister-ScheduledTask -TaskName $Task -TaskPath \"\\\" -Confirm:$false -ErrorAction SilentlyContinue\n  }\n }\n \n $ServiceName = \"StreamlabsUpdateService\"\n if (Get-Service -Name $ServiceName -ErrorAction SilentlyContinue) {\n  Stop-Service -Name $ServiceName -Force -ErrorAction SilentlyContinue\n  Set-Service -Name $ServiceName -StartupType Disabled -ErrorAction SilentlyContinue\n }\n \n $AppDataPath = \"$env:APPDATA\\Streamlabs\"\n if (Test-Path $AppDataPath) { Remove-Item $AppDataPath -Recurse -Force -ErrorAction SilentlyContinue }\n \n $LocalAppDataPath = \"$env:LOCALAPPDATA\\Streamlabs\"\n if (Test-Path $LocalAppDataPath) { Remove-Item $LocalAppDataPath -Recurse -Force -ErrorAction SilentlyContinue }\n \n $RegistryPaths = @(\n  \"HKCU:\\Software\\Streamlabs\\Telemetry\",\n  \"HKCU:\\Software\\Streamlabs\\Update\",\n  \"HKLM:\\Software\\Streamlabs\\Telemetry\",\n  \"HKLM:\\Software\\Streamlabs\\Update\"\n )\n foreach ($RegPath in $RegistryPaths) {\n  if (Test-Path $RegPath) { Remove-Item -Path $RegPath -Recurse -Force -ErrorAction SilentlyContinue }\n }",
+  "revert22H2": "n/a",
+  "revert23H2": "n/a",
+  "revert24H2": "n/a",
+  "createdAt": "2026-03-05T17:26:57.691Z",
+  "updatedAt": "2026-03-05T17:26:57.691Z",
+  "revertCommands": "n/a",
+  "localDecrypted": true
+}

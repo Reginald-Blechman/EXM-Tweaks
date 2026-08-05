@@ -1,0 +1,20 @@
+{
+  "_id": "69a9c2e5f56a3843d11bf6cb",
+  "name": "Set GPU Priority for Current Game",
+  "description": "Increases the GPU task scheduling priority for the current game process, improving frame pacing and stability.",
+  "page": "Game Mode",
+  "category": "Game Mode",
+  "icon": "system.png",
+  "hardwareReqs": [],
+  "isMultiOption": false,
+  "isPremium": false,
+  "options": [],
+  "commands": "# --- CONFIG ---\n$proc = \"GameName.exe\"                 # replace with the detected exe\n$base = \"HKLM:\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Image File Execution Options\\$proc\"\n$path = Join-Path $base \"PerfOptions\"\nNew-Item -Path $path -Force | Out-Null\n# GpuPriority: higher value favors the process' GPU scheduling\nSet-ItemProperty -Path $path -Name \"GpuPriority\" -Type DWord -Value 8 -Force",
+  "revert22H2": "$proc = \"GameName.exe\"\n$path = \"HKLM:\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Image File Execution Options\\$proc\\PerfOptions\"\nRemove-ItemProperty -Path $path -Name \"GpuPriority\" -ErrorAction SilentlyContinue",
+  "revert23H2": "$proc = \"GameName.exe\"\n$path = \"HKLM:\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Image File Execution Options\\$proc\\PerfOptions\"\nRemove-ItemProperty -Path $path -Name \"GpuPriority\" -ErrorAction SilentlyContinue",
+  "revert24H2": "$proc = \"GameName.exe\"\n$path = \"HKLM:\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Image File Execution Options\\$proc\\PerfOptions\"\nRemove-ItemProperty -Path $path -Name \"GpuPriority\" -ErrorAction SilentlyContinue",
+  "createdAt": "2026-03-05T17:52:34.306Z",
+  "updatedAt": "2026-03-05T17:52:39.163Z",
+  "revertCommands": "$proc = \"GameName.exe\"\n$path = \"HKLM:\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Image File Execution Options\\$proc\\PerfOptions\"\nRemove-ItemProperty -Path $path -Name \"GpuPriority\" -ErrorAction SilentlyContinue",
+  "localDecrypted": true
+}

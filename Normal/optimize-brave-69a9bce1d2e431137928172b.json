@@ -1,0 +1,20 @@
+{
+  "_id": "69a9bce1d2e431137928172b",
+  "name": "Optimize Brave",
+  "description": "Disables Brave update services, telemetry and tasks, deletes updater files to reduce background resource usage.",
+  "page": "Apps",
+  "category": "General",
+  "icon": "N/A",
+  "hardwareReqs": [],
+  "isMultiOption": false,
+  "isPremium": false,
+  "options": [],
+  "commands": "# Run in 64-bit PowerShell as Administrator\n \n # 1) Kill Brave updater processes\n $procs = @(\n  'BraveUpdate','brave_installer-x64','BraveCrashHandler','BraveCrashHandler64','BraveCrashHandlerArm64',\n  'BraveUpdateBroker','BraveUpdateCore','BraveUpdateOnDemand','BraveUpdateSetup',\n  'BraveUpdateComRegisterShell64','BraveUpdateComRegisterShellArm64'\n )\n foreach ($p in $procs) {\n  Get-Process -Name $p -ErrorAction SilentlyContinue | Stop-Process -Force -ErrorAction SilentlyContinue\n }\n \n # 2) Remove services (if present)\n foreach ($svc in 'brave','bravem','BraveElevationService') {\n  if (Get-Service $svc -ErrorAction SilentlyContinue) { sc.exe delete $svc  }\n }\n \n # 3) Delete updater folder\n $upd = 'C:\\Program Files (x86)\\BraveSoftware\\Update'\n if (Test-Path $upd) { Remove-Item $upd -Recurse -Force -ErrorAction SilentlyContinue }\n \n # 4) Delete scheduled tasks (discover names with GUIDs)\n $csv = (& schtasks /query /fo CSV l) -join \"`n\"\n if ($csv) {\n  $tasks = $csv | ConvertFrom-Csv |\n  Where-Object { $_.TaskName -like '\\BraveSoftwareUpdateTaskMachine*' }\n  foreach ($t in $tasks) { schtasks /delete /f /tn $t.TaskName  }\n }\n \n # 5) Registry cleanup (only if keys exist)\n $rk = @(\n  'HKLM\\Software\\Microsoft\\Active Setup\\Installed Components\\{AFE6A462-C574-4B8A-AF43-4CC60DF4563B}',\n  'HKLM\\Software\\Microsoft\\Windows NT\\CurrentVersion\\Schedule\\TaskCache\\Logon\\{56CA197F-543C-40DC-953C-B9C6196C92A5}',\n  'HKLM\\Software\\Microsoft\\Windows NT\\CurrentVersion\\Schedule\\TaskCache\\Plain\\{0948A341-8E1E-479F-A667-6169E4D5CB2A}',\n  'HKLM\\Software\\Microsoft\\Windows NT\\CurrentVersion\\Schedule\\TaskCache\\Tasks\\{0948A341-8E1E-479F-A667-6169E4D5CB2A}',\n  'HKLM\\Software\\Microsoft\\Windows NT\\CurrentVersion\\Schedule\\TaskCache\\Tasks\\{56CA197F-543C-40DC-953C-B9C6196C92A5}',\n  'HKLM\\Software\\Microsoft\\Windows NT\\CurrentVersion\\Schedule\\TaskCache\\Tree\\BraveSoftwareUpdateTaskMachineCore',\n  'HKLM\\Software\\Microsoft\\Windows NT\\CurrentVersion\\Schedule\\TaskCache\\Tree\\BraveSoftwareUpdateTaskMachineUA'\n )\n foreach ($p in $rk) {\n  & reg.exe query \"$p\" l \n  if ($LASTEXITCODE -eq 0) { & reg.exe delete \"$p\" /f  }\n }",
+  "revert22H2": "n/a",
+  "revert23H2": "n/a",
+  "revert24H2": "n/a",
+  "createdAt": "2026-03-05T17:26:57.373Z",
+  "updatedAt": "2026-03-05T17:26:57.373Z",
+  "revertCommands": "n/a",
+  "localDecrypted": true
+}

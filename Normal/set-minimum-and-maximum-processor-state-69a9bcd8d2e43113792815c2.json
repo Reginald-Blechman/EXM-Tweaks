@@ -1,0 +1,21 @@
+{
+  "_id": "69a9bcd8d2e43113792815c2",
+  "name": "Set Minimum And Maximum Processor State",
+  "description": "Forces CPU cores to stay at 100% performance minimum and maximum; eliminates dynamic scaling.",
+  "page": "CPU",
+  "category": "Hardware",
+  "icon": "power.png",
+  "warnings": "Power Warning",
+  "hardwareReqs": [],
+  "isMultiOption": false,
+  "isPremium": false,
+  "options": [],
+  "commands": "powercfg -setacvalueindex scheme_current sub_processor PROCTHROTTLEMIN 100\n \n powercfg -setacvalueindex scheme_current sub_processor PROCTHROTTLEMAX 100\n \n powercfg -setactive scheme_current",
+  "revert22H2": "powercfg -setacvalueindex scheme_current sub_processor PROCTHROTTLEMIN 5\n powercfg -setacvalueindex scheme_current sub_processor PROCTHROTTLEMAX 100\n powercfg -setactive scheme_current",
+  "revert23H2": "powercfg -setacvalueindex scheme_current sub_processor PROCTHROTTLEMIN 5\n powercfg -setacvalueindex scheme_current sub_processor PROCTHROTTLEMAX 100\n powercfg -setactive scheme_current",
+  "revert24H2": "powercfg -setacvalueindex scheme_current sub_processor PROCTHROTTLEMIN 5\n powercfg -setacvalueindex scheme_current sub_processor PROCTHROTTLEMAX 100\n powercfg -setactive scheme_current",
+  "createdAt": "2026-03-05T17:26:48.186Z",
+  "updatedAt": "2026-03-05T17:26:48.186Z",
+  "revertCommands": "powercfg -setacvalueindex scheme_current sub_processor PROCTHROTTLEMIN 5\n powercfg -setacvalueindex scheme_current sub_processor PROCTHROTTLEMAX 100\n powercfg -setactive scheme_current",
+  "localDecrypted": true
+}

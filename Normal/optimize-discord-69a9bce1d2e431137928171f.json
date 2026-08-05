@@ -1,0 +1,20 @@
+{
+  "_id": "69a9bce1d2e431137928171f",
+  "name": "Optimize Discord",
+  "description": "Removes updater and useless modules, trims locales, removes junk to cut RAM/CPU usage when using discord",
+  "page": "Apps",
+  "category": "General",
+  "icon": "N/A",
+  "hardwareReqs": [],
+  "isMultiOption": false,
+  "isPremium": false,
+  "options": [],
+  "commands": "# Run in 64-bit PowerShell\n \n # Kill Discord and wait\n Get-Process -Name Discord -ErrorAction SilentlyContinue | Stop-Process -Force\n Start-Sleep -Seconds 5\n \n # Paths\n $discordRoot = Join-Path $env:LOCALAPPDATA 'Discord'\n $appDir = Get-ChildItem -Path (Join-Path $discordRoot 'app*') -Directory -ErrorAction SilentlyContinue |\n  Sort-Object Name -Descending | Select-Object -First 1\n \n # Cleanup updater artifacts\n Remove-Item \"$discordRoot\\Discord_updater*\" -Force -ErrorAction SilentlyContinue\n Remove-Item \"$discordRoot\\SquirrelSetup*\" -Force -ErrorAction SilentlyContinue\n \n if ($appDir) {\n  # Delete selected files and folders\n  Remove-Item (Join-Path $appDir.FullName 'app.ico') -Force -ErrorAction SilentlyContinue\n  Remove-Item (Join-Path $appDir.FullName 'debug.log') -Force -ErrorAction SilentlyContinue\n  Remove-Item (Join-Path $appDir.FullName 'swiftshader') -Recurse -Force -ErrorAction SilentlyContinue\n \n  # Languages: keep en-US only\n  $loc = Join-Path $appDir.FullName 'locales'\n  if (Test-Path (Join-Path $loc 'en-US.pak')) {\n  Copy-Item (Join-Path $loc 'en-US.pak') $discordRoot -Force -ErrorAction SilentlyContinue\n  }\n  if (Test-Path $loc) { Remove-Item $loc -Recurse -Force -ErrorAction SilentlyContinue }\n  New-Item -ItemType Directory -Path $loc -Force \n  if (Test-Path (Join-Path $discordRoot 'en-US.pak')) {\n  Move-Item (Join-Path $discordRoot 'en-US.pak') $loc -Force\n  }\n \n  # Modules cleanup\n  $modulesDir = Join-Path $appDir.FullName 'modules'\n  if (Test-Path $modulesDir) {\n  $mods = @(\n  'discord_cloudsync-1','discord_dispatch-1','discord_erlpack-1',\n  'discord_game_utils-1','discord_game_utils-2',\n  'discord_media-1','discord_media-2',\n  'discord_spellcheck-1','discord_hook-1','discord_hook-2'\n  )\n  foreach ($m in $mods) {\n  $p = Join-Path $modulesDir $m\n  if (Test-Path $p) {\n  Remove-Item $p -Recurse -Force\n  Write-Output (\" Removed {0}\" -f $m)\n  }\n  }\n  }\n } else {\n  Write-Output \"Discord app folder not found under $discordRoot\"\n }",
+  "revert22H2": "n/a",
+  "revert23H2": "n/a",
+  "revert24H2": "n/a",
+  "createdAt": "2026-03-05T17:26:57.106Z",
+  "updatedAt": "2026-03-05T17:26:57.106Z",
+  "revertCommands": "n/a",
+  "localDecrypted": true
+}

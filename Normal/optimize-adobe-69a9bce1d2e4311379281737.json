@@ -1,0 +1,20 @@
+{
+  "_id": "69a9bce1d2e4311379281737",
+  "name": "Optimize Adobe",
+  "description": "Kills Creative Cloud processes, disables services, blocks GCClient, and to reduce background resource usage",
+  "page": "Apps",
+  "category": "General",
+  "icon": "N/A",
+  "hardwareReqs": [],
+  "isMultiOption": false,
+  "isPremium": false,
+  "options": [],
+  "commands": "# Run in 64-bit PowerShell as Administrator\n \n # --- kill known Adobe executables ---\n $images = @(\n  'Adobe CEF Helper.exe','FlashPlayer_ActiveX.exe','Creative Cloud Helper.exe',\n  'Adobe Media Encoder.exe','Adobe Premiere Pro.exe','Adobe XD.exe','Adobe Fuse.exe',\n  'Adobe Media Encoder CC.exe','ae_renderer.exe','AdobeIPCBroker.exe'\n )\n \n $extra = @(\n  'AdobeIPCBroker.exe','AAMUpdater.exe','AMS.exe','Typekit.exe','AdobeCrashDaemon.exe',\n  'TeamProjectsLocalHub.exe','dynamiclinkmanager.exe','PhotoshopElements.exe',\n  'Dreamweaver.exe','AdobeSpark.exe','CharacterAnimator.exe','LightroomClassic.exe',\n  'Prelude.exe','Muse.exe','Captivate.exe','SpeedGrade.exe','Scout.exe','ScoutCPP.exe',\n  'BridgeCC.exe','CameraRaw.exe','AdobeCreativeCloudCleanerTool.exe','Lightroom.exe',\n  'InDesign.exe','Audition.exe','Bridge.exe','PhotoshopLauncher.exe','Illustrator.exe',\n  'FlashPlayerPlugin.exe','AcroRd32.exe','Acrobat.exe','Animate.exe','CCXProcess.exe',\n  'Adobe Desktop Service.exe','AdobeUpdateService.exe','AdobeExtensionsService.exe',\n  'CoreSync.exe','acrotray.exe','AdobeARM.exe','AcrobatNotificationClient.exe',\n  'CCLibrary.exe','AdobeCollabSync.exe','AdobeDesktopService.exe','Photoshop.exe',\n  'AfterFX.exe'\n )\n \n foreach($exe in ($images + $extra) | Select-Object -Unique){\n  $name = [IO.Path]::GetFileNameWithoutExtension($exe)\n  Get-Process -Name $name -ErrorAction SilentlyContinue | Stop-Process -Force -ErrorAction SilentlyContinue\n }\n \n # --- stop services ---\n foreach($svc in 'AGSService','AdobeUpdateService','AGMService','AdobeARMservice'){\n  $s = Get-Service $svc -ErrorAction SilentlyContinue\n  if($s){ if($s.Status -eq 'Running'){ Stop-Service $svc -Force } Set-Service $svc -StartupType Disabled }\n }\n \n Start-Sleep -Seconds 3\n \n # --- harden AdobeGCClient folder ---\n $gc = 'C:\\Program Files (x86)\\Common Files\\Adobe\\AdobeGCClient'\n if(Test-Path $gc){ Remove-Item $gc -Recurse -Force -ErrorAction SilentlyContinue }\n New-Item -ItemType Directory -Path $gc -Force \n icacls $gc /deny \"$env:USERNAME\":D \n icacls $gc /deny \"$env:USERNAME\":R \n icacls $gc /deny \"$env:USERNAME\":W \n \n # --- kill AGS/AGM executables if still present ---\n foreach($exe in 'AGSService.exe','AGMService.exe'){\n  $name = [IO.Path]::GetFileNameWithoutExtension($exe)\n  Get-Process -Name $name -ErrorAction SilentlyContinue | Stop-Process -Force -ErrorAction SilentlyContinue\n }\n \n # --- take ownership, grant admins, then rename ADS binary ---\n $ads = 'C:\\Program Files (x86)\\Common Files\\Adobe\\Adobe Desktop Common\\ADS\\Adobe Desktop Service.exe'\n if(Test-Path $ads){\n  takeown /f \"$ads\" \n  icacls \"$ads\" /grant Administrators:F \n  Rename-Item -Path \"$ads\" -NewName 'Adobe Desktop Service.exe.old' -Force\n }",
+  "revert22H2": "n/a",
+  "revert23H2": "n/a",
+  "revert24H2": "n/a",
+  "createdAt": "2026-03-05T17:26:57.773Z",
+  "updatedAt": "2026-03-05T17:26:57.773Z",
+  "revertCommands": "n/a",
+  "localDecrypted": true
+}

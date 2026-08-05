@@ -1,0 +1,17 @@
+{
+  "_id": "69a9c2f1f56a3843d11bf6e7",
+  "name": "Rockstar Launcher Error 1002",
+  "__v": 0,
+  "category": "Gaming",
+  "commands": "$Key = \"HKCU:\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\User Shell Folders\"\n\n$Base = $env:USERPROFILE\n\nGet-Process explorer -ErrorAction SilentlyContinue | Stop-Process -Force -ErrorAction SilentlyContinue\n\nStart-Sleep -Milliseconds 800\n\n$folders = @(\n    \"Desktop\",\n    \"Documents\",\n    \"Downloads\",\n    \"Favorites\",\n    \"Music\",\n    \"Pictures\",\n    \"Videos\",\n    \"Pictures\\\\Screenshots\"\n)\n\nforeach ($folder in $folders) {\n    $path = Join-Path $Base $folder\n    if (-not (Test-Path $path -PathType Container)) {\n        New-Item -Path $path -ItemType Directory -Force | Out-Null\n    }\n}\n\nfunction Set-ExpandStringValue {\n    param (\n        [Parameter(Mandatory)] [string] $Name,\n        [Parameter(Mandatory)] [string] $Value\n    )\n    Set-ItemProperty -Path $Key `\n                     -Name $Name `\n                     -Value $Value `\n                     -Type ExpandString `\n                     -Force `\n                     -ErrorAction SilentlyContinue | Out-Null\n}\n\n$shellFolders = @{\n    \"Desktop\"                                = \"%USERPROFILE%\\Desktop\"\n    \"Personal\"                               = \"%USERPROFILE%\\Documents\"\n    \"My Pictures\"                            = \"%USERPROFILE%\\Pictures\"\n    \"My Music\"                               = \"%USERPROFILE%\\Music\"\n    \"My Video\"                               = \"%USERPROFILE%\\Videos\"\n    \"Favorites\"                              = \"%USERPROFILE%\\Favorites\"\n    \"{374DE290-123F-4565-9164-39C4925E467B}\" = \"%USERPROFILE%\\Downloads\"\n    \"{B7BEDE81-DF94-4682-A7D8-57A52620B86F}\" = \"%USERPROFILE%\\Pictures\\Screenshots\"\n    \"{F42EE2D3-909F-4907-8871-4C22FC0BF756}\" = \"%USERPROFILE%\\Documents\"\n    \"{0DDD015D-B06C-45D5-8C4C-F59713854639}\" = \"%USERPROFILE%\\Pictures\"\n}\n\nforeach ($pair in $shellFolders.GetEnumerator()) {\n    Set-ExpandStringValue -Name $pair.Key -Value $pair.Value\n}\n\nWrite-Host \"Starting explorer again...\" -ForegroundColor Cyan\n\nStart-Process explorer.exe\n\nWrite-Host \"\"\n\nWrite-Host \"Registry changes applied.\" -ForegroundColor Green\n\nWrite-Host \"For the changes to fully take effect you should:\"\n\nWrite-Host \"  • Log off and log back in\"\n\nWrite-Host \"  OR\"\n\nWrite-Host \"  • Restart the computer\"\n\nWrite-Host \"\"\n\nWrite-Host \"If nothing changes → check if OneDrive is syncing these folders or if a group policy is overriding them.\"",
+  "createdAt": "2026-03-05T17:52:48.030Z",
+  "description": "Error 1002 from Rockstar",
+  "icon": "advanced.png",
+  "order": 23,
+  "servicesRestored": [],
+  "tags": [],
+  "updatedAt": "2026-03-05T17:52:48.030Z",
+  "revertCommands": null,
+  "options": [],
+  "localDecrypted": true
+}

@@ -1,0 +1,17 @@
+{
+  "_id": "69a9c2f1f56a3843d11bf6eb",
+  "name": "Nvidia APP/Highlights",
+  "__v": 0,
+  "category": "Hardware",
+  "commands": "$devices = @('NVIDIA Virtual Audio Device (Wave Extensible) (WDM)','NvModuleTracker Device')\nforeach ($d in $devices) {\n    try {\n        Get-PnpDevice -FriendlyName $d -ErrorAction Stop | Enable-PnpDevice -Confirm:$false\n        Write-Host \"Enabled: $d\"\n    } catch {\n        Write-Host \"Not found: $d\"\n    }\n}\n\ntry {\n    Remove-ItemProperty -Path 'HKCU:\\SOFTWARE\\NVIDIA Corporation\\NVControlPanel2\\Client' -Name 'OptInOrOutPreference'\n    Write-Host \"Removed: OptInOrOutPreference\"\n} catch {\n    Write-Host \"Not found: OptInOrOutPreference\"\n}\n\n$needles = @('NvTmMon','NvTmRep','NvProfile','NvNodeLauncher','NvDriverUpdateCheckDaily','NvBatteryBoostCheckOnLogon','NVIDIA GeForce Experience SelfUpdate')\n$tasks = Get-ScheduledTask | Where-Object { $task = $_; $needles | Where-Object { $task.TaskName -like \"*$_*\" } }\nforeach ($t in $tasks) {\n    Enable-ScheduledTask -TaskName $t.TaskName\n    Write-Host \"Enabled task: $($t.TaskName)\"\n}\nreg add \"HKLM\\SYSTEM\\CurrentControlSet\\Services\\WpnService\" /v Start /t REG_DWORD /d 2 /f\nreg add \"HKLM\\SYSTEM\\CurrentControlSet\\Services\\WpnUserService\" /v Start /t REG_DWORD /d 2 /f\nreg add \"HKLM\\SYSTEM\\CurrentControlSet\\Services\\WpnUserService_695f9\" /v Start /t REG_DWORD /d 2 /f\nreg add \"HKLM\\SYSTEM\\CurrentControlSet\\Services\\NVDisplay.ContainerLocalSystem\" /v Start /t REG_DWORD /d 2 /f\nreg add \"HKLM\\SYSTEM\\CurrentControlSet\\Services\\NVDisplay.ContainerLocalSystem\" /v Start /t REG_DWORD /d 2 /f\nreg add \"HKLM\\SYSTEM\\CurrentControlSet\\Services\\NVDisplay.ContainerNetworkService\" /v Start /t REG_DWORD /d 2 /f\nreg add \"HKLM\\SYSTEM\\CurrentControlSet\\Services\\NvTelemetryContainer\" /v Start /t REG_DWORD /d 2 /f",
+  "createdAt": "2026-03-05T17:52:48.030Z",
+  "description": "Fix nvidia app errors",
+  "icon": "advanced.png",
+  "order": 6,
+  "servicesRestored": [],
+  "tags": [],
+  "updatedAt": "2026-03-05T17:52:48.030Z",
+  "revertCommands": null,
+  "options": [],
+  "localDecrypted": true
+}

@@ -1,0 +1,19 @@
+{
+  "_id": "69aec1afe4c88805d7173d63",
+  "name": "Paint 3d",
+  "description": "3D drawing tool.",
+  "page": "Uninstall",
+  "category": "Debloat",
+  "hardwareReqs": [],
+  "isMultiOption": false,
+  "isPremium": false,
+  "options": [],
+  "commands": "Get-AppxPackage *Microsoft.MSPaint* | Remove-AppxPackage",
+  "revert22H2": "Get-AppxPackage -AllUsers Microsoft.MSPaint | Foreach {Add-AppxPackage -register \"$($_.InstallLocation)\\appxmanifest.xml\" -DisableDevelopmentMode}",
+  "revert23H2": "Get-AppxPackage -AllUsers Microsoft.MSPaint | Foreach {Add-AppxPackage -register \"$($_.InstallLocation)\\appxmanifest.xml\" -DisableDevelopmentMode}",
+  "revert24H2": "Get-AppxPackage -AllUsers Microsoft.MSPaint | Foreach {Add-AppxPackage -register \"$($_.InstallLocation)\\appxmanifest.xml\" -DisableDevelopmentMode}",
+  "createdAt": "2026-03-09T12:48:47.779Z",
+  "updatedAt": "2026-03-09T12:48:47.779Z",
+  "revertCommands": "Get-AppxPackage -AllUsers Microsoft.MSPaint | Foreach {Add-AppxPackage -register \"$($_.InstallLocation)\\appxmanifest.xml\" -DisableDevelopmentMode}",
+  "localDecrypted": true
+}

@@ -1,0 +1,17 @@
+{
+  "_id": "69a9c2f1f56a3843d11bf6e1",
+  "name": "WebCam",
+  "__v": 0,
+  "category": "Hardware",
+  "commands": "Reg.exe add \"HKLM\\SYSTEM\\CurrentControlSet\\services\\swenum\" /v \"Start\" /t REG_DWORD /d \"3\" /f\nReg.exe add \"HKLM\\System\\CurrentControlSet\\Control\\Class\\{4D36E96C-E325-11CE-BFC1-08002BE10318}\" /v \"UpperFilters\" /t REG_MULTI_SZ /d \"ksthunk\" /f\nReg.exe add \"HKLM\\System\\CurrentControlSet\\Control\\Class\\{6BDD1FC6-810F-11D0-BEC7-08002BE2092F}\" /v \"UpperFilters\" /t REG_MULTI_SZ /d \"ksthunk\" /f\nReg.exe add \"HKLM\\System\\CurrentControlSet\\services\\ksthunk\" /v \"Start\" /t REG_DWORD /d \"3\" /f",
+  "createdAt": "2026-03-05T17:52:48.030Z",
+  "description": "Restores webcam support",
+  "icon": "peripheral.png",
+  "order": 18,
+  "servicesRestored": [],
+  "tags": [],
+  "updatedAt": "2026-03-05T17:52:48.030Z",
+  "revertCommands": null,
+  "options": [],
+  "localDecrypted": true
+}

@@ -1,0 +1,22 @@
+{
+  "_id": "69a9c2e5f56a3843d11bf6d5",
+  "name": "Set Game to P-Cores",
+  "description": "Binds game process only to Performance cores for maximum FPS.",
+  "page": "Game Mode",
+  "category": "Game Mode",
+  "icon": "power.png",
+  "hardwareReqs": [
+    "cpu:intel:p_cores"
+  ],
+  "isMultiOption": false,
+  "isPremium": false,
+  "options": [],
+  "commands": "param(\n [Parameter(Mandatory=$true)]\n [string]$ProcessName\n)\n\n$proc = Get-Process -Name $ProcessName -ErrorAction SilentlyContinue\nif (-not $proc) {\n Write-Output \"Process '$ProcessName' not found.\"\n exit\n}\n\n$cpuInfo = Get-CimInstance Win32_Processor\n$logicalCount = [Environment]::ProcessorCount\n$physicalCores = ($cpuInfo.NumberOfCores)\n$totalLogical = ($cpuInfo.NumberOfLogicalProcessors)\n\n$mask = 0\nfor ($i = 0; $i -lt $totalLogical; $i++) {\n if ($i -lt $physicalCores) {\n $mask = $mask -bor (1 -shl $i)\n }\n}\n\n$proc.ProcessorAffinity = $mask\nWrite-Output \"Process '$ProcessName' now runs only on P-Cores ($physicalCores cores).\"",
+  "revert22H2": "param([Parameter(Mandatory=$true)][string]$ProcessName)\n$proc = Get-Process -Name $ProcessName -ErrorAction SilentlyContinue\nif ($proc) {\n $mask=0; for($i=0;$i -lt [Environment]::ProcessorCount;$i++){$mask=$mask -bor (1 -shl $i)}\n $proc.ProcessorAffinity = $mask\n}",
+  "revert23H2": "param([Parameter(Mandatory=$true)][string]$ProcessName)\n$proc = Get-Process -Name $ProcessName -ErrorAction SilentlyContinue\nif ($proc) {\n $mask=0; for($i=0;$i -lt [Environment]::ProcessorCount;$i++){$mask=$mask -bor (1 -shl $i)}\n $proc.ProcessorAffinity = $mask\n}",
+  "revert24H2": "param([Parameter(Mandatory=$true)][string]$ProcessName)\n$proc = Get-Process -Name $ProcessName -ErrorAction SilentlyContinue\nif ($proc) {\n $mask=0; for($i=0;$i -lt [Environment]::ProcessorCount;$i++){$mask=$mask -bor (1 -shl $i)}\n $proc.ProcessorAffinity = $mask\n}",
+  "createdAt": "2026-03-05T17:52:34.306Z",
+  "updatedAt": "2026-03-05T17:52:39.163Z",
+  "revertCommands": "param([Parameter(Mandatory=$true)][string]$ProcessName)\n$proc = Get-Process -Name $ProcessName -ErrorAction SilentlyContinue\nif ($proc) {\n $mask=0; for($i=0;$i -lt [Environment]::ProcessorCount;$i++){$mask=$mask -bor (1 -shl $i)}\n $proc.ProcessorAffinity = $mask\n}",
+  "localDecrypted": true
+}

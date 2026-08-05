@@ -1,0 +1,20 @@
+{
+  "_id": "69a9bce1d2e4311379281722",
+  "name": "Optimize Spotifiy",
+  "description": "Removes updater and useless modules & languages, removes junk to cut RAM/CPU usage when using spotify",
+  "page": "Apps",
+  "category": "General",
+  "icon": "N/A",
+  "hardwareReqs": [],
+  "isMultiOption": false,
+  "isPremium": false,
+  "options": [],
+  "commands": "Write-Output \"Temporarly Disabled\"",
+  "revert22H2": "n/a",
+  "revert23H2": "n/a",
+  "revert24H2": "n/a",
+  "createdAt": "2026-03-05T17:26:57.186Z",
+  "updatedAt": "2026-03-05T17:26:57.186Z",
+  "revertCommands": "n/a",
+  "localDecrypted": true
+}

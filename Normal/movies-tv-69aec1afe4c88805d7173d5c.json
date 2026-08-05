@@ -1,0 +1,19 @@
+{
+  "_id": "69aec1afe4c88805d7173d5c",
+  "name": "Movies & Tv",
+  "description": "Media player for videos.",
+  "page": "Uninstall",
+  "category": "Debloat",
+  "hardwareReqs": [],
+  "isMultiOption": false,
+  "isPremium": false,
+  "options": [],
+  "commands": "Get-AppxPackage *Microsoft.ZuneVideo* | Remove-AppxPackage",
+  "revert22H2": "Get-AppxPackage -AllUsers Microsoft.ZuneVideo | Foreach {Add-AppxPackage -register \"$($_.InstallLocation)\\appxmanifest.xml\" -DisableDevelopmentMode}",
+  "revert23H2": "Get-AppxPackage -AllUsers Microsoft.ZuneVideo | Foreach {Add-AppxPackage -register \"$($_.InstallLocation)\\appxmanifest.xml\" -DisableDevelopmentMode}",
+  "revert24H2": "Get-AppxPackage -AllUsers Microsoft.ZuneVideo | Foreach {Add-AppxPackage -register \"$($_.InstallLocation)\\appxmanifest.xml\" -DisableDevelopmentMode}",
+  "createdAt": "2026-03-09T12:48:47.661Z",
+  "updatedAt": "2026-03-09T12:48:47.661Z",
+  "revertCommands": "Get-AppxPackage -AllUsers Microsoft.ZuneVideo | Foreach {Add-AppxPackage -register \"$($_.InstallLocation)\\appxmanifest.xml\" -DisableDevelopmentMode}",
+  "localDecrypted": true
+}

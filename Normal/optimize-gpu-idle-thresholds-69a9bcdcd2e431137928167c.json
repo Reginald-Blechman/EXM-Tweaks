@@ -1,0 +1,20 @@
+{
+  "_id": "69a9bcdcd2e431137928167c",
+  "name": "Optimize GPU Idle Thresholds",
+  "description": "Keeps GPU engines and memory controllers active longer before power-saving, eliminating wake-up latency spikes.",
+  "page": "GPU (nvidia)",
+  "category": "Hardware",
+  "icon": "system.png",
+  "hardwareReqs": [],
+  "isMultiOption": false,
+  "isPremium": false,
+  "options": [],
+  "commands": "$gpus=Get-CimInstance Win32_VideoController|Where-Object{$_.PNPDeviceID -like 'PCI\\VEN_10DE*'}; foreach($g in $gpus){ $enum=\"HKLM:\\SYSTEM\\ControlSet001\\Enum\\$($g.PNPDeviceID)\"; $drv=(Get-ItemProperty -Path $enum -Name Driver).Driver; $cls=\"HKLM:\\SYSTEM\\CurrentControlSet\\Control\\Class\\$drv\"; New-ItemProperty -Path $cls -Name 'RMLpwrEiIdleThresholdUs' -PropertyType DWord -Value 1 -Force; New-ItemProperty -Path $cls -Name 'RMLpwrGrIdleThresholdUs' -PropertyType DWord -Value 1 -Force; New-ItemProperty -Path $cls -Name 'RMLpwrGrRgIdleThresholdUs' -PropertyType DWord -Value 1 -Force; New-ItemProperty -Path $cls -Name 'RMLpwrMsIdleThresholdUs' -PropertyType DWord -Value 1 -Force; }",
+  "revert22H2": "$gpus=Get-CimInstance Win32_VideoController|Where-Object{$_.PNPDeviceID -like 'PCI\\VEN_10DE*'}; foreach($g in $gpus){ $enum=\"HKLM:\\SYSTEM\\ControlSet001\\Enum\\$($g.PNPDeviceID)\"; $drv=(Get-ItemProperty -Path $enum -Name Driver).Driver; $cls=\"HKLM:\\SYSTEM\\CurrentControlSet\\Control\\Class\\$drv\"; Remove-ItemProperty -Path $cls -Name 'RMLpwrEiIdleThresholdUs' -Force -ErrorAction SilentlyContinue; Remove-ItemProperty -Path $cls -Name 'RMLpwrGrIdleThresholdUs' -Force -ErrorAction SilentlyContinue; Remove-ItemProperty -Path $cls -Name 'RMLpwrGrRgIdleThresholdUs' -Force -ErrorAction SilentlyContinue; Remove-ItemProperty -Path $cls -Name 'RMLpwrMsIdleThresholdUs' -Force -ErrorAction SilentlyContinue; }",
+  "revert23H2": "$gpus=Get-CimInstance Win32_VideoController|Where-Object{$_.PNPDeviceID -like 'PCI\\VEN_10DE*'}; foreach($g in $gpus){ $enum=\"HKLM:\\SYSTEM\\ControlSet001\\Enum\\$($g.PNPDeviceID)\"; $drv=(Get-ItemProperty -Path $enum -Name Driver).Driver; $cls=\"HKLM:\\SYSTEM\\CurrentControlSet\\Control\\Class\\$drv\"; Remove-ItemProperty -Path $cls -Name 'RMLpwrEiIdleThresholdUs' -Force -ErrorAction SilentlyContinue; Remove-ItemProperty -Path $cls -Name 'RMLpwrGrIdleThresholdUs' -Force -ErrorAction SilentlyContinue; Remove-ItemProperty -Path $cls -Name 'RMLpwrGrRgIdleThresholdUs' -Force -ErrorAction SilentlyContinue; Remove-ItemProperty -Path $cls -Name 'RMLpwrMsIdleThresholdUs' -Force -ErrorAction SilentlyContinue; }",
+  "revert24H2": "$gpus=Get-CimInstance Win32_VideoController|Where-Object{$_.PNPDeviceID -like 'PCI\\VEN_10DE*'}; foreach($g in $gpus){ $enum=\"HKLM:\\SYSTEM\\ControlSet001\\Enum\\$($g.PNPDeviceID)\"; $drv=(Get-ItemProperty -Path $enum -Name Driver).Driver; $cls=\"HKLM:\\SYSTEM\\CurrentControlSet\\Control\\Class\\$drv\"; Remove-ItemProperty -Path $cls -Name 'RMLpwrEiIdleThresholdUs' -Force -ErrorAction SilentlyContinue; Remove-ItemProperty -Path $cls -Name 'RMLpwrGrIdleThresholdUs' -Force -ErrorAction SilentlyContinue; Remove-ItemProperty -Path $cls -Name 'RMLpwrGrRgIdleThresholdUs' -Force -ErrorAction SilentlyContinue; Remove-ItemProperty -Path $cls -Name 'RMLpwrMsIdleThresholdUs' -Force -ErrorAction SilentlyContinue; }",
+  "createdAt": "2026-03-05T17:26:52.384Z",
+  "updatedAt": "2026-03-05T17:26:52.384Z",
+  "revertCommands": "$gpus=Get-CimInstance Win32_VideoController|Where-Object{$_.PNPDeviceID -like 'PCI\\VEN_10DE*'}; foreach($g in $gpus){ $enum=\"HKLM:\\SYSTEM\\ControlSet001\\Enum\\$($g.PNPDeviceID)\"; $drv=(Get-ItemProperty -Path $enum -Name Driver).Driver; $cls=\"HKLM:\\SYSTEM\\CurrentControlSet\\Control\\Class\\$drv\"; Remove-ItemProperty -Path $cls -Name 'RMLpwrEiIdleThresholdUs' -Force -ErrorAction SilentlyContinue; Remove-ItemProperty -Path $cls -Name 'RMLpwrGrIdleThresholdUs' -Force -ErrorAction SilentlyContinue; Remove-ItemProperty -Path $cls -Name 'RMLpwrGrRgIdleThresholdUs' -Force -ErrorAction SilentlyContinue; Remove-ItemProperty -Path $cls -Name 'RMLpwrMsIdleThresholdUs' -Force -ErrorAction SilentlyContinue; }",
+  "localDecrypted": true
+}

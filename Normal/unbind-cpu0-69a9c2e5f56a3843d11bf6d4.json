@@ -1,0 +1,22 @@
+{
+  "_id": "69a9c2e5f56a3843d11bf6d4",
+  "name": "Unbind CPU0",
+  "description": "Removes game threads from CPU0 (system-reserved core) using affinity mask.",
+  "page": "Game Mode",
+  "category": "Game Mode",
+  "icon": "power.png",
+  "hardwareReqs": [
+    "cpu:4_cores_min"
+  ],
+  "isMultiOption": false,
+  "isPremium": false,
+  "options": [],
+  "commands": "param(\n [Parameter(Mandatory=$true)]\n [string]$ProcessName\n)\n\n# Get process\n$proc = Get-Process -Name $ProcessName -ErrorAction SilentlyContinue\n\nif (-not $proc) {\n Write-Output \"Process '$ProcessName' not found.\"\n exit\n}\n\n# Get logical processor count\n$cpuCount = [Environment]::ProcessorCount\n\n# Build full mask for all cores\n$mask = 0\nfor ($i=0; $i -lt $cpuCount; $i++) {\n $mask = $mask -bor (1 -shl $i)\n}\n\n# Apply affinity\n$proc.ProcessorAffinity = $mask\nWrite-Output \"Process '$ProcessName' now runs on all $cpuCount cores.\"",
+  "revert22H2": "param([Parameter(Mandatory=$true)][string]$ProcessName)\n$proc = Get-Process -Name $ProcessName -ErrorAction SilentlyContinue\nif ($proc) {\n $mask=0; for($i=0;$i -lt [Environment]::ProcessorCount;$i++){$mask=$mask -bor (1 -shl $i)}\n $proc.ProcessorAffinity = $mask\n}",
+  "revert23H2": "param([Parameter(Mandatory=$true)][string]$ProcessName)\n$proc = Get-Process -Name $ProcessName -ErrorAction SilentlyContinue\nif ($proc) {\n $mask=0; for($i=0;$i -lt [Environment]::ProcessorCount;$i++){$mask=$mask -bor (1 -shl $i)}\n $proc.ProcessorAffinity = $mask\n}",
+  "revert24H2": "param([Parameter(Mandatory=$true)][string]$ProcessName)\n$proc = Get-Process -Name $ProcessName -ErrorAction SilentlyContinue\nif ($proc) {\n $mask=0; for($i=0;$i -lt [Environment]::ProcessorCount;$i++){$mask=$mask -bor (1 -shl $i)}\n $proc.ProcessorAffinity = $mask\n}",
+  "createdAt": "2026-03-05T17:52:34.306Z",
+  "updatedAt": "2026-03-05T17:52:39.163Z",
+  "revertCommands": "param([Parameter(Mandatory=$true)][string]$ProcessName)\n$proc = Get-Process -Name $ProcessName -ErrorAction SilentlyContinue\nif ($proc) {\n $mask=0; for($i=0;$i -lt [Environment]::ProcessorCount;$i++){$mask=$mask -bor (1 -shl $i)}\n $proc.ProcessorAffinity = $mask\n}",
+  "localDecrypted": true
+}

@@ -1,0 +1,19 @@
+{
+  "_id": "69aec1afe4c88805d7173d57",
+  "name": "Microsoft Teams",
+  "description": "Communication platform for chat, calls, and meetings.",
+  "page": "Uninstall",
+  "category": "Debloat",
+  "hardwareReqs": [],
+  "isMultiOption": false,
+  "isPremium": false,
+  "options": [],
+  "commands": "Get-AppxPackage *MicrosoftTeams* | Remove-AppxPackage",
+  "revert22H2": "Get-AppxPackage -AllUsers MicrosoftTeams | Foreach {Add-AppxPackage -register \"$($_.InstallLocation)\\appxmanifest.xml\" -DisableDevelopmentMode}",
+  "revert23H2": "Get-AppxPackage -AllUsers MicrosoftTeams | Foreach {Add-AppxPackage -register \"$($_.InstallLocation)\\appxmanifest.xml\" -DisableDevelopmentMode}",
+  "revert24H2": "Get-AppxPackage -AllUsers MicrosoftTeams | Foreach {Add-AppxPackage -register \"$($_.InstallLocation)\\appxmanifest.xml\" -DisableDevelopmentMode}",
+  "createdAt": "2026-03-09T12:48:47.600Z",
+  "updatedAt": "2026-03-09T12:48:47.600Z",
+  "revertCommands": "Get-AppxPackage -AllUsers MicrosoftTeams | Foreach {Add-AppxPackage -register \"$($_.InstallLocation)\\appxmanifest.xml\" -DisableDevelopmentMode}",
+  "localDecrypted": true
+}

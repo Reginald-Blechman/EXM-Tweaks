@@ -1,0 +1,17 @@
+{
+  "_id": "69a9c2f1f56a3843d11bf6d8",
+  "name": "Power Tweaks revert",
+  "__v": 0,
+  "category": "System",
+  "commands": "reg delete \"HKLM\\SOFTWARE\\Policies\\Microsoft\\Windows\\WindowsUpdate\\AU\" /v NoAutoUpdate /f\nreg delete \"HKLM\\SOFTWARE\\Policies\\Microsoft\\Windows\\WindowsUpdate\\AU\" /v AUOptions /f\nreg delete \"HKLM\\SOFTWARE\\Policies\\Microsoft\\Windows\\WindowsUpdate\\AU\" /v NoAutoRebootWithLoggedOnUsers /f\nreg delete \"HKLM\\SOFTWARE\\Policies\\Microsoft\\Windows\\WindowsUpdate\" /v ExcludeWUDriversInQualityUpdate /f\nreg add \"HKLM\\SYSTEM\\CurrentControlSet\\Services\\wuauserv\" /v Start /t REG_DWORD /d 3 /f\n",
+  "createdAt": "2026-03-05T17:52:48.030Z",
+  "description": "Revert all tweaks that may increase temperatures",
+  "icon": "power.png",
+  "order": 1,
+  "servicesRestored": [],
+  "tags": [],
+  "updatedAt": "2026-03-05T17:52:48.030Z",
+  "revertCommands": null,
+  "options": [],
+  "localDecrypted": true
+}

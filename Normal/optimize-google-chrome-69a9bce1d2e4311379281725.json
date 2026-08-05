@@ -1,0 +1,20 @@
+{
+  "_id": "69a9bce1d2e4311379281725",
+  "name": "Optimize Google Chrome",
+  "description": "Removes Google Updater services, tasks, telemetry and handlers to reduce background resource usage",
+  "page": "Apps",
+  "category": "General",
+  "icon": "N/A",
+  "hardwareReqs": [],
+  "isMultiOption": false,
+  "isPremium": false,
+  "options": [],
+  "commands": "Write-Output \"Temporarly Disabled\"",
+  "revert22H2": "n/a",
+  "revert23H2": "n/a",
+  "revert24H2": "n/a",
+  "createdAt": "2026-03-05T17:26:57.244Z",
+  "updatedAt": "2026-03-05T17:26:57.244Z",
+  "revertCommands": "n/a",
+  "localDecrypted": true
+}
