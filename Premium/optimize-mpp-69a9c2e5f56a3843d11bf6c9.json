@@ -1,0 +1,23 @@
+{
+  "_id": "69a9c2e5f56a3843d11bf6c9",
+  "name": "Optimize MPP",
+  "description": "Simplifies TCP handling and slightly reduces latency by removing additional validation and isolation",
+  "page": "Tweaks",
+  "category": "Network",
+  "icon": "advanced.png",
+  "attributes": "Advanced",
+  "hardwareReqs": [
+    "network:ethernet"
+  ],
+  "isMultiOption": false,
+  "isPremium": true,
+  "options": [],
+  "commands": "netsh int tcp set security mpp=disabled",
+  "revert22H2": "netsh int tcp set security mpp=enabled",
+  "revert23H2": "netsh int tcp set security mpp=enabled",
+  "revert24H2": "netsh int tcp set security mpp=enabled",
+  "createdAt": "2026-03-05T17:52:34.306Z",
+  "updatedAt": "2026-03-05T17:52:39.163Z",
+  "revertCommands": "netsh int tcp set security mpp=enabled",
+  "localDecrypted": true
+}

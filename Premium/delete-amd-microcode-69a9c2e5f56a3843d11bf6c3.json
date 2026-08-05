@@ -1,0 +1,20 @@
+{
+  "_id": "69a9c2e5f56a3843d11bf6c3",
+  "name": "Delete AMD Microcode",
+  "description": "Disables Windows from applying CPU microcode updates at boot",
+  "page": "CPU",
+  "category": "Hardware",
+  "icon": "advanced.png",
+  "attributes": "Advanced",
+  "hardwareReqs": [
+    "cpu:amd"
+  ],
+  "isMultiOption": false,
+  "isPremium": true,
+  "options": [],
+  "commands": "Takeown /F \"C:\\Windows\\System32\\mcupdate_AuthenticAMD.dll\" /R /D Y\nRemove-Item \"C:\\Windows\\System32\\mcupdate_AuthenticAMD.dll\" -Force",
+  "createdAt": "2026-03-05T17:52:34.306Z",
+  "updatedAt": "2026-03-05T17:52:39.163Z",
+  "revertCommands": null,
+  "localDecrypted": true
+}

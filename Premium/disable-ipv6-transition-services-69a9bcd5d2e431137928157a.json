@@ -1,0 +1,20 @@
+{
+  "_id": "69a9bcd5d2e431137928157a",
+  "name": "Disable IPv6 Transition Services",
+  "description": "Removes unnecessary IPv6 tunneling overhead",
+  "page": "Tweaks",
+  "category": "Network",
+  "icon": "advanced.png",
+  "hardwareReqs": [],
+  "isMultiOption": false,
+  "isPremium": true,
+  "options": [],
+  "commands": "netsh interface teredo set state disabled\r\nnetsh int isatap set state disabled\r\nnetsh int ipv6 6to4 set state disabled",
+  "revert22H2": "netsh interface teredo set state default\r\nnetsh int isatap set state default\r\nnetsh int ipv6 6to4 set state default",
+  "revert23H2": "netsh interface teredo set state default\r\nnetsh int isatap set state default\r\nnetsh int ipv6 6to4 set state default",
+  "revert24H2": "netsh interface teredo set state default\r\nnetsh int isatap set state default\r\nnetsh int ipv6 6to4 set state default",
+  "createdAt": "2026-03-05T17:26:45.398Z",
+  "updatedAt": "2026-03-05T17:26:45.398Z",
+  "revertCommands": "netsh interface teredo set state default\r\nnetsh int isatap set state default\r\nnetsh int ipv6 6to4 set state default",
+  "localDecrypted": true
+}

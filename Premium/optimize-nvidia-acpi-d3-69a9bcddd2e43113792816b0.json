@@ -1,0 +1,20 @@
+{
+  "_id": "69a9bcddd2e43113792816b0",
+  "name": "Optimize NVIDIA Acpi & D3",
+  "description": "Improves ACPI and D3 state handling to lower resume latency from sleep and idle states.",
+  "page": "GPU (nvidia)",
+  "category": "Hardware",
+  "icon": "power.png",
+  "hardwareReqs": [],
+  "isMultiOption": false,
+  "isPremium": true,
+  "options": [],
+  "commands": "$gpus=Get-CimInstance Win32_VideoController|Where-Object{$_.PNPDeviceID -like 'PCI\\VEN_10DE*'}; foreach($g in $gpus){ $enum=\"HKLM:\\SYSTEM\\ControlSet001\\Enum\\$($g.PNPDeviceID)\"; $drv=(Get-ItemProperty -Path $enum -Name Driver).Driver; $cls=\"HKLM:\\SYSTEM\\CurrentControlSet\\Control\\Class\\$drv\"; New-ItemProperty -Path $cls -Name 'RMDisableACPI' -PropertyType DWord -Value 1023 -Force; New-ItemProperty -Path $cls -Name 'RMD3Feature' -PropertyType DWord -Value 2 -Force; }",
+  "revert22H2": "$gpus=Get-CimInstance Win32_VideoController|Where-Object{$_.PNPDeviceID -like 'PCI\\VEN_10DE*'}; foreach($g in $gpus){ $enum=\"HKLM:\\SYSTEM\\ControlSet001\\Enum\\$($g.PNPDeviceID)\"; $drv=(Get-ItemProperty -Path $enum -Name Driver).Driver; $cls=\"HKLM:\\SYSTEM\\CurrentControlSet\\Control\\Class\\$drv\"; Remove-ItemProperty -Path $cls -Name 'RMDisableACPI'; Remove-ItemProperty -Path $cls -Name 'RMD3Feature'; }",
+  "revert23H2": "$gpus=Get-CimInstance Win32_VideoController|Where-Object{$_.PNPDeviceID -like 'PCI\\VEN_10DE*'}; foreach($g in $gpus){ $enum=\"HKLM:\\SYSTEM\\ControlSet001\\Enum\\$($g.PNPDeviceID)\"; $drv=(Get-ItemProperty -Path $enum -Name Driver).Driver; $cls=\"HKLM:\\SYSTEM\\CurrentControlSet\\Control\\Class\\$drv\"; Remove-ItemProperty -Path $cls -Name 'RMDisableACPI'; Remove-ItemProperty -Path $cls -Name 'RMD3Feature'; }",
+  "revert24H2": "$gpus=Get-CimInstance Win32_VideoController|Where-Object{$_.PNPDeviceID -like 'PCI\\VEN_10DE*'}; foreach($g in $gpus){ $enum=\"HKLM:\\SYSTEM\\ControlSet001\\Enum\\$($g.PNPDeviceID)\"; $drv=(Get-ItemProperty -Path $enum -Name Driver).Driver; $cls=\"HKLM:\\SYSTEM\\CurrentControlSet\\Control\\Class\\$drv\"; Remove-ItemProperty -Path $cls -Name 'RMDisableACPI'; Remove-ItemProperty -Path $cls -Name 'RMD3Feature'; }",
+  "createdAt": "2026-03-05T17:26:53.807Z",
+  "updatedAt": "2026-03-05T17:26:53.807Z",
+  "revertCommands": "$gpus=Get-CimInstance Win32_VideoController|Where-Object{$_.PNPDeviceID -like 'PCI\\VEN_10DE*'}; foreach($g in $gpus){ $enum=\"HKLM:\\SYSTEM\\ControlSet001\\Enum\\$($g.PNPDeviceID)\"; $drv=(Get-ItemProperty -Path $enum -Name Driver).Driver; $cls=\"HKLM:\\SYSTEM\\CurrentControlSet\\Control\\Class\\$drv\"; Remove-ItemProperty -Path $cls -Name 'RMDisableACPI'; Remove-ItemProperty -Path $cls -Name 'RMD3Feature'; }",
+  "localDecrypted": true
+}

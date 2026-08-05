@@ -1,0 +1,20 @@
+{
+  "_id": "69a9bcd5d2e4311379281571",
+  "name": "Optimize Offloading Features",
+  "description": "Set performance and stability by tuning TCP offload engines",
+  "page": "Tweaks",
+  "category": "Network",
+  "icon": "advanced.png",
+  "hardwareReqs": [],
+  "isMultiOption": false,
+  "isPremium": true,
+  "options": [],
+  "commands": "netsh int tcp set global chimney=enabled\r\nnetsh int tcp set global dca=enabled\r\nnetsh int tcp set global netdma=disabled\r\nnetsh int tcp set global rsc=disabled",
+  "revert22H2": "netsh int tcp set global chimney=default\r\nnetsh int tcp set global dca=default\r\nnetsh int tcp set global netdma=default\r\nnetsh int tcp set global rsc=enabled",
+  "revert23H2": "netsh int tcp set global chimney=default\r\nnetsh int tcp set global dca=default\r\nnetsh int tcp set global netdma=default\r\nnetsh int tcp set global rsc=enabled",
+  "revert24H2": "netsh int tcp set global chimney=default\r\nnetsh int tcp set global dca=default\r\nnetsh int tcp set global netdma=default\r\nnetsh int tcp set global rsc=enabled",
+  "createdAt": "2026-03-05T17:26:45.210Z",
+  "updatedAt": "2026-03-05T17:26:45.210Z",
+  "revertCommands": "netsh int tcp set global chimney=default\r\nnetsh int tcp set global dca=default\r\nnetsh int tcp set global netdma=default\r\nnetsh int tcp set global rsc=enabled",
+  "localDecrypted": true
+}

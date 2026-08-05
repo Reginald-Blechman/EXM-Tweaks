@@ -1,0 +1,20 @@
+{
+  "_id": "69a9bcd8d2e43113792815d7",
+  "name": "Set Scheduling Reserve",
+  "description": "Reduces the MMCSS system scheduling reserve to ensuring maximum CPU time is prioritized for foreground apps",
+  "page": "CPU",
+  "category": "Hardware",
+  "icon": "system.png",
+  "hardwareReqs": [],
+  "isMultiOption": false,
+  "isPremium": true,
+  "options": [],
+  "commands": "reg add \"HKLM\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Multimedia\\SystemProfile\" /v SystemResponsiveness /t REG_DWORD /d 10 /f",
+  "revert22H2": "reg add \"HKLM\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Multimedia\\SystemProfile\" /v SystemResponsiveness /t REG_DWORD /d 20 /f",
+  "revert23H2": "reg add \"HKLM\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Multimedia\\SystemProfile\" /v SystemResponsiveness /t REG_DWORD /d 20 /f",
+  "revert24H2": "reg add \"HKLM\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Multimedia\\SystemProfile\" /v SystemResponsiveness /t REG_DWORD /d 20 /f",
+  "createdAt": "2026-03-05T17:26:48.694Z",
+  "updatedAt": "2026-03-05T17:26:48.694Z",
+  "revertCommands": "reg add \"HKLM\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Multimedia\\SystemProfile\" /v SystemResponsiveness /t REG_DWORD /d 20 /f",
+  "localDecrypted": true
+}

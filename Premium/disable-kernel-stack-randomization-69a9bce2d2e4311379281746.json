@@ -1,0 +1,20 @@
+{
+  "_id": "69a9bce2d2e4311379281746",
+  "name": "Disable Kernel Stack Randomization",
+  "description": "Disables randomization of kernel stack memory layout",
+  "page": "Security",
+  "category": "Advanced",
+  "icon": "security.png",
+  "hardwareReqs": [],
+  "isMultiOption": false,
+  "isPremium": true,
+  "options": [],
+  "commands": "reg add \"HKLM\\SYSTEM\\CurrentControlSet\\Control\\Session Manager\\Memory Management\" /v DisableRandomization /t REG_DWORD /d 1 /f",
+  "revert22H2": "reg delete \"HKLM\\SYSTEM\\CurrentControlSet\\Control\\Session Manager\\Memory Management\" /v \"DisableRandomization\" /f",
+  "revert23H2": "reg delete \"HKLM\\SYSTEM\\CurrentControlSet\\Control\\Session Manager\\Memory Management\" /v \"DisableRandomization\" /f",
+  "revert24H2": "reg delete \"HKLM\\SYSTEM\\CurrentControlSet\\Control\\Session Manager\\Memory Management\" /v \"DisableRandomization\" /f",
+  "createdAt": "2026-03-05T17:26:58.150Z",
+  "updatedAt": "2026-03-05T17:26:58.150Z",
+  "revertCommands": "reg delete \"HKLM\\SYSTEM\\CurrentControlSet\\Control\\Session Manager\\Memory Management\" /v \"DisableRandomization\" /f",
+  "localDecrypted": true
+}

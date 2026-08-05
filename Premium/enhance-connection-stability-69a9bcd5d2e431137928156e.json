@@ -1,0 +1,20 @@
+{
+  "_id": "69a9bcd5d2e431137928156e",
+  "name": "Enhance Connection Stability",
+  "description": "Reduces retransmission delays and minimizes lag spikes",
+  "page": "Tweaks",
+  "category": "Network",
+  "icon": "network.png",
+  "hardwareReqs": [],
+  "isMultiOption": false,
+  "isPremium": true,
+  "options": [],
+  "commands": "netsh int tcp set global maxsynretransmissions=2\r\nnetsh int tcp set global timestamps=disabled\r\nnetsh int tcp set global ecncapability=disabled",
+  "revert22H2": "netsh int tcp set global maxsynretransmissions=4\r\nnetsh int tcp set global timestamps=enabled\r\nnetsh int tcp set global ecncapability=enabled",
+  "revert23H2": "netsh int tcp set global maxsynretransmissions=4\r\nnetsh int tcp set global timestamps=enabled\r\nnetsh int tcp set global ecncapability=enabled",
+  "revert24H2": "netsh int tcp set global maxsynretransmissions=4\r\nnetsh int tcp set global timestamps=enabled\r\nnetsh int tcp set global ecncapability=enabled",
+  "createdAt": "2026-03-05T17:26:45.146Z",
+  "updatedAt": "2026-03-05T17:26:45.146Z",
+  "revertCommands": "netsh int tcp set global maxsynretransmissions=4\r\nnetsh int tcp set global timestamps=enabled\r\nnetsh int tcp set global ecncapability=enabled",
+  "localDecrypted": true
+}

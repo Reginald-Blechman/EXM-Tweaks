@@ -1,0 +1,20 @@
+{
+  "_id": "69a9bce2d2e4311379281761",
+  "name": "Disable Extension Point Isolation",
+  "description": "Removes extension point restrictions",
+  "page": "Security",
+  "category": "Advanced",
+  "icon": "security.png",
+  "hardwareReqs": [],
+  "isMultiOption": false,
+  "isPremium": true,
+  "options": [],
+  "commands": "Write-Output \"Temporarly Disabled\"",
+  "revert22H2": "Write-Output \"Temporarly Disabled\"",
+  "revert23H2": "Write-Output \"Temporarly Disabled\"",
+  "revert24H2": "Write-Output \"Temporarly Disabled\"",
+  "createdAt": "2026-03-05T17:26:58.711Z",
+  "updatedAt": "2026-03-05T17:26:58.711Z",
+  "revertCommands": "Write-Output \"Temporarly Disabled\"",
+  "localDecrypted": true
+}

@@ -1,0 +1,21 @@
+{
+  "_id": "69a9bce2d2e4311379281740",
+  "name": "Disable Fault Tolerant Heap",
+  "description": "Disable Fault Tolerant Heap to stop Windows from automatically applying compatibility fixes in real time",
+  "page": "Security",
+  "category": "Advanced",
+  "icon": "security.png",
+  "warnings": "May break valorant",
+  "hardwareReqs": [],
+  "isMultiOption": false,
+  "isPremium": true,
+  "options": [],
+  "commands": "reg add \"HKLM\\SYSTEM\\CurrentControlSet\\Control\\Session Manager\\Heap\" /v EnableFaultTolerantHeap /t REG_DWORD /d 0 /f",
+  "revert22H2": "reg add \"HKLM\\SYSTEM\\CurrentControlSet\\Control\\Session Manager\\Heap\" /v EnableFaultTolerantHeap /t REG_DWORD /d 1 /f",
+  "revert23H2": "reg add \"HKLM\\SYSTEM\\CurrentControlSet\\Control\\Session Manager\\Heap\" /v EnableFaultTolerantHeap /t REG_DWORD /d 1 /f",
+  "revert24H2": "reg add \"HKLM\\SYSTEM\\CurrentControlSet\\Control\\Session Manager\\Heap\" /v EnableFaultTolerantHeap /t REG_DWORD /d 1 /f",
+  "createdAt": "2026-03-05T17:26:58.009Z",
+  "updatedAt": "2026-03-05T17:26:58.009Z",
+  "revertCommands": "reg add \"HKLM\\SYSTEM\\CurrentControlSet\\Control\\Session Manager\\Heap\" /v EnableFaultTolerantHeap /t REG_DWORD /d 1 /f",
+  "localDecrypted": true
+}

@@ -1,0 +1,20 @@
+{
+  "_id": "69a9bcd5d2e4311379281580",
+  "name": "Reduce Network Background Interruptions",
+  "description": "Prevents unnecessary network resets and event noise",
+  "page": "Tweaks",
+  "category": "Network",
+  "icon": "advanced.png",
+  "hardwareReqs": [],
+  "isMultiOption": false,
+  "isPremium": true,
+  "options": [],
+  "commands": "netsh int ip set global dhcpmediasense=disabled\r\nnetsh int ip set global mediasenseeventlog=disabled\r\nnetsh int ipv6 set global dhcpmediasense=disabled",
+  "revert22H2": "netsh int ip set global dhcpmediasense=enabled\r\nnetsh int ip set global mediasenseeventlog=enabled\r\nnetsh int ipv6 set global dhcpmediasense=enabled",
+  "revert23H2": "netsh int ip set global dhcpmediasense=enabled\r\nnetsh int ip set global mediasenseeventlog=enabled\r\nnetsh int ipv6 set global dhcpmediasense=enabled",
+  "revert24H2": "netsh int ip set global dhcpmediasense=enabled\r\nnetsh int ip set global mediasenseeventlog=enabled\r\nnetsh int ipv6 set global dhcpmediasense=enabled",
+  "createdAt": "2026-03-05T17:26:45.518Z",
+  "updatedAt": "2026-03-05T17:26:45.518Z",
+  "revertCommands": "netsh int ip set global dhcpmediasense=enabled\r\nnetsh int ip set global mediasenseeventlog=enabled\r\nnetsh int ipv6 set global dhcpmediasense=enabled",
+  "localDecrypted": true
+}

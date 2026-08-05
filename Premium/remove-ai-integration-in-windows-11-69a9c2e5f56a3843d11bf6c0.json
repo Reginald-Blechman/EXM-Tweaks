@@ -1,0 +1,23 @@
+{
+  "_id": "69a9c2e5f56a3843d11bf6c0",
+  "name": "Remove AI integration in windows 11",
+  "description": "Disables Windows 11 AI features, including Recall and AI data processing, to reduce background activity and improve privacy.",
+  "page": "Core",
+  "category": "General",
+  "icon": "system.png",
+  "attributes": "System",
+  "hardwareReqs": [
+    "os:windows:11"
+  ],
+  "isMultiOption": false,
+  "isPremium": true,
+  "options": [],
+  "commands": "reg add \"HKLM\\SOFTWARE\\Policies\\Microsoft\\Windows\\WindowsAI\" /v DisableAIDataAnalysis /t REG_DWORD /d 1 /f\nreg add \"HKLM\\SOFTWARE\\Policies\\Microsoft\\Windows\\WindowsAI\" /v AllowRecallEnablement /t REG_DWORD /d 0 /f\nreg add \"HKLM\\SYSTEM\\CurrentControlSet\\Control\\CI\\Policy\" /v VerifiedAndReputablePolicyState /t REG_DWORD /d 0 /f",
+  "revert22H2": "reg delete \"HKLM\\SOFTWARE\\Policies\\Microsoft\\Windows\\WindowsAI\" /v \"DisableAIDataAnalysis\" /f\nreg delete \"HKLM\\SOFTWARE\\Policies\\Microsoft\\Windows\\WindowsAI\" /v \"AllowRecallEnablement\" /f\nreg delete \"HKLM\\SOFTWARE\\Policies\\Microsoft\\Windows\\WindowsAI\" /f\nreg delete \"HKLM\\SYSTEM\\CurrentControlSet\\Control\\CI\\Policy\" /v \"VerifiedAndReputablePolicyState\" /f",
+  "revert23H2": "reg delete \"HKLM\\SOFTWARE\\Policies\\Microsoft\\Windows\\WindowsAI\" /v \"DisableAIDataAnalysis\" /f\nreg delete \"HKLM\\SOFTWARE\\Policies\\Microsoft\\Windows\\WindowsAI\" /v \"AllowRecallEnablement\" /f\nreg delete \"HKLM\\SOFTWARE\\Policies\\Microsoft\\Windows\\WindowsAI\" /f\nreg delete \"HKLM\\SYSTEM\\CurrentControlSet\\Control\\CI\\Policy\" /v \"VerifiedAndReputablePolicyState\" /f",
+  "revert24H2": "reg delete \"HKLM\\SOFTWARE\\Policies\\Microsoft\\Windows\\WindowsAI\" /v \"DisableAIDataAnalysis\" /f\nreg delete \"HKLM\\SOFTWARE\\Policies\\Microsoft\\Windows\\WindowsAI\" /v \"AllowRecallEnablement\" /f\nreg delete \"HKLM\\SOFTWARE\\Policies\\Microsoft\\Windows\\WindowsAI\" /f\nreg delete \"HKLM\\SYSTEM\\CurrentControlSet\\Control\\CI\\Policy\" /v \"VerifiedAndReputablePolicyState\" /f",
+  "createdAt": "2026-03-05T17:52:34.306Z",
+  "updatedAt": "2026-03-05T17:52:39.163Z",
+  "revertCommands": "reg delete \"HKLM\\SOFTWARE\\Policies\\Microsoft\\Windows\\WindowsAI\" /v \"DisableAIDataAnalysis\" /f\nreg delete \"HKLM\\SOFTWARE\\Policies\\Microsoft\\Windows\\WindowsAI\" /v \"AllowRecallEnablement\" /f\nreg delete \"HKLM\\SOFTWARE\\Policies\\Microsoft\\Windows\\WindowsAI\" /f\nreg delete \"HKLM\\SYSTEM\\CurrentControlSet\\Control\\CI\\Policy\" /v \"VerifiedAndReputablePolicyState\" /f",
+  "localDecrypted": true
+}

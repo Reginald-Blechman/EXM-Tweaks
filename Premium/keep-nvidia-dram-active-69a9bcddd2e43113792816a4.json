@@ -1,0 +1,20 @@
+{
+  "_id": "69a9bcddd2e43113792816a4",
+  "name": "Keep NVIDIA Dram Active",
+  "description": "Prevents DRAM PLL and controller from powering off, eliminating wake-up latency.",
+  "page": "GPU (nvidia)",
+  "category": "Hardware",
+  "icon": "system.png",
+  "hardwareReqs": [],
+  "isMultiOption": false,
+  "isPremium": true,
+  "options": [],
+  "commands": "$gpus=Get-CimInstance Win32_VideoController|Where-Object{$_.PNPDeviceID -like 'PCI\\VEN_10DE*'}; foreach($g in $gpus){ $enum=\"HKLM:\\SYSTEM\\ControlSet001\\Enum\\$($g.PNPDeviceID)\"; $drv=(Get-ItemProperty -Path $enum -Name Driver).Driver; $cls=\"HKLM:\\SYSTEM\\CurrentControlSet\\Control\\Class\\$drv\"; New-ItemProperty -Path $cls -Name 'RmClkPowerOffDramPllWhenUnused' -PropertyType DWord -Value 0 -Force; New-ItemProperty -Path $cls -Name 'RmCLFCDisable' -PropertyType DWord -Value 1 -Force; }",
+  "revert22H2": "$gpus=Get-CimInstance Win32_VideoController|Where-Object{$_.PNPDeviceID -like 'PCI\\VEN_10DE*'}; foreach($g in $gpus){ $enum=\"HKLM:\\SYSTEM\\ControlSet001\\Enum\\$($g.PNPDeviceID)\"; $drv=(Get-ItemProperty -Path $enum -Name Driver).Driver; $cls=\"HKLM:\\SYSTEM\\CurrentControlSet\\Control\\Class\\$drv\"; Remove-ItemProperty -Path $cls -Name 'RmClkPowerOffDramPllWhenUnused'; Remove-ItemProperty -Path $cls -Name 'RmCLFCDisable'; }",
+  "revert23H2": "$gpus=Get-CimInstance Win32_VideoController|Where-Object{$_.PNPDeviceID -like 'PCI\\VEN_10DE*'}; foreach($g in $gpus){ $enum=\"HKLM:\\SYSTEM\\ControlSet001\\Enum\\$($g.PNPDeviceID)\"; $drv=(Get-ItemProperty -Path $enum -Name Driver).Driver; $cls=\"HKLM:\\SYSTEM\\CurrentControlSet\\Control\\Class\\$drv\"; Remove-ItemProperty -Path $cls -Name 'RmClkPowerOffDramPllWhenUnused'; Remove-ItemProperty -Path $cls -Name 'RmCLFCDisable'; }",
+  "revert24H2": "$gpus=Get-CimInstance Win32_VideoController|Where-Object{$_.PNPDeviceID -like 'PCI\\VEN_10DE*'}; foreach($g in $gpus){ $enum=\"HKLM:\\SYSTEM\\ControlSet001\\Enum\\$($g.PNPDeviceID)\"; $drv=(Get-ItemProperty -Path $enum -Name Driver).Driver; $cls=\"HKLM:\\SYSTEM\\CurrentControlSet\\Control\\Class\\$drv\"; Remove-ItemProperty -Path $cls -Name 'RmClkPowerOffDramPllWhenUnused'; Remove-ItemProperty -Path $cls -Name 'RmCLFCDisable'; }",
+  "createdAt": "2026-03-05T17:26:53.510Z",
+  "updatedAt": "2026-03-05T17:26:53.510Z",
+  "revertCommands": "$gpus=Get-CimInstance Win32_VideoController|Where-Object{$_.PNPDeviceID -like 'PCI\\VEN_10DE*'}; foreach($g in $gpus){ $enum=\"HKLM:\\SYSTEM\\ControlSet001\\Enum\\$($g.PNPDeviceID)\"; $drv=(Get-ItemProperty -Path $enum -Name Driver).Driver; $cls=\"HKLM:\\SYSTEM\\CurrentControlSet\\Control\\Class\\$drv\"; Remove-ItemProperty -Path $cls -Name 'RmClkPowerOffDramPllWhenUnused'; Remove-ItemProperty -Path $cls -Name 'RmCLFCDisable'; }",
+  "localDecrypted": true
+}

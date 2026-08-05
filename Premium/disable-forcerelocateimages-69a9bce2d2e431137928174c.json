@@ -1,0 +1,20 @@
+{
+  "_id": "69a9bce2d2e431137928174c",
+  "name": "Disable Forcerelocateimages",
+  "description": "Stops mandatory image relocation (ASLR) enforcement",
+  "page": "Security",
+  "category": "Advanced",
+  "icon": "security.png",
+  "hardwareReqs": [],
+  "isMultiOption": false,
+  "isPremium": true,
+  "options": [],
+  "commands": "Set-ProcessMitigation -System -Disable ForceRelocateImages",
+  "revert22H2": "Set-ProcessMitigation -System -Enable ForceRelocateImages",
+  "revert23H2": "Set-ProcessMitigation -System -Enable ForceRelocateImages",
+  "revert24H2": "Set-ProcessMitigation -System -Enable ForceRelocateImages",
+  "createdAt": "2026-03-05T17:26:58.280Z",
+  "updatedAt": "2026-03-05T17:26:58.280Z",
+  "revertCommands": "Set-ProcessMitigation -System -Enable ForceRelocateImages",
+  "localDecrypted": true
+}

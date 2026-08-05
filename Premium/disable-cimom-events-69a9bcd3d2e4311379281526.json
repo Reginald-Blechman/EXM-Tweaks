@@ -1,0 +1,21 @@
+{
+  "_id": "69a9bcd3d2e4311379281526",
+  "name": "Disable Cimom Events",
+  "description": "Prevents background logging of system and hardware events, reducing unnecessary telemetry and CPU usage.",
+  "page": "Privacy",
+  "category": "General",
+  "icon": "advanced.png",
+  "warnings": "Breaks EacyBCD",
+  "hardwareReqs": [],
+  "isMultiOption": false,
+  "isPremium": true,
+  "options": [],
+  "commands": "reg add \"HKLM\\SOFTWARE\\Microsoft\\Wbem\\CIMOM\" /v EnableEvents /t REG_DWORD /d 0 /f\n \n reg add \"HKLM\\SOFTWARE\\Microsoft\\Wbem\\CIMOM\" /v Logging /t REG_DWORD /d 0 /f\n \n reg add \"HKLM\\SOFTWARE\\WOW6432Node\\Microsoft\\WBEM\\CIMOM\" /v EnableEvents /t REG_DWORD /d 0 /f\n \n reg add \"HKLM\\SOFTWARE\\WOW6432Node\\Microsoft\\WBEM\\CIMOM\" /v Logging /t REG_DWORD /d 0 /f",
+  "revert22H2": "reg add \"HKLM\\SOFTWARE\\Microsoft\\Wbem\\CIMOM\" /v EnableEvents /t REG_DWORD /d 1 /f\n reg add \"HKLM\\SOFTWARE\\Microsoft\\Wbem\\CIMOM\" /v Logging /t REG_DWORD /d 1 /f\n reg add \"HKLM\\SOFTWARE\\WOW6432Node\\Microsoft\\WBEM\\CIMOM\" /v EnableEvents /t REG_DWORD /d 1 /f\n reg add \"HKLM\\SOFTWARE\\WOW6432Node\\Microsoft\\WBEM\\CIMOM\" /v Logging /t REG_DWORD /d 1 /f",
+  "revert23H2": "reg add \"HKLM\\SOFTWARE\\Microsoft\\Wbem\\CIMOM\" /v EnableEvents /t REG_DWORD /d 1 /f\n reg add \"HKLM\\SOFTWARE\\Microsoft\\Wbem\\CIMOM\" /v Logging /t REG_DWORD /d 1 /f\n reg add \"HKLM\\SOFTWARE\\WOW6432Node\\Microsoft\\WBEM\\CIMOM\" /v EnableEvents /t REG_DWORD /d 1 /f\n reg add \"HKLM\\SOFTWARE\\WOW6432Node\\Microsoft\\WBEM\\CIMOM\" /v Logging /t REG_DWORD /d 1 /f",
+  "revert24H2": "reg add \"HKLM\\SOFTWARE\\Microsoft\\Wbem\\CIMOM\" /v EnableEvents /t REG_DWORD /d 1 /f\n reg add \"HKLM\\SOFTWARE\\Microsoft\\Wbem\\CIMOM\" /v Logging /t REG_DWORD /d 1 /f\n reg add \"HKLM\\SOFTWARE\\WOW6432Node\\Microsoft\\WBEM\\CIMOM\" /v EnableEvents /t REG_DWORD /d 1 /f\n reg add \"HKLM\\SOFTWARE\\WOW6432Node\\Microsoft\\WBEM\\CIMOM\" /v Logging /t REG_DWORD /d 1 /f",
+  "createdAt": "2026-03-05T17:26:43.305Z",
+  "updatedAt": "2026-03-05T17:26:43.305Z",
+  "revertCommands": "reg add \"HKLM\\SOFTWARE\\Microsoft\\Wbem\\CIMOM\" /v EnableEvents /t REG_DWORD /d 1 /f\n reg add \"HKLM\\SOFTWARE\\Microsoft\\Wbem\\CIMOM\" /v Logging /t REG_DWORD /d 1 /f\n reg add \"HKLM\\SOFTWARE\\WOW6432Node\\Microsoft\\WBEM\\CIMOM\" /v EnableEvents /t REG_DWORD /d 1 /f\n reg add \"HKLM\\SOFTWARE\\WOW6432Node\\Microsoft\\WBEM\\CIMOM\" /v Logging /t REG_DWORD /d 1 /f",
+  "localDecrypted": true
+}

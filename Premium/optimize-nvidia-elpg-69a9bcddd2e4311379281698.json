@@ -1,0 +1,20 @@
+{
+  "_id": "69a9bcddd2e4311379281698",
+  "name": "Optimize NVIDIA Elpg",
+  "description": "Adjusts low-power gating (ELPG) parameters for reduced entry delay and smoother power transitions.",
+  "page": "GPU (nvidia)",
+  "category": "Hardware",
+  "icon": "system.png",
+  "hardwareReqs": [],
+  "isMultiOption": false,
+  "isPremium": true,
+  "options": [],
+  "commands": "$gpus=Get-CimInstance Win32_VideoController|Where-Object{$_.PNPDeviceID -like 'PCI\\VEN_10DE*'}; foreach($g in $gpus){ $enum=\"HKLM:\\SYSTEM\\ControlSet001\\Enum\\$($g.PNPDeviceID)\"; $drv=(Get-ItemProperty -Path $enum -Name Driver).Driver; $cls=\"HKLM:\\SYSTEM\\CurrentControlSet\\Control\\Class\\$drv\"; New-ItemProperty -Path $cls -Name 'RMElpg' -PropertyType DWord -Value 4095 -Force; New-ItemProperty -Path $cls -Name 'RMElpgStateOnInit' -PropertyType DWord -Value 3 -Force; }",
+  "revert22H2": "$gpus=Get-CimInstance Win32_VideoController|Where-Object{$_.PNPDeviceID -like 'PCI\\VEN_10DE*'}; foreach($g in $gpus){ $enum=\"HKLM:\\SYSTEM\\ControlSet001\\Enum\\$($g.PNPDeviceID)\"; $drv=(Get-ItemProperty -Path $enum -Name Driver).Driver; $cls=\"HKLM:\\SYSTEM\\CurrentControlSet\\Control\\Class\\$drv\"; Remove-ItemProperty -Path $cls -Name 'RMElpg'; Remove-ItemProperty -Path $cls -Name 'RMElpgStateOnInit'; }",
+  "revert23H2": "$gpus=Get-CimInstance Win32_VideoController|Where-Object{$_.PNPDeviceID -like 'PCI\\VEN_10DE*'}; foreach($g in $gpus){ $enum=\"HKLM:\\SYSTEM\\ControlSet001\\Enum\\$($g.PNPDeviceID)\"; $drv=(Get-ItemProperty -Path $enum -Name Driver).Driver; $cls=\"HKLM:\\SYSTEM\\CurrentControlSet\\Control\\Class\\$drv\"; Remove-ItemProperty -Path $cls -Name 'RMElpg'; Remove-ItemProperty -Path $cls -Name 'RMElpgStateOnInit'; }",
+  "revert24H2": "$gpus=Get-CimInstance Win32_VideoController|Where-Object{$_.PNPDeviceID -like 'PCI\\VEN_10DE*'}; foreach($g in $gpus){ $enum=\"HKLM:\\SYSTEM\\ControlSet001\\Enum\\$($g.PNPDeviceID)\"; $drv=(Get-ItemProperty -Path $enum -Name Driver).Driver; $cls=\"HKLM:\\SYSTEM\\CurrentControlSet\\Control\\Class\\$drv\"; Remove-ItemProperty -Path $cls -Name 'RMElpg'; Remove-ItemProperty -Path $cls -Name 'RMElpgStateOnInit'; }",
+  "createdAt": "2026-03-05T17:26:53.196Z",
+  "updatedAt": "2026-03-05T17:26:53.196Z",
+  "revertCommands": "$gpus=Get-CimInstance Win32_VideoController|Where-Object{$_.PNPDeviceID -like 'PCI\\VEN_10DE*'}; foreach($g in $gpus){ $enum=\"HKLM:\\SYSTEM\\ControlSet001\\Enum\\$($g.PNPDeviceID)\"; $drv=(Get-ItemProperty -Path $enum -Name Driver).Driver; $cls=\"HKLM:\\SYSTEM\\CurrentControlSet\\Control\\Class\\$drv\"; Remove-ItemProperty -Path $cls -Name 'RMElpg'; Remove-ItemProperty -Path $cls -Name 'RMElpgStateOnInit'; }",
+  "localDecrypted": true
+}

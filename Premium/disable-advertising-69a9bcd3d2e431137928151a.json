@@ -1,0 +1,20 @@
+{
+  "_id": "69a9bcd3d2e431137928151a",
+  "name": "Disable Advertising",
+  "description": "Turns off Windows advertising features and personalized feeds to improve privacy and reduce background noise.",
+  "page": "Privacy",
+  "category": "General",
+  "icon": "telemetry.png",
+  "hardwareReqs": [],
+  "isMultiOption": false,
+  "isPremium": true,
+  "options": [],
+  "commands": "reg add \"HKLM\\SOFTWARE\\Policies\\Microsoft\\Windows\\AdvertisingInfo\" /v DisabledByGroupPolicy /t REG_DWORD /d 1 /f\nreg add \"HKCU\\SOFTWARE\\Policies\\Microsoft\\Windows\\Windows Feeds\" /v EnableFeeds /t REG_DWORD /d 0 /f",
+  "revert22H2": "reg delete \"HKLM\\SOFTWARE\\Policies\\Microsoft\\Windows\\AdvertisingInfo\" /v DisabledByGroupPolicy /f\r\nreg add \"HKCU\\SOFTWARE\\Policies\\Microsoft\\Windows\\Windows Feeds\" /v EnableFeeds /t REG_DWORD /d 1 /f",
+  "revert23H2": "reg delete \"HKLM\\SOFTWARE\\Policies\\Microsoft\\Windows\\AdvertisingInfo\" /v DisabledByGroupPolicy /f\r\nreg add \"HKCU\\SOFTWARE\\Policies\\Microsoft\\Windows\\Windows Feeds\" /v EnableFeeds /t REG_DWORD /d 1 /f",
+  "revert24H2": "reg delete \"HKLM\\SOFTWARE\\Policies\\Microsoft\\Windows\\AdvertisingInfo\" /v DisabledByGroupPolicy /f\r\nreg add \"HKCU\\SOFTWARE\\Policies\\Microsoft\\Windows\\Windows Feeds\" /v EnableFeeds /t REG_DWORD /d 1 /f",
+  "createdAt": "2026-03-05T17:26:43.008Z",
+  "updatedAt": "2026-03-05T17:26:43.008Z",
+  "revertCommands": "reg delete \"HKLM\\SOFTWARE\\Policies\\Microsoft\\Windows\\AdvertisingInfo\" /v DisabledByGroupPolicy /f\r\nreg add \"HKCU\\SOFTWARE\\Policies\\Microsoft\\Windows\\Windows Feeds\" /v EnableFeeds /t REG_DWORD /d 1 /f",
+  "localDecrypted": true
+}

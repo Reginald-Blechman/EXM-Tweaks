@@ -1,0 +1,20 @@
+{
+  "_id": "69a9bcd5d2e4311379281583",
+  "name": "Optimize Winsock Buffer Behavior",
+  "description": "Reduces socket buffering delays for real-time apps",
+  "page": "Tweaks",
+  "category": "Network",
+  "icon": "advanced.png",
+  "hardwareReqs": [],
+  "isMultiOption": false,
+  "isPremium": true,
+  "options": [],
+  "commands": "Set-NetTCPSetting -SettingName \"*\" -ForceWS Disabled",
+  "revert22H2": "Set-NetTCPSetting -SettingName \"*\" -ForceWS Enabled",
+  "revert23H2": "Set-NetTCPSetting -SettingName \"*\" -ForceWS Enabled",
+  "revert24H2": "Set-NetTCPSetting -SettingName \"*\" -ForceWS Enabled",
+  "createdAt": "2026-03-05T17:26:45.579Z",
+  "updatedAt": "2026-03-05T17:26:45.579Z",
+  "revertCommands": "Set-NetTCPSetting -SettingName \"*\" -ForceWS Enabled",
+  "localDecrypted": true
+}

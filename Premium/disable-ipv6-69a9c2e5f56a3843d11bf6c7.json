@@ -1,0 +1,24 @@
+{
+  "_id": "69a9c2e5f56a3843d11bf6c7",
+  "name": "Disable IPv6",
+  "description": "Disables IPv6 stack on the system to reduce unnecessary processing",
+  "page": "Tweaks",
+  "category": "Network",
+  "icon": "network.png",
+  "attributes": "Network",
+  "warnings": "May break Xbox and Microsoft store apps",
+  "hardwareReqs": [
+    "network:ethernet"
+  ],
+  "isMultiOption": false,
+  "isPremium": true,
+  "options": [],
+  "commands": "try {\n    reg add \"HKLM\\SYSTEM\\CurrentControlSet\\Services\\TCPIP6\\Parameters\" /v DisabledComponents /t REG_DWORD /d 0xFFFFFFFF /f \n    netsh int ipv6 set state disabled\n    Write-Host \"IPv6: Disabled\"\n} catch {\n    Write-Host \"IPv6: Failed\"\n}\n",
+  "revert22H2": "reg add \"HKLM\\SYSTEM\\CurrentControlSet\\Services\\TCPIP6\\Parameters\" /v DisabledComponents /t REG_DWORD /d 0 /f\nnetsh int ipv6 set state enabled",
+  "revert23H2": "reg add \"HKLM\\SYSTEM\\CurrentControlSet\\Services\\TCPIP6\\Parameters\" /v DisabledComponents /t REG_DWORD /d 0 /f\nnetsh int ipv6 set state enabled",
+  "revert24H2": "reg add \"HKLM\\SYSTEM\\CurrentControlSet\\Services\\TCPIP6\\Parameters\" /v DisabledComponents /t REG_DWORD /d 0 /f\nnetsh int ipv6 set state enabled",
+  "createdAt": "2026-03-05T17:52:34.306Z",
+  "updatedAt": "2026-03-05T17:52:39.163Z",
+  "revertCommands": "reg add \"HKLM\\SYSTEM\\CurrentControlSet\\Services\\TCPIP6\\Parameters\" /v DisabledComponents /t REG_DWORD /d 0 /f\nnetsh int ipv6 set state enabled",
+  "localDecrypted": true
+}

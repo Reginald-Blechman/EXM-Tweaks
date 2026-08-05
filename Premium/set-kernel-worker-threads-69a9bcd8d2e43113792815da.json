@@ -1,0 +1,20 @@
+{
+  "_id": "69a9bcd8d2e43113792815da",
+  "name": "Set Kernel Worker Threads",
+  "description": "Optimizes how Windows handles low-level background tasks by adjusting kernel thread behavior for smoother performance and reduced latency.",
+  "page": "CPU",
+  "category": "Hardware",
+  "icon": "system.png",
+  "hardwareReqs": [],
+  "isMultiOption": false,
+  "isPremium": true,
+  "options": [],
+  "commands": "Write-Output \"Temporarly Disabled\"",
+  "revert22H2": "Write-Output \"Temporarly Disabled\"",
+  "revert23H2": "Write-Output \"Temporarly Disabled\"",
+  "revert24H2": "Write-Output \"Temporarly Disabled\"",
+  "createdAt": "2026-03-05T17:26:48.756Z",
+  "updatedAt": "2026-03-05T17:26:48.756Z",
+  "revertCommands": "Write-Output \"Temporarly Disabled\"",
+  "localDecrypted": true
+}

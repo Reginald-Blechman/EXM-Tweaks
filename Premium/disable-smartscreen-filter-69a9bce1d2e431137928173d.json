@@ -1,0 +1,21 @@
+{
+  "_id": "69a9bce1d2e431137928173d",
+  "name": "Disable Smartscreen Filter",
+  "description": "Disables Windows SmartScreen, which screens apps and downloads for malicious content",
+  "page": "Security",
+  "category": "Advanced",
+  "icon": "security.png",
+  "warnings": "Windows may allow execution of untrusted apps",
+  "hardwareReqs": [],
+  "isMultiOption": false,
+  "isPremium": true,
+  "options": [],
+  "commands": "reg add \"HKLM\\SOFTWARE\\Policies\\Microsoft\\Windows\\System\" /v \"EnableSmartScreen\" /t REG_DWORD /d 0 /f\n reg add \"HKLM\\SOFTWARE\\Policies\\Microsoft\\Windows Defender\\SmartScreenSettings\" /v \"EnableSmartScreen\" /t REG_DWORD /d 0 /f\n reg add \"HKLM\\SOFTWARE\\Policies\\Microsoft\\Windows Defender\\SmartScreenSettings\" /v \"ConfigureAppInstallControl\" /t REG_DWORD /d 0 /f\n reg add \"HKCU\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Explorer\" /v \"SmartScreenEnabled\" /t REG_SZ /d \"Off\" /f",
+  "revert22H2": "reg add \"HKLM\\SOFTWARE\\Policies\\Microsoft\\Windows\\System\" /v \"EnableSmartScreen\" /t REG_DWORD /d 1 /f\n reg add \"HKLM\\SOFTWARE\\Policies\\Microsoft\\Windows Defender\\SmartScreenSettings\" /v \"EnableSmartScreen\" /t REG_DWORD /d 1 /f\n reg add \"HKLM\\SOFTWARE\\Policies\\Microsoft\\Windows Defender\\SmartScreenSettings\" /v \"ConfigureAppInstallControl\" /t REG_DWORD /d 3 /f\n reg add \"HKCU\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Explorer\" /v \"SmartScreenEnabled\" /t REG_SZ /d \"RequireAdmin\" /f",
+  "revert23H2": "reg add \"HKLM\\SOFTWARE\\Policies\\Microsoft\\Windows\\System\" /v \"EnableSmartScreen\" /t REG_DWORD /d 1 /f\n reg add \"HKLM\\SOFTWARE\\Policies\\Microsoft\\Windows Defender\\SmartScreenSettings\" /v \"EnableSmartScreen\" /t REG_DWORD /d 1 /f\n reg add \"HKLM\\SOFTWARE\\Policies\\Microsoft\\Windows Defender\\SmartScreenSettings\" /v \"ConfigureAppInstallControl\" /t REG_DWORD /d 3 /f\n reg add \"HKCU\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Explorer\" /v \"SmartScreenEnabled\" /t REG_SZ /d \"RequireAdmin\" /f",
+  "revert24H2": "reg add \"HKLM\\SOFTWARE\\Policies\\Microsoft\\Windows\\System\" /v \"EnableSmartScreen\" /t REG_DWORD /d 1 /f\n reg add \"HKLM\\SOFTWARE\\Policies\\Microsoft\\Windows Defender\\SmartScreenSettings\" /v \"EnableSmartScreen\" /t REG_DWORD /d 1 /f\n reg add \"HKLM\\SOFTWARE\\Policies\\Microsoft\\Windows Defender\\SmartScreenSettings\" /v \"ConfigureAppInstallControl\" /t REG_DWORD /d 3 /f\n reg add \"HKCU\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Explorer\" /v \"SmartScreenEnabled\" /t REG_SZ /d \"RequireAdmin\" /f",
+  "createdAt": "2026-03-05T17:26:57.928Z",
+  "updatedAt": "2026-03-05T17:26:57.928Z",
+  "revertCommands": "reg add \"HKLM\\SOFTWARE\\Policies\\Microsoft\\Windows\\System\" /v \"EnableSmartScreen\" /t REG_DWORD /d 1 /f\n reg add \"HKLM\\SOFTWARE\\Policies\\Microsoft\\Windows Defender\\SmartScreenSettings\" /v \"EnableSmartScreen\" /t REG_DWORD /d 1 /f\n reg add \"HKLM\\SOFTWARE\\Policies\\Microsoft\\Windows Defender\\SmartScreenSettings\" /v \"ConfigureAppInstallControl\" /t REG_DWORD /d 3 /f\n reg add \"HKCU\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Explorer\" /v \"SmartScreenEnabled\" /t REG_SZ /d \"RequireAdmin\" /f",
+  "localDecrypted": true
+}

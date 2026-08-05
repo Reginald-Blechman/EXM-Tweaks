@@ -1,0 +1,24 @@
+{
+  "_id": "69a9c2e5f56a3843d11bf6c8",
+  "name": "Optimize MTU size",
+  "description": "Sets max packet size to 1500 bytes for optimal delivery, reducing fragmentation",
+  "page": "Tweaks",
+  "category": "Network",
+  "icon": "network.png",
+  "attributes": "Network",
+  "warnings": "can cause issues on older network cards",
+  "hardwareReqs": [
+    "network:ethernet"
+  ],
+  "isMultiOption": false,
+  "isPremium": true,
+  "options": [],
+  "commands": "$base = 'HKLM:\\SYSTEM\\CurrentControlSet\\Control\\Class\\{4D36E972-E325-11CE-BFC1-08002BE10318}'\n\nGet-ChildItem -Path $base -Force -ErrorAction SilentlyContinue |\nWhere-Object { $_.PSIsContainer -and $_.PSChildName -match '^\\d{4}$' } |\nForEach-Object {\n  try {\n    $p = $_.PSPath\n    if ((Get-ItemProperty -Path $p -ErrorAction Stop).PSObject.Properties.Name -contains 'MTU') {\n      Set-ItemProperty -Path $p -Name MTU -Type DWord -Value 1500 -Force\n    } else {\n      New-ItemProperty -Path $p -Name MTU -PropertyType DWord -Value 1500 -Force \n    }\n  } catch {}\n}\n",
+  "revert22H2": "$base = 'HKLM:\\SYSTEM\\CurrentControlSet\\Control\\Class\\{4D36E972-E325-11CE-BFC1-08002BE10318}'\n\nGet-ChildItem -Path $base -Force -ErrorAction SilentlyContinue |\nWhere-Object { $_.PSIsContainer -and $_.PSChildName -match '^\\d{4}$' } |\nForEach-Object {\n  try {\n    $p = $_.PSPath\n    Remove-ItemProperty -Path $p -Name MTU\n  } catch {}\n}",
+  "revert23H2": "$base = 'HKLM:\\SYSTEM\\CurrentControlSet\\Control\\Class\\{4D36E972-E325-11CE-BFC1-08002BE10318}'\n\nGet-ChildItem -Path $base -Force -ErrorAction SilentlyContinue |\nWhere-Object { $_.PSIsContainer -and $_.PSChildName -match '^\\d{4}$' } |\nForEach-Object {\n  try {\n    $p = $_.PSPath\n    Remove-ItemProperty -Path $p -Name MTU\n  } catch {}\n}",
+  "revert24H2": "$base = 'HKLM:\\SYSTEM\\CurrentControlSet\\Control\\Class\\{4D36E972-E325-11CE-BFC1-08002BE10318}'\n\nGet-ChildItem -Path $base -Force -ErrorAction SilentlyContinue |\nWhere-Object { $_.PSIsContainer -and $_.PSChildName -match '^\\d{4}$' } |\nForEach-Object {\n  try {\n    $p = $_.PSPath\n    Remove-ItemProperty -Path $p -Name MTU\n  } catch {}\n}",
+  "createdAt": "2026-03-05T17:52:34.306Z",
+  "updatedAt": "2026-03-05T17:52:39.163Z",
+  "revertCommands": "$base = 'HKLM:\\SYSTEM\\CurrentControlSet\\Control\\Class\\{4D36E972-E325-11CE-BFC1-08002BE10318}'\n\nGet-ChildItem -Path $base -Force -ErrorAction SilentlyContinue |\nWhere-Object { $_.PSIsContainer -and $_.PSChildName -match '^\\d{4}$' } |\nForEach-Object {\n  try {\n    $p = $_.PSPath\n    Remove-ItemProperty -Path $p -Name MTU\n  } catch {}\n}",
+  "localDecrypted": true
+}

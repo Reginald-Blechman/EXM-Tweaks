@@ -1,0 +1,20 @@
+{
+  "_id": "69a9bcd3d2e431137928151d",
+  "name": "Disable Data Collection Hosts",
+  "description": "Stops Windows from collecting hosts data",
+  "page": "Privacy",
+  "category": "General",
+  "icon": "telemetry.png",
+  "hardwareReqs": [],
+  "isMultiOption": false,
+  "isPremium": true,
+  "options": [],
+  "commands": "reg add \"HKLM\\SOFTWARE\\Policies\\Microsoft\\Windows\\DataCollection\" /v DisableEnterpriseHosts /t REG_DWORD /d 1 /f\n \n reg add \"HKLM\\SOFTWARE\\Policies\\Microsoft\\Windows\\DataCollection\" /v DisableTailoredExperiencesWithDiagnosticData /t REG_DWORD /d 1 /f",
+  "revert22H2": "reg add \"HKLM\\SOFTWARE\\Policies\\Microsoft\\Windows\\DataCollection\" /v DisableEnterpriseHosts /t REG_DWORD /d 0 /f\n reg add \"HKLM\\SOFTWARE\\Policies\\Microsoft\\Windows\\DataCollection\" /v DisableTailoredExperiencesWithDiagnosticData /t REG_DWORD /d 0 /f",
+  "revert23H2": "reg add \"HKLM\\SOFTWARE\\Policies\\Microsoft\\Windows\\DataCollection\" /v DisableEnterpriseHosts /t REG_DWORD /d 0 /f\n reg add \"HKLM\\SOFTWARE\\Policies\\Microsoft\\Windows\\DataCollection\" /v DisableTailoredExperiencesWithDiagnosticData /t REG_DWORD /d 0 /f",
+  "revert24H2": "reg add \"HKLM\\SOFTWARE\\Policies\\Microsoft\\Windows\\DataCollection\" /v DisableEnterpriseHosts /t REG_DWORD /d 0 /f\n reg add \"HKLM\\SOFTWARE\\Policies\\Microsoft\\Windows\\DataCollection\" /v DisableTailoredExperiencesWithDiagnosticData /t REG_DWORD /d 0 /f",
+  "createdAt": "2026-03-05T17:26:43.075Z",
+  "updatedAt": "2026-03-05T17:26:43.075Z",
+  "revertCommands": "reg add \"HKLM\\SOFTWARE\\Policies\\Microsoft\\Windows\\DataCollection\" /v DisableEnterpriseHosts /t REG_DWORD /d 0 /f\n reg add \"HKLM\\SOFTWARE\\Policies\\Microsoft\\Windows\\DataCollection\" /v DisableTailoredExperiencesWithDiagnosticData /t REG_DWORD /d 0 /f",
+  "localDecrypted": true
+}

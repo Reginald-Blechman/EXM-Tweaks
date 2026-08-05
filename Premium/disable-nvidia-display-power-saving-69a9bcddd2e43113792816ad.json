@@ -1,0 +1,20 @@
+{
+  "_id": "69a9bcddd2e43113792816ad",
+  "name": "Disable NVIDIA Display Power Saving",
+  "description": "Prevents GPU from downclocking display pipelines to save power, ensuring maximum performance during gaming and graphics workloads",
+  "page": "GPU (nvidia)",
+  "category": "Hardware",
+  "icon": "power.png",
+  "hardwareReqs": [],
+  "isMultiOption": false,
+  "isPremium": true,
+  "options": [],
+  "commands": "reg add \"HKLM\\SYSTEM\\ControlSet001\\Services\\nvlddmkm\\Global\\NVTweak\" /v \"DisplayPowerSaving\" /t REG_DWORD /d 0 /f\n \nreg add \"HKLM\\SOFTWARE\\NVIDIA Corporation\\Global\\NVTweak\" /v \"DisplayPowerSaving\" /t REG_DWORD /d 0 /f",
+  "revert22H2": "reg delete \"HKLM\\SYSTEM\\ControlSet001\\Services\\nvlddmkm\\Global\\NVTweak\" /v \"DisplayPowerSaving\" /f\n reg delete \"HKLM\\SOFTWARE\\NVIDIA Corporation\\Global\\NVTweak\" /v \"DisplayPowerSaving\" /f",
+  "revert23H2": "reg delete \"HKLM\\SYSTEM\\ControlSet001\\Services\\nvlddmkm\\Global\\NVTweak\" /v \"DisplayPowerSaving\" /f\n reg delete \"HKLM\\SOFTWARE\\NVIDIA Corporation\\Global\\NVTweak\" /v \"DisplayPowerSaving\" /f",
+  "revert24H2": "reg delete \"HKLM\\SYSTEM\\ControlSet001\\Services\\nvlddmkm\\Global\\NVTweak\" /v \"DisplayPowerSaving\" /f\n reg delete \"HKLM\\SOFTWARE\\NVIDIA Corporation\\Global\\NVTweak\" /v \"DisplayPowerSaving\" /f",
+  "createdAt": "2026-03-05T17:26:53.743Z",
+  "updatedAt": "2026-03-05T17:26:53.743Z",
+  "revertCommands": "reg delete \"HKLM\\SYSTEM\\ControlSet001\\Services\\nvlddmkm\\Global\\NVTweak\" /v \"DisplayPowerSaving\" /f\n reg delete \"HKLM\\SOFTWARE\\NVIDIA Corporation\\Global\\NVTweak\" /v \"DisplayPowerSaving\" /f",
+  "localDecrypted": true
+}

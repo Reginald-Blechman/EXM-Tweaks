@@ -1,0 +1,20 @@
+{
+  "_id": "69a9bce2d2e4311379281743",
+  "name": "Disable Smbv1 & SMB Signing",
+  "description": "Disables the outdated and insecure SMBv1 protocol",
+  "page": "Security",
+  "category": "Advanced",
+  "icon": "security.png",
+  "hardwareReqs": [],
+  "isMultiOption": false,
+  "isPremium": true,
+  "options": [],
+  "commands": "reg add \"HKLM\\SYSTEM\\CurrentControlSet\\Services\\LanmanServer\\Parameters\" /v SMB1 /t REG_DWORD /d 0 /f\n \n reg add \"HKLM\\SYSTEM\\CurrentControlSet\\Services\\mrxsmb10\" /v Start /t REG_DWORD /d 4 /f\n \n reg add \"HKLM\\SYSTEM\\CurrentControlSet\\Services\\LanmanWorkstation\" /v DependOnService /t REG_MULTI_SZ /d \"Bowser\\0MRxSmb20\\0NSI\\0\" /f\n \n sc stop lanmanserver\n \n sc start lanmanserver\n \n sc stop lanmanworkstation\n \n sc start lanmanworkstation",
+  "revert22H2": "reg add \"HKLM\\SYSTEM\\CurrentControlSet\\Services\\LanmanServer\\Parameters\" /v SMB1 /t REG_DWORD /d 1 /f\n \n reg add \"HKLM\\SYSTEM\\CurrentControlSet\\Services\\mrxsmb10\" /v Start /t REG_DWORD /d 1 /f\n \n reg add \"HKLM\\SYSTEM\\CurrentControlSet\\Services\\LanmanWorkstation\" /v DependOnService /t REG_MULTI_SZ /d \"Bowser\\0MRxSmb10\\0MRxSmb20\\0NSI\\0\" /f\n \n sc stop lanmanserver\n sc start lanmanserver\n \n sc stop lanmanworkstation\n sc start lanmanworkstation",
+  "revert23H2": "reg add \"HKLM\\SYSTEM\\CurrentControlSet\\Services\\LanmanServer\\Parameters\" /v SMB1 /t REG_DWORD /d 1 /f\n \n reg add \"HKLM\\SYSTEM\\CurrentControlSet\\Services\\mrxsmb10\" /v Start /t REG_DWORD /d 1 /f\n \n reg add \"HKLM\\SYSTEM\\CurrentControlSet\\Services\\LanmanWorkstation\" /v DependOnService /t REG_MULTI_SZ /d \"Bowser\\0MRxSmb10\\0MRxSmb20\\0NSI\\0\" /f\n \n sc stop lanmanserver\n sc start lanmanserver\n \n sc stop lanmanworkstation\n sc start lanmanworkstation",
+  "revert24H2": "reg add \"HKLM\\SYSTEM\\CurrentControlSet\\Services\\LanmanServer\\Parameters\" /v SMB1 /t REG_DWORD /d 1 /f\n \n reg add \"HKLM\\SYSTEM\\CurrentControlSet\\Services\\mrxsmb10\" /v Start /t REG_DWORD /d 1 /f\n \n reg add \"HKLM\\SYSTEM\\CurrentControlSet\\Services\\LanmanWorkstation\" /v DependOnService /t REG_MULTI_SZ /d \"Bowser\\0MRxSmb10\\0MRxSmb20\\0NSI\\0\" /f\n \n sc stop lanmanserver\n sc start lanmanserver\n \n sc stop lanmanworkstation\n sc start lanmanworkstation",
+  "createdAt": "2026-03-05T17:26:58.073Z",
+  "updatedAt": "2026-03-05T17:26:58.073Z",
+  "revertCommands": "reg add \"HKLM\\SYSTEM\\CurrentControlSet\\Services\\LanmanServer\\Parameters\" /v SMB1 /t REG_DWORD /d 1 /f\n \n reg add \"HKLM\\SYSTEM\\CurrentControlSet\\Services\\mrxsmb10\" /v Start /t REG_DWORD /d 1 /f\n \n reg add \"HKLM\\SYSTEM\\CurrentControlSet\\Services\\LanmanWorkstation\" /v DependOnService /t REG_MULTI_SZ /d \"Bowser\\0MRxSmb10\\0MRxSmb20\\0NSI\\0\" /f\n \n sc stop lanmanserver\n sc start lanmanserver\n \n sc stop lanmanworkstation\n sc start lanmanworkstation",
+  "localDecrypted": true
+}

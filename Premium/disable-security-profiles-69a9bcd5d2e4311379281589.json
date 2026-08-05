@@ -1,0 +1,20 @@
+{
+  "_id": "69a9bcd5d2e4311379281589",
+  "name": "Disable Security Profiles",
+  "description": "Disables MPP and TCP security profiles to avoid unnecessary restrictions",
+  "page": "Tweaks",
+  "category": "Network",
+  "icon": "advanced.png",
+  "hardwareReqs": [],
+  "isMultiOption": false,
+  "isPremium": true,
+  "options": [],
+  "commands": "netsh int tcp set security mpp=disabled\r\nnetsh int tcp set security profiles=disabled",
+  "revert22H2": "netsh int tcp set security mpp=enabled\r\nnetsh int tcp set security profiles=enabled",
+  "revert23H2": "netsh int tcp set security mpp=enabled\r\nnetsh int tcp set security profiles=enabled",
+  "revert24H2": "netsh int tcp set security mpp=enabled\r\nnetsh int tcp set security profiles=enabled",
+  "createdAt": "2026-03-05T17:26:45.692Z",
+  "updatedAt": "2026-03-05T17:26:45.692Z",
+  "revertCommands": "netsh int tcp set security mpp=enabled\r\nnetsh int tcp set security profiles=enabled",
+  "localDecrypted": true
+}

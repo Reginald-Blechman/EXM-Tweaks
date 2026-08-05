@@ -1,0 +1,20 @@
+{
+  "_id": "69a9bce2d2e4311379281752",
+  "name": "Disable Control Flow Guard (cfg)",
+  "description": "Prevents indirect calls/jumps to unsafe targets, Disabling removes CPU overhead",
+  "page": "Security",
+  "category": "Advanced",
+  "icon": "security.png",
+  "hardwareReqs": [],
+  "isMultiOption": false,
+  "isPremium": true,
+  "options": [],
+  "commands": "reg add \"HKLM\\SYSTEM\\CurrentControlSet\\Control\\Session Manager\\Memory Management\" /v \"EnableCfg\" /t REG_DWORD /d 0 /f",
+  "revert22H2": "reg add \"HKLM\\SYSTEM\\CurrentControlSet\\Control\\Session Manager\\Memory Management\" /v \"EnableCfg\" /t REG_DWORD /d 1 /f",
+  "revert23H2": "reg add \"HKLM\\SYSTEM\\CurrentControlSet\\Control\\Session Manager\\Memory Management\" /v \"EnableCfg\" /t REG_DWORD /d 1 /f",
+  "revert24H2": "reg add \"HKLM\\SYSTEM\\CurrentControlSet\\Control\\Session Manager\\Memory Management\" /v \"EnableCfg\" /t REG_DWORD /d 1 /f",
+  "createdAt": "2026-03-05T17:26:58.405Z",
+  "updatedAt": "2026-03-05T17:26:58.405Z",
+  "revertCommands": "reg add \"HKLM\\SYSTEM\\CurrentControlSet\\Control\\Session Manager\\Memory Management\" /v \"EnableCfg\" /t REG_DWORD /d 1 /f",
+  "localDecrypted": true
+}

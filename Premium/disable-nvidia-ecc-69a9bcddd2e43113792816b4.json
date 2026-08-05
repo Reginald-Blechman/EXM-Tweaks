@@ -1,0 +1,21 @@
+{
+  "_id": "69a9bcddd2e43113792816b4",
+  "name": "Disable NVIDIA ECC",
+  "description": "Disables ecc to reduce idle power draw and eliminate the extra memory-checking overhead",
+  "page": "GPU (nvidia)",
+  "category": "Hardware",
+  "icon": "power.png",
+  "warnings": "Power Warning",
+  "hardwareReqs": [],
+  "isMultiOption": false,
+  "isPremium": true,
+  "options": [],
+  "commands": "$nvidiaSmiPath = 'C:\\Program Files\\NVIDIA Corporation\\NVSMI\\nvidia-smi.exe'\n\nif (Test-Path $nvidiaSmiPath) {\n    Write-Host \"Found nvidia-smi.exe, disabling ECC...\" -ForegroundColor Green\n    & $nvidiaSmiPath -e 0\n    Write-Host \"ECC disabled successfully!\" -ForegroundColor Green\n    Write-Host \"Note: This only works on Quadro/Tesla GPUs. GeForce cards will show an error.\" -ForegroundColor Yellow\n} else {\n    Write-Host \"ERROR: nvidia-smi.exe not found at $nvidiaSmiPath\" -ForegroundColor Red\n    Write-Host \"This optimization requires NVIDIA driver with nvidia-smi tool.\" -ForegroundColor Yellow\n}",
+  "revert22H2": "$nvidiaSmiPath = 'C:\\Program Files\\NVIDIA Corporation\\NVSMI\\nvidia-smi.exe'\n\nif (Test-Path $nvidiaSmiPath) {\n    Write-Host \"Found nvidia-smi.exe, enabling ECC...\" -ForegroundColor Green\n    & $nvidiaSmiPath -e 1\n    Write-Host \"ECC enabled successfully!\" -ForegroundColor Green\n    Write-Host \"Note: This only works on Quadro/Tesla GPUs. GeForce cards will show an error.\" -ForegroundColor Yellow\n} else {\n    Write-Host \"ERROR: nvidia-smi.exe not found at $nvidiaSmiPath\" -ForegroundColor Red\n    Write-Host \"This revert requires NVIDIA driver with nvidia-smi tool.\" -ForegroundColor Yellow\n}",
+  "revert23H2": "$nvidiaSmiPath = 'C:\\Program Files\\NVIDIA Corporation\\NVSMI\\nvidia-smi.exe'\n\nif (Test-Path $nvidiaSmiPath) {\n    Write-Host \"Found nvidia-smi.exe, enabling ECC...\" -ForegroundColor Green\n    & $nvidiaSmiPath -e 1\n    Write-Host \"ECC enabled successfully!\" -ForegroundColor Green\n    Write-Host \"Note: This only works on Quadro/Tesla GPUs. GeForce cards will show an error.\" -ForegroundColor Yellow\n} else {\n    Write-Host \"ERROR: nvidia-smi.exe not found at $nvidiaSmiPath\" -ForegroundColor Red\n    Write-Host \"This revert requires NVIDIA driver with nvidia-smi tool.\" -ForegroundColor Yellow\n}",
+  "revert24H2": "$nvidiaSmiPath = 'C:\\Program Files\\NVIDIA Corporation\\NVSMI\\nvidia-smi.exe'\n\nif (Test-Path $nvidiaSmiPath) {\n    Write-Host \"Found nvidia-smi.exe, enabling ECC...\" -ForegroundColor Green\n    & $nvidiaSmiPath -e 1\n    Write-Host \"ECC enabled successfully!\" -ForegroundColor Green\n    Write-Host \"Note: This only works on Quadro/Tesla GPUs. GeForce cards will show an error.\" -ForegroundColor Yellow\n} else {\n    Write-Host \"ERROR: nvidia-smi.exe not found at $nvidiaSmiPath\" -ForegroundColor Red\n    Write-Host \"This revert requires NVIDIA driver with nvidia-smi tool.\" -ForegroundColor Yellow\n}",
+  "createdAt": "2026-03-05T17:26:53.938Z",
+  "updatedAt": "2026-03-05T17:26:53.938Z",
+  "revertCommands": "$nvidiaSmiPath = 'C:\\Program Files\\NVIDIA Corporation\\NVSMI\\nvidia-smi.exe'\n\nif (Test-Path $nvidiaSmiPath) {\n    Write-Host \"Found nvidia-smi.exe, enabling ECC...\" -ForegroundColor Green\n    & $nvidiaSmiPath -e 1\n    Write-Host \"ECC enabled successfully!\" -ForegroundColor Green\n    Write-Host \"Note: This only works on Quadro/Tesla GPUs. GeForce cards will show an error.\" -ForegroundColor Yellow\n} else {\n    Write-Host \"ERROR: nvidia-smi.exe not found at $nvidiaSmiPath\" -ForegroundColor Red\n    Write-Host \"This revert requires NVIDIA driver with nvidia-smi tool.\" -ForegroundColor Yellow\n}",
+  "localDecrypted": true
+}

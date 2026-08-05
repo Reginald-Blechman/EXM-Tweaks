@@ -1,0 +1,25 @@
+{
+  "_id": "69a9c2e5f56a3843d11bf6be",
+  "name": "Optimize NVIDIA GC6 Idle",
+  "description": "Optimizes GC6 power state behavior to maintain active bus clocks and faster GPU wake times.",
+  "page": "GPU (nvidia)",
+  "category": "Hardware",
+  "icon": "power.png",
+  "attributes": "Power",
+  "warnings": "Power Warning",
+  "hardwareReqs": [
+    "hardware:laptop",
+    "gpu:nvidia"
+  ],
+  "isMultiOption": false,
+  "isPremium": true,
+  "options": [],
+  "commands": "Write-Output \"Temporarly Disabled\"",
+  "revert22H2": "Write-Output \"Temporarly Disabled\"",
+  "revert23H2": "Write-Output \"Temporarly Disabled\"",
+  "revert24H2": "Write-Output \"Temporarly Disabled\"",
+  "createdAt": "2026-03-05T17:52:34.306Z",
+  "updatedAt": "2026-03-05T17:52:39.163Z",
+  "revertCommands": "Write-Output \"Temporarly Disabled\"",
+  "localDecrypted": true
+}

@@ -1,0 +1,20 @@
+{
+  "_id": "69a9bcd8d2e43113792815dd",
+  "name": "Disable Eventprocessor",
+  "description": "Disables the Event Processor to reduce background cpu cycles",
+  "page": "CPU",
+  "category": "Hardware",
+  "icon": "system.png",
+  "hardwareReqs": [],
+  "isMultiOption": false,
+  "isPremium": true,
+  "options": [],
+  "commands": "Write-Output \"Temporarly Disabled\"",
+  "revert22H2": "Write-Output \"Temporarly Disabled\"",
+  "revert23H2": "Write-Output \"Temporarly Disabled\"",
+  "revert24H2": "Write-Output \"Temporarly Disabled\"",
+  "createdAt": "2026-03-05T17:26:48.811Z",
+  "updatedAt": "2026-03-05T17:26:48.811Z",
+  "revertCommands": "Write-Output \"Temporarly Disabled\"",
+  "localDecrypted": true
+}

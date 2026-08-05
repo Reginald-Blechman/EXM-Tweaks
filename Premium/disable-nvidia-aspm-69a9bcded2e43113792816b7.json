@@ -1,0 +1,21 @@
+{
+  "_id": "69a9bcded2e43113792816b7",
+  "name": "Disable NVIDIA Aspm",
+  "description": "Disables PCIe Active State Power Management to prevent GPU link from entering low-power states, improving latency stability.",
+  "page": "GPU (nvidia)",
+  "category": "Hardware",
+  "icon": "power.png",
+  "warnings": "Power Warning",
+  "hardwareReqs": [],
+  "isMultiOption": false,
+  "isPremium": true,
+  "options": [],
+  "commands": "$gpus=Get-CimInstance Win32_VideoController|Where-Object{$_.PNPDeviceID -like 'PCI\\VEN_10DE*'}; foreach($g in $gpus){ $enum=\"HKLM:\\SYSTEM\\ControlSet001\\Enum\\$($g.PNPDeviceID)\"; $drv=(Get-ItemProperty -Path $enum -Name Driver).Driver; $cls=\"HKLM:\\SYSTEM\\CurrentControlSet\\Control\\Class\\$drv\"; New-ItemProperty -Path $cls -Name 'RMEnableASPMAtLoad' -PropertyType DWord -Value 0 -Force; New-ItemProperty -Path $cls -Name 'RMEnableASPMPublicBits' -PropertyType DWord -Value 0 -Force; New-ItemProperty -Path $cls -Name 'RMDisableGpuASPMFlags' -PropertyType DWord -Value 3 -Force; }",
+  "revert22H2": "$gpus=Get-CimInstance Win32_VideoController|Where-Object{$_.PNPDeviceID -like 'PCI\\VEN_10DE*'}; foreach($g in $gpus){ $enum=\"HKLM:\\SYSTEM\\ControlSet001\\Enum\\$($g.PNPDeviceID)\"; $drv=(Get-ItemProperty -Path $enum -Name Driver).Driver; $cls=\"HKLM:\\SYSTEM\\CurrentControlSet\\Control\\Class\\$drv\"; Remove-ItemProperty -Path $cls -Name 'RMEnableASPMAtLoad'; Remove-ItemProperty -Path $cls -Name 'RMEnableASPMPublicBits'; Remove-ItemProperty -Path $cls -Name 'RMDisableGpuASPMFlags'; }",
+  "revert23H2": "$gpus=Get-CimInstance Win32_VideoController|Where-Object{$_.PNPDeviceID -like 'PCI\\VEN_10DE*'}; foreach($g in $gpus){ $enum=\"HKLM:\\SYSTEM\\ControlSet001\\Enum\\$($g.PNPDeviceID)\"; $drv=(Get-ItemProperty -Path $enum -Name Driver).Driver; $cls=\"HKLM:\\SYSTEM\\CurrentControlSet\\Control\\Class\\$drv\"; Remove-ItemProperty -Path $cls -Name 'RMEnableASPMAtLoad'; Remove-ItemProperty -Path $cls -Name 'RMEnableASPMPublicBits'; Remove-ItemProperty -Path $cls -Name 'RMDisableGpuASPMFlags'; }",
+  "revert24H2": "$gpus=Get-CimInstance Win32_VideoController|Where-Object{$_.PNPDeviceID -like 'PCI\\VEN_10DE*'}; foreach($g in $gpus){ $enum=\"HKLM:\\SYSTEM\\ControlSet001\\Enum\\$($g.PNPDeviceID)\"; $drv=(Get-ItemProperty -Path $enum -Name Driver).Driver; $cls=\"HKLM:\\SYSTEM\\CurrentControlSet\\Control\\Class\\$drv\"; Remove-ItemProperty -Path $cls -Name 'RMEnableASPMAtLoad'; Remove-ItemProperty -Path $cls -Name 'RMEnableASPMPublicBits'; Remove-ItemProperty -Path $cls -Name 'RMDisableGpuASPMFlags'; }",
+  "createdAt": "2026-03-05T17:26:54.024Z",
+  "updatedAt": "2026-03-05T17:26:54.024Z",
+  "revertCommands": "$gpus=Get-CimInstance Win32_VideoController|Where-Object{$_.PNPDeviceID -like 'PCI\\VEN_10DE*'}; foreach($g in $gpus){ $enum=\"HKLM:\\SYSTEM\\ControlSet001\\Enum\\$($g.PNPDeviceID)\"; $drv=(Get-ItemProperty -Path $enum -Name Driver).Driver; $cls=\"HKLM:\\SYSTEM\\CurrentControlSet\\Control\\Class\\$drv\"; Remove-ItemProperty -Path $cls -Name 'RMEnableASPMAtLoad'; Remove-ItemProperty -Path $cls -Name 'RMEnableASPMPublicBits'; Remove-ItemProperty -Path $cls -Name 'RMDisableGpuASPMFlags'; }",
+  "localDecrypted": true
+}

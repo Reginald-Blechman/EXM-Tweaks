@@ -1,0 +1,24 @@
+{
+  "_id": "69a9c2e5f56a3843d11bf6b3",
+  "name": "Force P0-State",
+  "description": "Locks the GPU in its maximum performance state (P0), preventing downclocking and ensuring consistant performance",
+  "page": "GPU (nvidia)",
+  "category": "Hardware",
+  "icon": "power.png",
+  "attributes": "Power",
+  "warnings": "Power Warning",
+  "hardwareReqs": [
+    "gpu:nvidia:not_10_series_or_gt"
+  ],
+  "isMultiOption": false,
+  "isPremium": true,
+  "options": [],
+  "commands": "$gpus = Get-CimInstance Win32_VideoController | Where-Object { $_.PNPDeviceID -like 'PCI\\VEN_10DE*' }\nforeach ($g in $gpus) {\n    $enumKey = \"HKLM:\\SYSTEM\\ControlSet001\\Enum\\$($g.PNPDeviceID)\"\n    try {\n        $driver = (Get-ItemProperty -Path $enumKey -Name 'Driver' -ErrorAction Stop).Driver\n        $classKey = \"HKLM:\\SYSTEM\\CurrentControlSet\\Control\\Class\\$driver\"\n        New-ItemProperty -Path $classKey -Name 'DisableAsyncPstates' -PropertyType DWord -Value 1 -Force \n        New-ItemProperty -Path $classKey -Name 'DisableDynamicPstate' -PropertyType DWord -Value 1 -Force \n    } catch { }\n}",
+  "revert22H2": "$gpus = Get-CimInstance Win32_VideoController | Where-Object { $_.PNPDeviceID -like 'PCI\\VEN_10DE*' }\nforeach ($g in $gpus) {\n    $enumKey = \"HKLM:\\SYSTEM\\ControlSet001\\Enum\\$($g.PNPDeviceID)\"\n    try {\n        $driver = (Get-ItemProperty -Path $enumKey -Name 'Driver' -ErrorAction Stop).Driver\n        $classKey = \"HKLM:\\SYSTEM\\CurrentControlSet\\Control\\Class\\$driver\"\n        New-ItemProperty -Path $classKey -Name 'DisableAsyncPstates' -PropertyType DWord -Value 0 -Force \n        New-ItemProperty -Path $classKey -Name 'DisableDynamicPstate' -PropertyType DWord -Value 0 -Force \n    } catch { }\n}",
+  "revert23H2": "$gpus = Get-CimInstance Win32_VideoController | Where-Object { $_.PNPDeviceID -like 'PCI\\VEN_10DE*' }\nforeach ($g in $gpus) {\n    $enumKey = \"HKLM:\\SYSTEM\\ControlSet001\\Enum\\$($g.PNPDeviceID)\"\n    try {\n        $driver = (Get-ItemProperty -Path $enumKey -Name 'Driver' -ErrorAction Stop).Driver\n        $classKey = \"HKLM:\\SYSTEM\\CurrentControlSet\\Control\\Class\\$driver\"\n        New-ItemProperty -Path $classKey -Name 'DisableAsyncPstates' -PropertyType DWord -Value 0 -Force \n        New-ItemProperty -Path $classKey -Name 'DisableDynamicPstate' -PropertyType DWord -Value 0 -Force \n    } catch { }\n}",
+  "revert24H2": "$gpus = Get-CimInstance Win32_VideoController | Where-Object { $_.PNPDeviceID -like 'PCI\\VEN_10DE*' }\nforeach ($g in $gpus) {\n    $enumKey = \"HKLM:\\SYSTEM\\ControlSet001\\Enum\\$($g.PNPDeviceID)\"\n    try {\n        $driver = (Get-ItemProperty -Path $enumKey -Name 'Driver' -ErrorAction Stop).Driver\n        $classKey = \"HKLM:\\SYSTEM\\CurrentControlSet\\Control\\Class\\$driver\"\n        New-ItemProperty -Path $classKey -Name 'DisableAsyncPstates' -PropertyType DWord -Value 0 -Force \n        New-ItemProperty -Path $classKey -Name 'DisableDynamicPstate' -PropertyType DWord -Value 0 -Force \n    } catch { }\n}",
+  "createdAt": "2026-03-05T17:52:34.306Z",
+  "updatedAt": "2026-03-05T17:52:39.163Z",
+  "revertCommands": "$gpus = Get-CimInstance Win32_VideoController | Where-Object { $_.PNPDeviceID -like 'PCI\\VEN_10DE*' }\nforeach ($g in $gpus) {\n    $enumKey = \"HKLM:\\SYSTEM\\ControlSet001\\Enum\\$($g.PNPDeviceID)\"\n    try {\n        $driver = (Get-ItemProperty -Path $enumKey -Name 'Driver' -ErrorAction Stop).Driver\n        $classKey = \"HKLM:\\SYSTEM\\CurrentControlSet\\Control\\Class\\$driver\"\n        New-ItemProperty -Path $classKey -Name 'DisableAsyncPstates' -PropertyType DWord -Value 0 -Force \n        New-ItemProperty -Path $classKey -Name 'DisableDynamicPstate' -PropertyType DWord -Value 0 -Force \n    } catch { }\n}",
+  "localDecrypted": true
+}

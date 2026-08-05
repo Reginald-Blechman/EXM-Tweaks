@@ -1,0 +1,20 @@
+{
+  "_id": "69a9bcdcd2e431137928168b",
+  "name": "Set Unrestricted Clock Policy",
+  "description": "Removes GPU clock policy restrictions to allow full dynamic boost behavior and reduce latency from power-state transitions.",
+  "page": "GPU (nvidia)",
+  "category": "Hardware",
+  "icon": "system.png",
+  "hardwareReqs": [],
+  "isMultiOption": false,
+  "isPremium": true,
+  "options": [],
+  "commands": "$nvidiaSmiPath = 'C:\\Program Files\\NVIDIA Corporation\\NVSMI\\nvidia-smi.exe'\n\nif (Test-Path $nvidiaSmiPath) {\n    Write-Host \"Found nvidia-smi.exe, setting unrestricted clock policy...\" -ForegroundColor Green\n    & $nvidiaSmiPath -acp 0\n    Write-Host \"Clock policy set successfully!\" -ForegroundColor Green\n} else {\n    Write-Host \"ERROR: nvidia-smi.exe not found at $nvidiaSmiPath\" -ForegroundColor Red\n    Write-Host \"This optimization requires NVIDIA driver with nvidia-smi tool.\" -ForegroundColor Yellow\n}",
+  "revert22H2": "$nvidiaSmiPath = 'C:\\Program Files\\NVIDIA Corporation\\NVSMI\\nvidia-smi.exe'\n\nif (Test-Path $nvidiaSmiPath) {\n    Write-Host \"Found nvidia-smi.exe, reverting clock policy...\" -ForegroundColor Green\n    & $nvidiaSmiPath -rgc\n    & $nvidiaSmiPath -rac\n    & $nvidiaSmiPath -pm 0\n    Write-Host \"Clock policy reverted successfully!\" -ForegroundColor Green\n} else {\n    Write-Host \"ERROR: nvidia-smi.exe not found at $nvidiaSmiPath\" -ForegroundColor Red\n    Write-Host \"This revert requires NVIDIA driver with nvidia-smi tool.\" -ForegroundColor Yellow\n}",
+  "revert23H2": "$nvidiaSmiPath = 'C:\\Program Files\\NVIDIA Corporation\\NVSMI\\nvidia-smi.exe'\n\nif (Test-Path $nvidiaSmiPath) {\n    Write-Host \"Found nvidia-smi.exe, reverting clock policy...\" -ForegroundColor Green\n    & $nvidiaSmiPath -rgc\n    & $nvidiaSmiPath -rac\n    & $nvidiaSmiPath -pm 0\n    Write-Host \"Clock policy reverted successfully!\" -ForegroundColor Green\n} else {\n    Write-Host \"ERROR: nvidia-smi.exe not found at $nvidiaSmiPath\" -ForegroundColor Red\n    Write-Host \"This revert requires NVIDIA driver with nvidia-smi tool.\" -ForegroundColor Yellow\n}",
+  "revert24H2": "$nvidiaSmiPath = 'C:\\Program Files\\NVIDIA Corporation\\NVSMI\\nvidia-smi.exe'\n\nif (Test-Path $nvidiaSmiPath) {\n    Write-Host \"Found nvidia-smi.exe, reverting clock policy...\" -ForegroundColor Green\n    & $nvidiaSmiPath -rgc\n    & $nvidiaSmiPath -rac\n    & $nvidiaSmiPath -pm 0\n    Write-Host \"Clock policy reverted successfully!\" -ForegroundColor Green\n} else {\n    Write-Host \"ERROR: nvidia-smi.exe not found at $nvidiaSmiPath\" -ForegroundColor Red\n    Write-Host \"This revert requires NVIDIA driver with nvidia-smi tool.\" -ForegroundColor Yellow\n}",
+  "createdAt": "2026-03-05T17:26:52.847Z",
+  "updatedAt": "2026-03-05T17:26:52.847Z",
+  "revertCommands": "$nvidiaSmiPath = 'C:\\Program Files\\NVIDIA Corporation\\NVSMI\\nvidia-smi.exe'\n\nif (Test-Path $nvidiaSmiPath) {\n    Write-Host \"Found nvidia-smi.exe, reverting clock policy...\" -ForegroundColor Green\n    & $nvidiaSmiPath -rgc\n    & $nvidiaSmiPath -rac\n    & $nvidiaSmiPath -pm 0\n    Write-Host \"Clock policy reverted successfully!\" -ForegroundColor Green\n} else {\n    Write-Host \"ERROR: nvidia-smi.exe not found at $nvidiaSmiPath\" -ForegroundColor Red\n    Write-Host \"This revert requires NVIDIA driver with nvidia-smi tool.\" -ForegroundColor Yellow\n}",
+  "localDecrypted": true
+}

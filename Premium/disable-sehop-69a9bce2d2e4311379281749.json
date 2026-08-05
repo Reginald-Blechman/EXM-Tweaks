@@ -1,0 +1,20 @@
+{
+  "_id": "69a9bce2d2e4311379281749",
+  "name": "Disable Sehop",
+  "description": "Disables Structured Exception Handling Overwrite Protection & Stops SEHOP telemetry reporting",
+  "page": "Security",
+  "category": "Advanced",
+  "icon": "security.png",
+  "hardwareReqs": [],
+  "isMultiOption": false,
+  "isPremium": true,
+  "options": [],
+  "commands": "Set-ProcessMitigation -System -Disable SEHOP, SEHOPTelemetry",
+  "revert22H2": "Set-ProcessMitigation -System -Enable SEHOP, SEHOPTelemetry",
+  "revert23H2": "Set-ProcessMitigation -System -Enable SEHOP, SEHOPTelemetry",
+  "revert24H2": "Set-ProcessMitigation -System -Enable SEHOP, SEHOPTelemetry",
+  "createdAt": "2026-03-05T17:26:58.212Z",
+  "updatedAt": "2026-03-05T17:26:58.212Z",
+  "revertCommands": "Set-ProcessMitigation -System -Enable SEHOP, SEHOPTelemetry",
+  "localDecrypted": true
+}

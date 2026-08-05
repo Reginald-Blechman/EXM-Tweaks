@@ -1,0 +1,23 @@
+{
+  "_id": "69a9c2e5f56a3843d11bf6ce",
+  "name": "Disable Linear Address 57",
+  "description": "Disables 57-bit linear address extension support introduced in Intel 10th gen, which can cause compatibility or performance issues in certain cases",
+  "page": "CPU",
+  "category": "Hardware",
+  "icon": "advanced.png",
+  "attributes": "Advanced",
+  "hardwareReqs": [
+    "cpu:intel:10th_gen_only"
+  ],
+  "isMultiOption": false,
+  "isPremium": true,
+  "options": [],
+  "commands": "bcdedit /set linearaddress57 false",
+  "revert22H2": "bcdedit /deletevalue linearaddress57",
+  "revert23H2": "bcdedit /deletevalue linearaddress57",
+  "revert24H2": "bcdedit /deletevalue linearaddress57",
+  "createdAt": "2026-03-05T17:52:34.306Z",
+  "updatedAt": "2026-03-05T17:52:39.163Z",
+  "revertCommands": "bcdedit /deletevalue linearaddress57",
+  "localDecrypted": true
+}

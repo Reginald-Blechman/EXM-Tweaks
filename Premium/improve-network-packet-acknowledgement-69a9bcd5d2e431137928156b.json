@@ -1,0 +1,20 @@
+{
+  "_id": "69a9bcd5d2e431137928156b",
+  "name": "Improve Network Packet Acknowledgement",
+  "description": "Forces faster packet acknowledgement for smoother online responsiveness",
+  "page": "Tweaks",
+  "category": "Network",
+  "icon": "network.png",
+  "hardwareReqs": [],
+  "isMultiOption": false,
+  "isPremium": true,
+  "options": [],
+  "commands": "function Get-NetInterfaceRegPaths {\r\n    Get-NetAdapter -Physical | Where-Object { $_.Status -eq \"Up\" } | ForEach-Object {\r\n        \"HKLM:\\SYSTEM\\CurrentControlSet\\Services\\Tcpip\\Parameters\\Interfaces\\$($_.InterfaceGuid)\"\r\n    }\r\n}\r\n\r\nGet-NetInterfaceRegPaths | ForEach-Object {\r\n    if (-not (Test-Path $_)) { New-Item $_ -Force | Out-Null }\r\n    New-ItemProperty $_ TcpAckFrequency -Value 1 -PropertyType DWord -Force\r\n}",
+  "revert22H2": "function Get-NetInterfaceRegPaths {\r\n    Get-NetAdapter -Physical | Where-Object { $_.Status -eq \"Up\" } | ForEach-Object {\r\n        \"HKLM:\\SYSTEM\\CurrentControlSet\\Services\\Tcpip\\Parameters\\Interfaces\\$($_.InterfaceGuid)\"\r\n    }\r\n}\r\n\r\nGet-NetInterfaceRegPaths | ForEach-Object {\r\n    Remove-ItemProperty $_ TcpAckFrequency -EA SilentlyContinue\r\n}",
+  "revert23H2": "function Get-NetInterfaceRegPaths {\r\n    Get-NetAdapter -Physical | Where-Object { $_.Status -eq \"Up\" } | ForEach-Object {\r\n        \"HKLM:\\SYSTEM\\CurrentControlSet\\Services\\Tcpip\\Parameters\\Interfaces\\$($_.InterfaceGuid)\"\r\n    }\r\n}\r\n\r\nGet-NetInterfaceRegPaths | ForEach-Object {\r\n    Remove-ItemProperty $_ TcpAckFrequency -EA SilentlyContinue\r\n}",
+  "revert24H2": "function Get-NetInterfaceRegPaths {\r\n    Get-NetAdapter -Physical | Where-Object { $_.Status -eq \"Up\" } | ForEach-Object {\r\n        \"HKLM:\\SYSTEM\\CurrentControlSet\\Services\\Tcpip\\Parameters\\Interfaces\\$($_.InterfaceGuid)\"\r\n    }\r\n}\r\n\r\nGet-NetInterfaceRegPaths | ForEach-Object {\r\n    Remove-ItemProperty $_ TcpAckFrequency -EA SilentlyContinue\r\n}",
+  "createdAt": "2026-03-05T17:26:45.055Z",
+  "updatedAt": "2026-03-05T17:26:45.055Z",
+  "revertCommands": "function Get-NetInterfaceRegPaths {\r\n    Get-NetAdapter -Physical | Where-Object { $_.Status -eq \"Up\" } | ForEach-Object {\r\n        \"HKLM:\\SYSTEM\\CurrentControlSet\\Services\\Tcpip\\Parameters\\Interfaces\\$($_.InterfaceGuid)\"\r\n    }\r\n}\r\n\r\nGet-NetInterfaceRegPaths | ForEach-Object {\r\n    Remove-ItemProperty $_ TcpAckFrequency -EA SilentlyContinue\r\n}",
+  "localDecrypted": true
+}

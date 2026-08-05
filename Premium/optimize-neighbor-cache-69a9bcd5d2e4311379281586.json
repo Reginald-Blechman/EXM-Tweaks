@@ -1,0 +1,20 @@
+{
+  "_id": "69a9bcd5d2e4311379281586",
+  "name": "Optimize Neighbor Cache",
+  "description": "Increases neighbor cache size for faster routing lookup",
+  "page": "Tweaks",
+  "category": "Network",
+  "icon": "advanced.png",
+  "hardwareReqs": [],
+  "isMultiOption": false,
+  "isPremium": true,
+  "options": [],
+  "commands": "netsh int ip set global neighborcachelimit=4096",
+  "revert22H2": "netsh int ip set global neighborcachelimit=1024",
+  "revert23H2": "netsh int ip set global neighborcachelimit=1024",
+  "revert24H2": "netsh int ip set global neighborcachelimit=1024",
+  "createdAt": "2026-03-05T17:26:45.637Z",
+  "updatedAt": "2026-03-05T17:26:45.637Z",
+  "revertCommands": "netsh int ip set global neighborcachelimit=1024",
+  "localDecrypted": true
+}

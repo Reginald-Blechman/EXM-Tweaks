@@ -1,0 +1,20 @@
+{
+  "_id": "69a9bcd5d2e431137928158c",
+  "name": "Enable Weak Host Send/receive",
+  "description": "Improves network flexibility by allowing the PC to send and receive packets on any IP address assigned to an interface",
+  "page": "Tweaks",
+  "category": "Network",
+  "icon": "advanced.png",
+  "hardwareReqs": [],
+  "isMultiOption": false,
+  "isPremium": true,
+  "options": [],
+  "commands": "Get-NetAdapter -IncludeHidden | Set-NetIPInterface -WeakHostSend Enabled -WeakHostReceive Enabled -ErrorAction SilentlyContinue",
+  "revert22H2": "Get-NetAdapter -IncludeHidden | Set-NetIPInterface -WeakHostSend Disabled -WeakHostReceive Disabled -ErrorAction SilentlyContinue",
+  "revert23H2": "Get-NetAdapter -IncludeHidden | Set-NetIPInterface -WeakHostSend Disabled -WeakHostReceive Disabled -ErrorAction SilentlyContinue",
+  "revert24H2": "Get-NetAdapter -IncludeHidden | Set-NetIPInterface -WeakHostSend Disabled -WeakHostReceive Disabled -ErrorAction SilentlyContinue",
+  "createdAt": "2026-03-05T17:26:45.752Z",
+  "updatedAt": "2026-03-05T17:26:45.752Z",
+  "revertCommands": "Get-NetAdapter -IncludeHidden | Set-NetIPInterface -WeakHostSend Disabled -WeakHostReceive Disabled -ErrorAction SilentlyContinue",
+  "localDecrypted": true
+}

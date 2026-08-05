@@ -1,0 +1,20 @@
+{
+  "_id": "69a9bce2d2e4311379281755",
+  "name": "Virtualization-based Security (vbs)",
+  "description": "Uses virtualization to isolate memory for security features, Disabling removes CPU overhead",
+  "page": "Security",
+  "category": "Advanced",
+  "icon": "security.png",
+  "hardwareReqs": [],
+  "isMultiOption": false,
+  "isPremium": true,
+  "options": [],
+  "commands": "reg add \"HKLM\\SOFTWARE\\Policies\\Microsoft\\Windows\\DeviceGuard\" /v \"EnableVirtualizationBasedSecurity\" /t REG_DWORD /d 0 /f \n bcdedit /set hypervisorlaunchtype off",
+  "revert22H2": "reg add \"HKLM\\SOFTWARE\\Policies\\Microsoft\\Windows\\DeviceGuard\" /v \"EnableVirtualizationBasedSecurity\" /t REG_DWORD /d 1 /f & bcdedit /deletevalue hypervisorlaunchtype",
+  "revert23H2": "reg add \"HKLM\\SOFTWARE\\Policies\\Microsoft\\Windows\\DeviceGuard\" /v \"EnableVirtualizationBasedSecurity\" /t REG_DWORD /d 1 /f & bcdedit /deletevalue hypervisorlaunchtype",
+  "revert24H2": "reg add \"HKLM\\SOFTWARE\\Policies\\Microsoft\\Windows\\DeviceGuard\" /v \"EnableVirtualizationBasedSecurity\" /t REG_DWORD /d 1 /f & bcdedit /deletevalue hypervisorlaunchtype",
+  "createdAt": "2026-03-05T17:26:58.468Z",
+  "updatedAt": "2026-03-05T17:26:58.468Z",
+  "revertCommands": "reg add \"HKLM\\SOFTWARE\\Policies\\Microsoft\\Windows\\DeviceGuard\" /v \"EnableVirtualizationBasedSecurity\" /t REG_DWORD /d 1 /f & bcdedit /deletevalue hypervisorlaunchtype",
+  "localDecrypted": true
+}

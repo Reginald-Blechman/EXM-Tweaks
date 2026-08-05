@@ -1,0 +1,21 @@
+{
+  "_id": "69a9bcded2e43113792816c3",
+  "name": "Tune NVIDIA Low-power",
+  "description": "Keeps DRAM and graphics regions active to prevent power-down delays and maintain instant access.",
+  "page": "GPU (nvidia)",
+  "category": "Hardware",
+  "icon": "power.png",
+  "warnings": "Power Warning",
+  "hardwareReqs": [],
+  "isMultiOption": false,
+  "isPremium": true,
+  "options": [],
+  "commands": "$gpus=Get-CimInstance Win32_VideoController|Where-Object{$_.PNPDeviceID -like 'PCI\\VEN_10DE*'}; foreach($g in $gpus){ $enum=\"HKLM:\\SYSTEM\\ControlSet001\\Enum\\$($g.PNPDeviceID)\"; $drv=(Get-ItemProperty -Path $enum -Name Driver).Driver; $cls=\"HKLM:\\SYSTEM\\CurrentControlSet\\Control\\Class\\$drv\"; New-ItemProperty -Path $cls -Name 'RMLpwrEiClient' -PropertyType DWord -Value 1 -Force; New-ItemProperty -Path $cls -Name 'RmLpwrCtrlGrRgParameters' -PropertyType DWord -Value 349525 -Force; }",
+  "revert22H2": "$gpus=Get-CimInstance Win32_VideoController|Where-Object{$_.PNPDeviceID -like 'PCI\\VEN_10DE*'}; foreach($g in $gpus){ $enum=\"HKLM:\\SYSTEM\\ControlSet001\\Enum\\$($g.PNPDeviceID)\"; $drv=(Get-ItemProperty -Path $enum -Name Driver).Driver; $cls=\"HKLM:\\SYSTEM\\CurrentControlSet\\Control\\Class\\$drv\"; Remove-ItemProperty -Path $cls -Name 'RMLpwrEiClient'; Remove-ItemProperty -Path $cls -Name 'RmLpwrCtrlGrRgParameters'; }",
+  "revert23H2": "$gpus=Get-CimInstance Win32_VideoController|Where-Object{$_.PNPDeviceID -like 'PCI\\VEN_10DE*'}; foreach($g in $gpus){ $enum=\"HKLM:\\SYSTEM\\ControlSet001\\Enum\\$($g.PNPDeviceID)\"; $drv=(Get-ItemProperty -Path $enum -Name Driver).Driver; $cls=\"HKLM:\\SYSTEM\\CurrentControlSet\\Control\\Class\\$drv\"; Remove-ItemProperty -Path $cls -Name 'RMLpwrEiClient'; Remove-ItemProperty -Path $cls -Name 'RmLpwrCtrlGrRgParameters'; }",
+  "revert24H2": "$gpus=Get-CimInstance Win32_VideoController|Where-Object{$_.PNPDeviceID -like 'PCI\\VEN_10DE*'}; foreach($g in $gpus){ $enum=\"HKLM:\\SYSTEM\\ControlSet001\\Enum\\$($g.PNPDeviceID)\"; $drv=(Get-ItemProperty -Path $enum -Name Driver).Driver; $cls=\"HKLM:\\SYSTEM\\CurrentControlSet\\Control\\Class\\$drv\"; Remove-ItemProperty -Path $cls -Name 'RMLpwrEiClient'; Remove-ItemProperty -Path $cls -Name 'RmLpwrCtrlGrRgParameters'; }",
+  "createdAt": "2026-03-05T17:26:54.343Z",
+  "updatedAt": "2026-03-05T17:26:54.343Z",
+  "revertCommands": "$gpus=Get-CimInstance Win32_VideoController|Where-Object{$_.PNPDeviceID -like 'PCI\\VEN_10DE*'}; foreach($g in $gpus){ $enum=\"HKLM:\\SYSTEM\\ControlSet001\\Enum\\$($g.PNPDeviceID)\"; $drv=(Get-ItemProperty -Path $enum -Name Driver).Driver; $cls=\"HKLM:\\SYSTEM\\CurrentControlSet\\Control\\Class\\$drv\"; Remove-ItemProperty -Path $cls -Name 'RMLpwrEiClient'; Remove-ItemProperty -Path $cls -Name 'RmLpwrCtrlGrRgParameters'; }",
+  "localDecrypted": true
+}

@@ -1,0 +1,20 @@
+{
+  "_id": "69a9bcd5d2e4311379281577",
+  "name": "Set Stabilize Network Routing",
+  "description": "Blocks redirect-based routing changes for stable latency",
+  "page": "Tweaks",
+  "category": "Network",
+  "icon": "advanced.png",
+  "hardwareReqs": [],
+  "isMultiOption": false,
+  "isPremium": true,
+  "options": [],
+  "commands": "netsh int ip set global icmpredirects=disabled\r\nnetsh int ip set global sourceroutingbehavior=drop\r\nnetsh int ipv6 set global icmpredirects=disabled\r\nnetsh int ipv6 set global sourceroutingbehavior=drop",
+  "revert22H2": "netsh int ip set global icmpredirects=enabled\r\nnetsh int ip set global sourceroutingbehavior=forward\r\nnetsh int ipv6 set global icmpredirects=enabled\r\nnetsh int ipv6 set global sourceroutingbehavior=forward",
+  "revert23H2": "netsh int ip set global icmpredirects=enabled\r\nnetsh int ip set global sourceroutingbehavior=forward\r\nnetsh int ipv6 set global icmpredirects=enabled\r\nnetsh int ipv6 set global sourceroutingbehavior=forward",
+  "revert24H2": "netsh int ip set global icmpredirects=enabled\r\nnetsh int ip set global sourceroutingbehavior=forward\r\nnetsh int ipv6 set global icmpredirects=enabled\r\nnetsh int ipv6 set global sourceroutingbehavior=forward",
+  "createdAt": "2026-03-05T17:26:45.334Z",
+  "updatedAt": "2026-03-05T17:26:45.334Z",
+  "revertCommands": "netsh int ip set global icmpredirects=enabled\r\nnetsh int ip set global sourceroutingbehavior=forward\r\nnetsh int ipv6 set global icmpredirects=enabled\r\nnetsh int ipv6 set global sourceroutingbehavior=forward",
+  "localDecrypted": true
+}

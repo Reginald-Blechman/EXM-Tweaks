@@ -1,0 +1,20 @@
+{
+  "_id": "69a9bce2d2e431137928176a",
+  "name": "Disable ROP Mitigations",
+  "description": "Disables ROP (Return Oriented Programming) protections",
+  "page": "Security",
+  "category": "Advanced",
+  "icon": "security.png",
+  "hardwareReqs": [],
+  "isMultiOption": false,
+  "isPremium": true,
+  "options": [],
+  "commands": "Write-Output \"Temporarly Disabled\"",
+  "revert22H2": "Write-Output \"Temporarly Disabled\"",
+  "revert23H2": "Write-Output \"Temporarly Disabled\"",
+  "revert24H2": "Write-Output \"Temporarly Disabled\"",
+  "createdAt": "2026-03-05T17:26:58.885Z",
+  "updatedAt": "2026-03-05T17:26:58.885Z",
+  "revertCommands": "Write-Output \"Temporarly Disabled\"",
+  "localDecrypted": true
+}

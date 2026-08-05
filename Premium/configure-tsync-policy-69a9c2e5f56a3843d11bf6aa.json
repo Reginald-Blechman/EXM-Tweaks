@@ -1,0 +1,57 @@
+{
+  "_id": "69a9c2e5f56a3843d11bf6aa",
+  "name": "Configure Tsync Policy",
+  "description": "Defines how the OS synchronizes timing events between CPU cores and system timers",
+  "page": "Core",
+  "category": "General",
+  "icon": "advanced.png",
+  "attributes": "Advanced",
+  "hardwareReqs": [
+    "os:windows:10"
+  ],
+  "isMultiOption": true,
+  "isPremium": true,
+  "options": [
+    {
+      "hardwareReqs": [],
+      "isRecommended": false,
+      "_id": "6a72b6ddd5fa883516b9e52e",
+      "key": "legacy",
+      "name": "Legacy",
+      "description": "Forces old HPET/ACPI-based synchronization slightly Better latency, but slightly worse FPS",
+      "commands": "IKnP+O486Up7Yuolme7SPyC5206aJVeGwwY9tJxudL1Fz7+AzuQbj8kap58wVULHzMuwJfVgJA+PYu6sWbaPtAU=",
+      "revert22H2": "d1tQrB2tAv1T4HT5lmYWHJPyTFl6iiO0KFQciEwHZMJJEoZhIUolmEXm3RKfGEr56z2tSMRTnuTLM0/7XX9l7skh",
+      "revert23H2": "SnRkKnozE6UTp9ELUJV582doPridEZsAv88e3PVxvRcQ2PWgOZMmpzWdaMJxQTT2jIQkqbQTP4dWCc+ygZ3ot/X3",
+      "revert24H2": "qRd1WnlSxqb/1U2DdDBfZb7i1YVTlAUYx455XvDJ1Mzlu06VHO2yf+Exx6oKqOxjfKYuqELsnKmltn5M0Ox0aoNV"
+    },
+    {
+      "hardwareReqs": [],
+      "isRecommended": false,
+      "_id": "6a72b6ddd5fa883516b9e52f",
+      "key": "enhanced",
+      "name": "Enhanced",
+      "description": "Uses improved TSC logic for multi-core systems, slightly Better FPS, but slightly worse latency",
+      "commands": "HK9KHtDm1sLmKBsRp4hLOtbTjF39eNAK+55kHNffO4ZBxQrmXMrRZV3gAe0LPwu4vsL6o7rxY2SpJmGA9ie3FMNIRA==",
+      "revert22H2": "226x6ASHrwwbwOltaVkMUOooJWOE5XpTaVEGi/mgQJ1MVVPEU4QYyLi9ro3DxlUxiS/aICefDFo5L7tZ/b7m4csb",
+      "revert23H2": "87fkq0RA9cJaI1UbEApDIlj4diwPdLo1QcRFASzbqh0E/ofU19GCvmzdwK7uai/wiQBNB+38bues+PiMSbvnLsaC",
+      "revert24H2": "fBTAbWcoOwBMRitxxr6ekNaG5piIDV1GGdwHEk2wmlbMNrNEO2yfDR3aEceI822VnbhWmMjdtp9Obc/qm/1JLIA3"
+    },
+    {
+      "hardwareReqs": [],
+      "isRecommended": false,
+      "_id": "6a72b6ddd5fa883516b9e530",
+      "key": "default",
+      "name": "Default",
+      "description": "Use the OS default",
+      "commands": "F/FD/NRAyZUqo9kzSQ8DeLgAE18Xqsm1kqtINw/eBNiK3ORzojAwcdeGprpwr1WsGxkvA7i3z0h0zRKjEh+LSXLe",
+      "revert22H2": "KKIHO0/2w1Yp9pfeNQT0RT/PgokQ7id3acMBX89MzTpBrKpaW3ht2tiS5N3B34Lof0MlZGjE/cWH3Fu5yIhbbhKF",
+      "revert23H2": "2z47U16NofQF8K6XovGJrLvrSaUB3cZALJlxrDLl0gAjf72rmhBnW6r0wgqzpnfu7bGv3kumrWdVCD8r+R5JPeD9",
+      "revert24H2": "eySs8gBWuIKbgNSQ+6RloHLuv+O4B0HCNwzm72lT4XjEf/Kmh+ze3xuUUmkkTMtQZ2G1SVmuJUqbkChUGaUDuRGf"
+    }
+  ],
+  "createdAt": "2026-03-05T17:52:34.306Z",
+  "updatedAt": "2026-03-05T17:52:39.163Z",
+  "commands": null,
+  "revertCommands": null,
+  "localDecrypted": false
+}

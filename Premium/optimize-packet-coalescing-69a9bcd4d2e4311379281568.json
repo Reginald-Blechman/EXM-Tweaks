@@ -1,0 +1,20 @@
+{
+  "_id": "69a9bcd4d2e4311379281568",
+  "name": "Optimize Packet Coalescing",
+  "description": "Reduces input delay by disabling delayed TCP acknowledgements and packet coalescing",
+  "page": "Tweaks",
+  "category": "Network",
+  "icon": "network.png",
+  "hardwareReqs": [],
+  "isMultiOption": false,
+  "isPremium": true,
+  "options": [],
+  "commands": "function Get-NetInterfaceRegPaths {\n    Get-NetAdapter -Physical | Where-Object { $_.Status -eq \"Up\" } | ForEach-Object {\n        \"HKLM:\\SYSTEM\\CurrentControlSet\\Services\\Tcpip\\Parameters\\Interfaces\\$($_.InterfaceGuid)\"\n    }\n}\n\nGet-NetInterfaceRegPaths | ForEach-Object {\n    if (-not (Test-Path $_)) { New-Item $_ -Force | Out-Null }\n    New-ItemProperty $_ TCPNoDelay -Value 1 -PropertyType DWord -Force\n    New-ItemProperty $_ TcpAckFrequency -Value 1 -PropertyType DWord -Force\n    New-ItemProperty $_ TcpDelAckTicks -Value 0 -PropertyType DWord -Force\n}",
+  "revert22H2": "function Get-NetInterfaceRegPaths {\n    Get-NetAdapter -Physical | Where-Object { $_.Status -eq \"Up\" } | ForEach-Object {\n        \"HKLM:\\SYSTEM\\CurrentControlSet\\Services\\Tcpip\\Parameters\\Interfaces\\$($_.InterfaceGuid)\"\n    }\n}\n\nGet-NetInterfaceRegPaths | ForEach-Object {\n    Remove-ItemProperty $_ TCPNoDelay -EA SilentlyContinue\n    Remove-ItemProperty $_ TcpAckFrequency -EA SilentlyContinue\n    Remove-ItemProperty $_ TcpDelAckTicks -EA SilentlyContinue\n}",
+  "revert23H2": "function Get-NetInterfaceRegPaths {\n    Get-NetAdapter -Physical | Where-Object { $_.Status -eq \"Up\" } | ForEach-Object {\n        \"HKLM:\\SYSTEM\\CurrentControlSet\\Services\\Tcpip\\Parameters\\Interfaces\\$($_.InterfaceGuid)\"\n    }\n}\n\nGet-NetInterfaceRegPaths | ForEach-Object {\n    Remove-ItemProperty $_ TCPNoDelay -EA SilentlyContinue\n    Remove-ItemProperty $_ TcpAckFrequency -EA SilentlyContinue\n    Remove-ItemProperty $_ TcpDelAckTicks -EA SilentlyContinue\n}",
+  "revert24H2": "function Get-NetInterfaceRegPaths {\n    Get-NetAdapter -Physical | Where-Object { $_.Status -eq \"Up\" } | ForEach-Object {\n        \"HKLM:\\SYSTEM\\CurrentControlSet\\Services\\Tcpip\\Parameters\\Interfaces\\$($_.InterfaceGuid)\"\n    }\n}\n\nGet-NetInterfaceRegPaths | ForEach-Object {\n    Remove-ItemProperty $_ TCPNoDelay -EA SilentlyContinue\n    Remove-ItemProperty $_ TcpAckFrequency -EA SilentlyContinue\n    Remove-ItemProperty $_ TcpDelAckTicks -EA SilentlyContinue\n}",
+  "createdAt": "2026-03-05T17:26:44.970Z",
+  "updatedAt": "2026-03-05T17:26:44.970Z",
+  "revertCommands": "function Get-NetInterfaceRegPaths {\n    Get-NetAdapter -Physical | Where-Object { $_.Status -eq \"Up\" } | ForEach-Object {\n        \"HKLM:\\SYSTEM\\CurrentControlSet\\Services\\Tcpip\\Parameters\\Interfaces\\$($_.InterfaceGuid)\"\n    }\n}\n\nGet-NetInterfaceRegPaths | ForEach-Object {\n    Remove-ItemProperty $_ TCPNoDelay -EA SilentlyContinue\n    Remove-ItemProperty $_ TcpAckFrequency -EA SilentlyContinue\n    Remove-ItemProperty $_ TcpDelAckTicks -EA SilentlyContinue\n}",
+  "localDecrypted": true
+}

@@ -1,0 +1,23 @@
+{
+  "_id": "69a9c2e5f56a3843d11bf6ca",
+  "name": "Disable Heuristics",
+  "description": "Disables Windows scaling heuristics to stop the system from auto-adjusting TCP settings, providing a more consistent and stable network connection",
+  "page": "Tweaks",
+  "category": "Network",
+  "icon": "advanced.png",
+  "attributes": "Advanced",
+  "hardwareReqs": [
+    "network:ethernet"
+  ],
+  "isMultiOption": false,
+  "isPremium": true,
+  "options": [],
+  "commands": "netsh int tcp set heuristics disabled\n \nnetsh int tcp set heuristics wsh=disabled",
+  "revert22H2": "netsh int tcp set heuristics enabled\nnetsh int tcp set heuristics wsh=enabled",
+  "revert23H2": "netsh int tcp set heuristics enabled\nnetsh int tcp set heuristics wsh=enabled",
+  "revert24H2": "netsh int tcp set heuristics enabled\nnetsh int tcp set heuristics wsh=enabled",
+  "createdAt": "2026-03-05T17:52:34.306Z",
+  "updatedAt": "2026-03-05T17:52:39.163Z",
+  "revertCommands": "netsh int tcp set heuristics enabled\nnetsh int tcp set heuristics wsh=enabled",
+  "localDecrypted": true
+}

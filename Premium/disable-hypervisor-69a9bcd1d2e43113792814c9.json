@@ -1,0 +1,21 @@
+{
+  "_id": "69a9bcd1d2e43113792814c9",
+  "name": "Disable Hypervisor",
+  "description": "Disables hypervirtualisiation and hypervisor features that are unnecessary for most workloads",
+  "page": "Core",
+  "category": "General",
+  "icon": "advanced.png",
+  "warnings": "Breaks Hyper-V, WSL2, Windows Sandbox, Memory Integrity/Core Isolation, Device/Credential Guard, Application Guard, Android Subsystem",
+  "hardwareReqs": [],
+  "isMultiOption": false,
+  "isPremium": true,
+  "options": [],
+  "commands": "bcdedit /set hypervisorlaunchtype off\n bcdedit /set vm No\n dism /Online /Disable-Feature:Microsoft-Hyper-V-All /NoRestartreg add \"HKLM\\SYSTEM\\CurrentControlSet\\Control\\DeviceGuard\" /v \"EnableVirtualizationBasedSecurity\" /t REG_DWORD /d \"0\" /f\n reg add \"HKLM\\SYSTEM\\CurrentControlSet\\Control\\DeviceGuard\" /v \"RequirePlatformSecurityFeatures\" /t REG_DWORD /d \"0\" /f\n reg add \"HKLM\\SYSTEM\\CurrentControlSet\\Control\\Lsa\" /v \"LsaCfgFlags\" /t REG_DWORD /d \"0\" /f\n reg add \"HKLM\\SYSTEM\\CurrentControlSet\\Control\\DeviceGuard\" /v \"Locked\" /t REG_DWORD /d \"0\" /f",
+  "revert22H2": "bcdedit /deletevalue hypervisorlaunchtype\n bcdedit /deletevalue vm\n dism /Online /Enable-Feature /FeatureName:Microsoft-Hyper-V-All /NoRestart\n \n reg delete \"HKLM\\SYSTEM\\CurrentControlSet\\Control\\DeviceGuard\" /v \"EnableVirtualizationBasedSecurity\" /f\n reg delete \"HKLM\\SYSTEM\\CurrentControlSet\\Control\\DeviceGuard\" /v \"RequirePlatformSecurityFeatures\" /f\n reg delete \"HKLM\\SYSTEM\\CurrentControlSet\\Control\\DeviceGuard\" /v \"Locked\" /f\n reg delete \"HKLM\\SYSTEM\\CurrentControlSet\\Control\\Lsa\" /v \"LsaCfgFlags\" /f",
+  "revert23H2": "bcdedit /deletevalue hypervisorlaunchtype\n bcdedit /deletevalue vm\n dism /Online /Enable-Feature /FeatureName:Microsoft-Hyper-V-All /NoRestart\n \n reg delete \"HKLM\\SYSTEM\\CurrentControlSet\\Control\\DeviceGuard\" /v \"EnableVirtualizationBasedSecurity\" /f\n reg delete \"HKLM\\SYSTEM\\CurrentControlSet\\Control\\DeviceGuard\" /v \"RequirePlatformSecurityFeatures\" /f\n reg delete \"HKLM\\SYSTEM\\CurrentControlSet\\Control\\DeviceGuard\" /v \"Locked\" /f\n reg delete \"HKLM\\SYSTEM\\CurrentControlSet\\Control\\Lsa\" /v \"LsaCfgFlags\" /f",
+  "revert24H2": "bcdedit /deletevalue hypervisorlaunchtype\n bcdedit /deletevalue vm\n dism /Online /Enable-Feature /FeatureName:Microsoft-Hyper-V-All /NoRestart\n \n reg delete \"HKLM\\SYSTEM\\CurrentControlSet\\Control\\DeviceGuard\" /v \"EnableVirtualizationBasedSecurity\" /f\n reg delete \"HKLM\\SYSTEM\\CurrentControlSet\\Control\\DeviceGuard\" /v \"RequirePlatformSecurityFeatures\" /f\n reg delete \"HKLM\\SYSTEM\\CurrentControlSet\\Control\\DeviceGuard\" /v \"Locked\" /f\n reg delete \"HKLM\\SYSTEM\\CurrentControlSet\\Control\\Lsa\" /v \"LsaCfgFlags\" /f",
+  "createdAt": "2026-03-05T17:26:41.072Z",
+  "updatedAt": "2026-03-05T17:26:41.072Z",
+  "revertCommands": "bcdedit /deletevalue hypervisorlaunchtype\n bcdedit /deletevalue vm\n dism /Online /Enable-Feature /FeatureName:Microsoft-Hyper-V-All /NoRestart\n \n reg delete \"HKLM\\SYSTEM\\CurrentControlSet\\Control\\DeviceGuard\" /v \"EnableVirtualizationBasedSecurity\" /f\n reg delete \"HKLM\\SYSTEM\\CurrentControlSet\\Control\\DeviceGuard\" /v \"RequirePlatformSecurityFeatures\" /f\n reg delete \"HKLM\\SYSTEM\\CurrentControlSet\\Control\\DeviceGuard\" /v \"Locked\" /f\n reg delete \"HKLM\\SYSTEM\\CurrentControlSet\\Control\\Lsa\" /v \"LsaCfgFlags\" /f",
+  "localDecrypted": true
+}
